@@ -28,6 +28,11 @@ const props = withDefaults(
 
 const route = useRoute();
 
+// NuxtLayout's `name` accepts `keyof NuxtLayouts`, which only exists inside a
+// built app; the prop is deliberately a plain `string` here. `never` folds into
+// whatever the app's NuxtLayout expects without needing the generated type.
+const layoutName = computed(() => props.wrapperLayout as unknown as never);
+
 const activeKey = computed<string | null>(() => {
   if (route.path === props.basePath) {
     return props.defaultTabKey;
@@ -38,7 +43,7 @@ const activeKey = computed<string | null>(() => {
 </script>
 
 <template>
-  <NuxtLayout :name="wrapperLayout">
+  <NuxtLayout :name="layoutName">
     <div class="flex items-start gap-6">
       <aside class="hidden w-52 shrink-0 lg:block">
         <div

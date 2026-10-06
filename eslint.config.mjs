@@ -4,7 +4,7 @@ import tseslint from "typescript-eslint"
 import pluginVue from "eslint-plugin-vue"
 
 export default tseslint.config(
-  { ignores: ["playground/.nuxt/**", "playground/.output/**", "node_modules/**"] },
+  { ignores: [".nuxt/**", ".output/**", "playground/.nuxt/**", "playground/.output/**", "node_modules/**"] },
   js.configs.recommended,
   ...tseslint.configs.recommended,
   ...pluginVue.configs["flat/recommended"],

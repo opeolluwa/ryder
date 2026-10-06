@@ -105,7 +105,7 @@ function onCreateTerm(value: string) {
       </h3>
 
       <p class="text-sm text-gray-500 dark:text-white/50">
-        formatPrice(1234567) → {{ formatPrice(1234567) }}
+        formatPrice(1234567, "NGN") → {{ formatPrice(1234567, "NGN") }}
       </p>
 
       <div class="flex items-center gap-6">

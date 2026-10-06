@@ -90,7 +90,7 @@ const { toggleMobileNav } = useMobileNav();
 const isOnline = useOnline();
 
 const lastPathSegment = computed(() => {
-  const path = route.path.split("?")[0].replace(/\/+$/, "");
+  const path = (route.path.split("?")[0] ?? "").replace(/\/+$/, "");
 
   return path.split("/").pop() ?? "";
 });
@@ -110,8 +110,7 @@ const breadcrumbOverrides = computed(() => {
     return [];
   }
 
-  const segmentCount = route.path
-    .split("?")[0]
+  const segmentCount = (route.path.split("?")[0] ?? "")
     .split("/")
     .filter(Boolean).length;
 

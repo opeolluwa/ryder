@@ -1,4 +1,6 @@
 export * from "./apiError"
+export * from "./complaintCustomer"
+export * from "./complaintStatus"
 export * from "./date"
 export * from "./formatPrice"
 export * from "./image"
