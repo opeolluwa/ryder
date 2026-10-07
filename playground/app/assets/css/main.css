@@ -46,6 +46,8 @@ body {
   --color-primary-900: oklch(0% 0 none);
   --color-primary-950: oklch(0% 0 none);
 
+ 
+
   /* Onyx dark theme palette */
   --color-onyx-50: #e0e6f2;
   --color-onyx-100: #b8c4e0;

@@ -51,6 +51,8 @@ const props = withDefaults(
     searchPath?: string;
     /** Extra classes on the page content wrapper (e.g. `pb-28` for a tab bar). */
     contentClass?: string;
+    /** Whether to show the search input in the header. */
+    showSearch?: boolean;
   }>(),
   {
     navItems: () => [],
@@ -62,6 +64,7 @@ const props = withDefaults(
     avatarPath: "/settings/profile",
     searchPath: "/search",
     contentClass: "",
+    showSearch: true,
   },
 );
 
@@ -347,6 +350,7 @@ const RESERVED_SLOTS = new Set([
             </p>
 
             <UForm
+              v-if="showSearch"
               :schema="schema"
               :state="state"
               :class="
@@ -386,6 +390,7 @@ const RESERVED_SLOTS = new Set([
 
           <div class="ml-3 flex shrink-0 items-center gap-1 sm:ml-6">
             <UButton
+              v-if="showSearch"
               :icon="
                 mobileSearchOpen
                   ? 'heroicons:x-mark'
