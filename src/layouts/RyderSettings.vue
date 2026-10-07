@@ -2,6 +2,7 @@
 import { computed } from "vue";
 import { useRoute } from "#imports";
 import UIcon from "@nuxt/ui/components/Icon.vue";
+import Card from "../components/primitives/Card.vue";
 import { settingsTabForPath, type SettingsTab } from "../utils/settingsTabs";
 
 const props = withDefaults(
@@ -46,8 +47,8 @@ const activeKey = computed<string | null>(() => {
   <NuxtLayout :name="layoutName">
     <div class="flex items-start gap-6">
       <aside class="hidden w-52 shrink-0 lg:block">
-        <div
-          class="sticky top-0 rounded-2xl border border-gray-100 bg-white p-2 dark:border-white/5 dark:bg-onyx-600"
+        <Card
+          class="sticky top-0 rounded-2xl! border-gray-100! p-2! dark:border-white/5! dark:bg-onyx-600!"
         >
           <p
             class="px-3 py-2 text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-white/25"
@@ -85,12 +86,12 @@ const activeKey = computed<string | null>(() => {
               </div>
             </NuxtLink>
           </nav>
-        </div>
+        </Card>
       </aside>
 
-      <div class="min-w-0 max-w-xl flex-1">
+      <Card class="min-w-0 max-w-xl flex-1">
         <slot />
-      </div>
+      </Card>
     </div>
   </NuxtLayout>
 </template>

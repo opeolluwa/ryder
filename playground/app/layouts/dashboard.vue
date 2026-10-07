@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RyderShell from "@opeolluwa/ryder/layouts/RyderShell.vue";
-import RyderSideNav from "@opeolluwa/ryder/components/SideNav.vue";
+import RyderSideNav from "@opeolluwa/ryder/components/navigation/SideNav.vue";
 
 /**
  * Playground adapter for `RyderShell` — the `dashboard` layout reduced to

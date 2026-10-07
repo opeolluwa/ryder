@@ -27,7 +27,14 @@ export default defineNuxtModule({
   },
   /** @param {RyderModuleOptions} options */
   setup(options) {
-    useNuxt().options.build.transpile.push(srcDir)
+    const nuxt = useNuxt()
+    nuxt.options.build.transpile.push(srcDir)
+
+    addTemplate({
+      filename: "ryder-tailwind-source.css",
+      getContents: () => `@source ${JSON.stringify(srcDir)};`,
+    })
+    nuxt.options.css.push(join("#build", "ryder-tailwind-source.css"))
 
     if (options.components !== false) {
       addComponentsDir({

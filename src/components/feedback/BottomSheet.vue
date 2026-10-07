@@ -2,7 +2,7 @@
 import { onBeforeUnmount, watch } from "vue";
 import { kSheet } from "konsta/vue";
 import UButton from "@nuxt/ui/components/Button.vue";
-import Button from "./Button.vue";
+import Button from "../primitives/Button.vue";
 
 // Konsta's own transition is `duration-400`; mirror it so consumers that wait
 // for `after:leave` (the Nuxt UI overlay contract) unmount at the right time.

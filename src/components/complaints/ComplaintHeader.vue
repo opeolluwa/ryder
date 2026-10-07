@@ -1,22 +1,23 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import UDropdownMenu from "@nuxt/ui/components/DropdownMenu.vue";
 import UButton from "@nuxt/ui/components/Button.vue";
 import UIcon from "@nuxt/ui/components/Icon.vue";
-import { useIsMobile } from "../composables/useIsMobile";
+import { useIsMobile } from "../../composables/useIsMobile";
 import {
   complaintStatusTransitions,
   formatStatus,
   isResolvable,
   resolveStatus,
-} from "../utils/complaintStatus";
+} from "../../utils/complaintStatus";
 import {
   complaintCustomerAvatar,
   complaintCustomerLabel,
-} from "../utils/complaintCustomer";
+} from "../../utils/complaintCustomer";
 import type {
   ComplaintRow,
   ComplaintWritableStatus,
-} from "../types/complaints";
+} from "../../types/complaints";
 
 const props = withDefaults(
   defineProps<{

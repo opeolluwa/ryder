@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import UIcon from "@nuxt/ui/components/Icon.vue";
-import Button from "./Button.vue";
+import Button from "../primitives/Button.vue";
 
 interface Props {
   title: string;

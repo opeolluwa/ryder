@@ -1,8 +1,9 @@
 <script setup lang="ts">
+import { computed } from "vue";
 import UIcon from "@nuxt/ui/components/Icon.vue";
-import { isResolvable } from "../utils/complaintStatus";
-import { complaintCustomerLabel } from "../utils/complaintCustomer";
-import type { ComplaintRow } from "../types/complaints";
+import { isResolvable } from "../../utils/complaintStatus";
+import { complaintCustomerLabel } from "../../utils/complaintCustomer";
+import type { ComplaintRow } from "../../types/complaints";
 
 const props = withDefaults(
   defineProps<{
