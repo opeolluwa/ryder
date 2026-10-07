@@ -6,11 +6,10 @@ import UButton from "@nuxt/ui/components/Button.vue";
 const props = withDefaults(
   defineProps<{
     /**
-     * `split` is the console: a 5-column grid whose image panel holds a
-     * frosted card (fill it through the `side` slot) beside the form, with
-     * router back/forward buttons. `centered` is the client: a full-bleed
-     * image behind a floating card, with the brand/help header and hero copy
-     * through their slots.
+     * `split`: a 5-column grid whose image panel holds a frosted card (fill
+     * it through the `side` slot) beside the form, with router back/forward
+     * buttons. `centered`: a full-bleed image behind a floating card, with
+     * the brand/help header and hero copy through their slots.
      */
     variant?: "split" | "centered";
     /** Background image source. */

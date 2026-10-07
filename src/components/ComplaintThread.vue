@@ -15,7 +15,7 @@ const props = withDefaults(
     row: ComplaintRow;
     replies: ComplaintReply[];
     loadingReplies?: boolean;
-    /** The replier — staff in the console, the customer in the client app. */
+    /** The replier — support staff or the customer, per `isSelfMessage`. */
     self: ThreadParty;
     /** The other side of the conversation. */
     counterpart: ThreadParty;
@@ -25,7 +25,8 @@ const props = withDefaults(
     sentCount?: number;
     /**
      * Decides which side a reply belongs to. Defaults to matching the replier's
-     * own email — the console matches against the complaint's customer instead.
+     * own email; pass a custom matcher to compare against the complaint's
+     * customer instead.
      */
     isSelfMessage?: (senderEmail: string) => boolean;
   }>(),

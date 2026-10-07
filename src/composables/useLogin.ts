@@ -16,7 +16,7 @@ export interface LoginResult {
 
 export interface UseLoginOptions {
   session: AuthSession;
-  /** POST path for `login()`. Default: the console's `"/login"`. */
+  /** POST path for `login()`. Default: `"/login"`. */
   loginEndpoint?: string;
   /** POST path for `logout()`. Default: `"/logout"`. Pass `null` to skip the call. */
   logoutEndpoint?: string | null;
@@ -25,15 +25,15 @@ export interface UseLoginOptions {
   /** Where the two-factor detour starts. Default: `"/auth/verify-otp?variant=two-factor"`. */
   twoFactorPath?: string;
   /**
-   * Load app state derived from the fresh token (console: `userStore.initialize`,
-   * client: `customerStore.fetchProfile`). Runs before the post-login redirect.
+   * Load app state derived from the fresh token (e.g. `userStore.initialize`).
+   * Runs before the post-login redirect.
    */
   hydrate?: (accessToken: string) => Promise<void> | void;
-  /** Extra teardown on logout (console: `queryClient.clear()`). Runs after `session.clear()`. */
+  /** Extra teardown on logout (e.g. `queryClient.clear()`). Runs after `session.clear()`. */
   onLoggedOut?: () => Promise<void> | void;
   /**
    * Where a successful login navigates. Receives `route.query.redirect`.
-   * Default: the console's open-redirect-hardened rule — same-origin paths go
+   * Default: an open-redirect-hardened rule — same-origin paths go
    * through, everything else lands on `/`.
    */
   redirectAfterLogin?: (queryRedirect: unknown) => Promise<string | undefined> | string | undefined;

@@ -20,9 +20,9 @@ const props = withDefaults(
     replyCounts: Record<string, number>;
     selectedId: string | null;
     /**
-     * The tabs to show, or an empty array for no tab bar at all. The console
-     * partitions its whole inbox; a customer's own short history may not want
-     * the filter.
+     * The tabs to show, or an empty array for no tab bar at all. An inbox
+     * view partitions the whole list; a customer's own short history may not
+     * want the filter.
      */
     tabs?: ComplaintsInboxTab[];
     /** Passed through to each list item, for the no-customer variant. */

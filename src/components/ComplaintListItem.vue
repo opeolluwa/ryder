@@ -10,13 +10,13 @@ const props = withDefaults(
     selected: boolean;
     replyCount: number;
     /**
-     * Whether the complainer has been seen already. The console holds this in
-     * its own session store and hands the value down; the client has no unread
-     * concept and just leaves the default.
+     * Whether the complainer has been seen already. The parent list holds
+     * this state and hands the value down; leave it unset for no unread
+     * concept.
      */
     viewed?: boolean;
     /**
-     * Show the customer identity as the headline. The console inbox keys rows
+     * Show the customer identity as the headline. An inbox view keys rows
      * by complainer; a customer listing their own complaints already knows who
      * they are and can promote the subject instead.
      */

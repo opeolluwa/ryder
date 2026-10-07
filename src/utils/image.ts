@@ -1,6 +1,6 @@
 /**
- * Largest image the API accepts. Mirrors `MAX_IMAGE_SIZE_BYTES` in
- * `backoffice-admin/src/utils/image.rs`; the server re-checks it, so this is
+ * Largest image the API accepts. Mirrors the server's `MAX_IMAGE_SIZE_BYTES`;
+ * the server re-checks it, so this is
  * here to fail fast with a clear message rather than to be the only guard.
  */
 export const MAX_IMAGE_SIZE_BYTES = 2 * 1024 * 1024;

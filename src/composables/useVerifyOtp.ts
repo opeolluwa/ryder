@@ -19,14 +19,14 @@ interface VerifyOtpResult {
 
 export interface UseVerifyOtpOptions {
   session: AuthSession;
-  /** Resolve the POST path for `verifyOtp()`. Default: console's `` `/verify-otp?variant=${variant}` ``. */
+  /** Resolve the POST path for `verifyOtp()`. Default: `` `/verify-otp?variant=${variant}` ``. */
   verifyEndpoint?: (variant?: OtpVariant) => string;
-  /** Resolve the POST path for `requestOtp()`. Default: console's `` `/request-otp?variant=${variant}` ``. */
+  /** Resolve the POST path for `requestOtp()`. Default: `` `/request-otp?variant=${variant}` ``. */
   requestEndpoint?: (variant?: OtpVariant) => string;
-  /** Console: `userStore.initialize(accessToken)` after a two-factor exchange. */
+  /** Runs after a two-factor exchange (e.g. `userStore.initialize(accessToken)`). */
   hydrate?: (accessToken: string) => Promise<void> | void;
   /**
-   * Navigate after a successful verification. Default (console): two-factor
+   * Navigate after a successful verification. Default: two-factor
    * lands on `twoFactorHomePath`, every other variant on
    * `"/auth/set-password"`. Return `undefined` to stay on the page.
    */
@@ -54,9 +54,8 @@ export function useVerifyOtp(options: UseVerifyOtpOptions) {
   /**
    * `redirect` is the destination the customer was headed for before the reset
    * flow started. It is threaded through the OTP step so setting a new password
-   * ends at the page they meant rather than at the default. The console ignores
-   * it (its default target has no query state); the client threads it through
-   * `afterVerifyRedirect`.
+   * ends at the page they meant rather than at the default. Thread it through
+   * `afterVerifyRedirect` when the default target has no query state.
    */
   async function verifyOtp(
     otp: string,

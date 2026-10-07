@@ -37,7 +37,7 @@ export const threadReplies: ComplaintReply[] = [
     identifier: "RPL-1",
     complaintIdentifier: "CMP-0003",
     body: "Thanks for flagging this. We've escalated the order to the fulfilment team.",
-    senderEmail: "support@weangel.ng",
+    senderEmail: "support@example.com",
     createdAt: "2026-09-28T15:40:00.000Z",
     updatedAt: null,
   },
@@ -53,7 +53,7 @@ export const threadReplies: ComplaintReply[] = [
 
 export const staffParty: ThreadParty = {
   name: "Chioma",
-  email: "staff@weangel.ng",
+  email: "staff@example.com",
   avatarText: "CH",
 };
 

@@ -3,8 +3,8 @@ import type { AuthSession } from "./authSession";
 export interface UseAuthOptions {
   session: AuthSession;
   /**
-   * Rehydrate app state derived from the token (the console loads the user
-   * profile here). Runs only when a valid token already exists.
+   * Rehydrate app state derived from the token (e.g. loading the user
+   * profile). Runs only when a valid token already exists.
    */
   hydrate?: (accessToken: string) => Promise<void> | void;
 }

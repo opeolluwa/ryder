@@ -28,13 +28,12 @@ export const AUTH_ENTRY_ENDPOINTS = new Set([
 export interface CreateApiPluginOptions {
   /** Defaults to `runtimeConfig.public.apiBaseUrl`. */
   baseURL?: string;
-  /** Defaults to 27500ms (the console's); the client used 3500ms. */
+  /** Defaults to 27500ms. */
   timeout?: number;
   headers?: Record<string, string>;
   /**
    * Checked before every non-refresh request; when it returns `false` and
-   * `refreshToken` is set, the refresh runs first. Omit to never refresh
-   * (the client had its refresh commented out).
+   * `refreshToken` is set, the refresh runs first. Omit to never refresh.
    */
   isTokenValid?: () => boolean;
   /** Runs the token refresh against the live instance (the refresh endpoint itself). */
@@ -47,29 +46,27 @@ export interface CreateApiPluginOptions {
   authEntryEndpoints?: ReadonlySet<string>;
   /**
    * Called when the API answers 401 on a non auth-entry endpoint. The app owns
-   * the once-only guard, store resets and redirect (the console's `endSession`).
+   * the once-only guard, store resets and redirect.
    */
   onSessionExpired?: () => void;
-  /** Any successful response means the backend answered — the console's `markReachable`. */
+  /** Any successful response means the backend answered. */
   onReachable?: () => void;
   /** A transport failure means it did not — `markUnreachable`. */
   onUnreachable?: () => void;
   /**
-   * Reject failures as `ApiError` carrying the HTTP status (the console) instead
-   * of the raw axios error (the client). The client can flip this during
-   * migration if its callers still read `error.response` directly.
+   * Reject failures as `ApiError` carrying the HTTP status instead of the raw
+   * axios error. Set to `false` for callers that read `error.response` directly.
    * @default true
    */
   wrapErrors?: boolean;
 }
 
 /**
- * Builds the `$api` axios plugin both apps shared before `@opeolluwa/ryder`.
+ * Builds the `$api` axios plugin for the app.
  *
- * The console's behaviour is the default — refresh on expiry, status-carrying
- * `ApiError` rejections, reachability hooks and the guarded session teardown —
- * because it is the hardened one. The client's divergences are options, not a
- * second copy of the interceptor chain.
+ * Hardened behaviour is the default — refresh on expiry, status-carrying
+ * `ApiError` rejections, reachability hooks and the guarded session teardown.
+ * App-specific hooks are options, not a second copy of the interceptor chain.
  */
 export function createApiPlugin(options: CreateApiPluginOptions = {}) {
   const refreshEndpoint = options.refreshEndpoint ?? "/refresh-token";

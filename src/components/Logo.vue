@@ -12,7 +12,7 @@ withDefaults(
   {
     src: "/extended-logo-white.png",
     srcDark: "/extended-logo-green.png",
-    alt: "backoffice",
+    alt: "logo",
     to: "/",
   },
 );

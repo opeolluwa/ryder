@@ -3,9 +3,9 @@ import RyderShell from "@opeolluwa/ryder/layouts/RyderShell.vue";
 import RyderSideNav from "@opeolluwa/ryder/components/SideNav.vue";
 
 /**
- * Playground adapter for `RyderShell` — the console's `dashboard` layout
- * reduced to what an app supplies after migration: nav data, identity, logout
- * wiring, and its own drawer component through the slots.
+ * Playground adapter for `RyderShell` — the `dashboard` layout reduced to
+ * what an app supplies: nav data, identity, logout wiring, and its own
+ * drawer component through the slots.
  */
 const navItems = [
   { label: "Home", icon: "heroicons:home", to: "/" },

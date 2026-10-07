@@ -1,7 +1,7 @@
 /**
- * Complaint entities shared by the customer client and the console.
+ * Complaint entities used by the shared complaint UI.
  *
- * The shapes mirror the backoffice's OpenAPI document: `Complaint` is
+ * The shapes mirror the backend's OpenAPI document: `Complaint` is
  * `ComplaintsInterface`, `ComplaintReply` is `ComplaintRepliesInterface`, and
  * both enums are `snake_case` on the wire — `ComplaintStatus` is
  * `["open","in_progress","resolved","closed"]`. Matching them in any other

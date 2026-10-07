@@ -13,12 +13,12 @@ export interface SideNavItem {
   to?: string;
   label: string;
   icon: string;
-  /** Trailing count pill (console: unread emails; client: cart items). */
+  /** Trailing count pill (unread count, cart items, …). */
   badge?: string | number | null;
   /**
    * Marks a non-navigation item: rendered as a button that closes the drawer
-   * and emits `action` with this name (the client's cart has no page — it
-   * opens a drawer).
+   * and emits `action` with this name (for flows with no page of their own —
+   * e.g. one that opens a drawer).
    */
   action?: string;
 }
@@ -131,8 +131,8 @@ function handleLogout() {
         >
           <template v-for="item in items" :key="item.to ?? item.action ?? item.label">
             <!--
-              An action item has no page — it triggers app logic (the client's
-              cart drawer, say) — so it is a button rather than a link and never
+              An action item has no page — it triggers app logic (e.g. a
+              cart drawer) — so it is a button rather than a link and never
               tries to resolve a route that does not exist.
             -->
             <button

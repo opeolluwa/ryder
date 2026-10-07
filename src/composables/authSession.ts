@@ -17,7 +17,7 @@ export interface TokenPair {
  * a shared package must not import — so the app injects this adapter from its
  * thin local wrapper. Implement it once over `useTokenStore()` (plus
  * `useUserInformationStore()` for `clear()`) and every shared auth composable
- * behaves exactly like the console's originals.
+ * behaves exactly the same.
  */
 export interface AuthSession {
   /** The current access token (empty/invalid when signed out). */

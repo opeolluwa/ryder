@@ -1,10 +1,8 @@
 import { useLogin, type UseLoginOptions } from "./useLogin";
 
 /**
- * The console contract: returns the logout function rather than awaiting it,
- * so the caller decides when the (possibly slow) teardown runs. The client's
- * old `await useLogout()` call sites become `await useLogout(opts)()` at
- * migration.
+ * Returns the logout function rather than awaiting it, so the caller decides
+ * when the (possibly slow) teardown runs: `await useLogout(opts)()`.
  */
 export function useLogout(options: UseLoginOptions): () => Promise<void> {
   const { logout } = useLogin(options);

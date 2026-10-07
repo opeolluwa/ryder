@@ -12,9 +12,9 @@ const props = withDefaults(
     basePath?: string;
     /** Tab key shown at `basePath` itself. */
     defaultTabKey?: string;
-    /** Shell layout wrapped around the tabs (client: `account`, console: `dashboard`). */
+    /** Shell layout wrapped around the tabs (e.g. `dashboard`). */
     wrapperLayout?: string;
-    /** Console-only eyebrow above the tab list. */
+    /** Optional eyebrow above the tab list. */
     heading?: string;
   }>(),
   {

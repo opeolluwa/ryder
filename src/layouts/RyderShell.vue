@@ -49,7 +49,7 @@ const props = withDefaults(
     avatarPath?: string;
     /** Search submit target (`` `${searchPath}?q=` ``). */
     searchPath?: string;
-    /** Extra classes on the page content wrapper (client: `pb-28` for its tab bar). */
+    /** Extra classes on the page content wrapper (e.g. `pb-28` for a tab bar). */
     contentClass?: string;
   }>(),
   {
@@ -85,7 +85,7 @@ const { toggleMobileNav } = useMobileNav();
  * reports `true` here and has its own signal in each app.
  *
  * Server-side this is always `true`, so the page renders normally on first paint
- * and the client takes it from there.
+ * and the browser takes it from there.
  */
 const isOnline = useOnline();
 
@@ -233,7 +233,7 @@ onUnmounted(() => {
 /**
  * Slots that belong to this layout rather than to the sidebar's navigation
  * menu; everything else is forwarded so callers can pass item slots such as
- * the client's `cart-trailing` badge.
+ * a `cart-trailing` badge.
  */
 const RESERVED_SLOTS = new Set([
   "default",

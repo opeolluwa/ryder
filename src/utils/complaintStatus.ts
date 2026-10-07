@@ -45,7 +45,7 @@ export function complaintIsResolved(status: ComplaintStatus | null): boolean {
 /** Whether staff can still resolve this complaint.
  *
  *  Resolution is one-way, so this is false for anything already resolved and
- *  the console must not offer to move it back. */
+ *  the UI must not offer to move it back. */
 export function isResolvable(status: ComplaintStatus | null): boolean {
   return complaintIsOpen(status);
 }

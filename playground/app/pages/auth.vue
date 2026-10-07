@@ -10,7 +10,7 @@ const password = ref("");
 </script>
 
 <template>
-  <!-- The manual wrap mirrors console's login page: it is what lets a page fill
+  <!-- The manual wrap mirrors a typical login page: it is what lets a page fill
        the layout's named slots (`side`, `footer`). -->
   <NuxtLayout name="RyderAuth">
     <template #side>

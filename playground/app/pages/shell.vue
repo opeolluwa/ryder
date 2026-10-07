@@ -14,7 +14,7 @@ const count = ref(0);
     <div>
       <h1 class="text-2xl font-semibold">Shell layout</h1>
       <p class="mt-1 text-sm text-gray-500 dark:text-white/50">
-        The console's dashboard chrome: sidebar, search (⌘F), bell, theme
+        The dashboard chrome: sidebar, search (⌘F), bell, theme
         toggle, avatar menu, breadcrumbs, offline banner.
       </p>
     </div>
