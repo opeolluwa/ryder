@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import EmptyState from "./EmptyState.vue";
+import EmptyState from "../feedback/EmptyState.vue";
 import ComplaintHeader from "./ComplaintHeader.vue";
 import ComplaintThread from "./ComplaintThread.vue";
 import type {
@@ -7,7 +7,7 @@ import type {
   ComplaintRow,
   ComplaintWritableStatus,
   ThreadParty,
-} from "../types/complaints";
+} from "../../types/complaints";
 
 withDefaults(
   defineProps<{

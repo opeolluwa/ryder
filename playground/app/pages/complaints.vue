@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import RyderComplaintList from "@opeolluwa/ryder/components/ComplaintList.vue";
-import RyderComplaintPreview from "@opeolluwa/ryder/components/ComplaintPreview.vue";
+import RyderComplaintList from "@opeolluwa/ryder/components/complaints/ComplaintList.vue";
+import RyderComplaintPreview from "@opeolluwa/ryder/components/complaints/ComplaintPreview.vue";
 import type {
   ComplaintRow,
   ComplaintsInboxTab,

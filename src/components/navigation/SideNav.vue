@@ -6,7 +6,7 @@ import UUser from "@nuxt/ui/components/User.vue";
 import UButton from "@nuxt/ui/components/Button.vue";
 import UIcon from "@nuxt/ui/components/Icon.vue";
 import USeparator from "@nuxt/ui/components/Separator.vue";
-import { useMobileNav } from "../composables/useMobileNav";
+import { useMobileNav } from "../../composables/useMobileNav";
 
 export interface SideNavItem {
   /** Navigation target. Omit for an action item (see `action`). */

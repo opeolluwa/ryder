@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import { computed, reactive, useTemplateRef } from "vue";
 import * as v from "valibot";
 import type { FormSubmitEvent } from "@nuxt/ui";
-import type { CreateComplaintPayload } from "../types/complaints";
-import Input from "./Input.vue";
-import Select from "./Select.vue";
-import Textarea from "./Textarea.vue";
-import Button from "./Button.vue";
+import type { CreateComplaintPayload } from "../../types/complaints";
+import Input from "../primitives/Input.vue";
+import Select from "../primitives/Select.vue";
+import Textarea from "../primitives/Textarea.vue";
+import Button from "../primitives/Button.vue";
 
 const SUBJECT_MAX_LENGTH = 255;
 

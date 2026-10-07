@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import UTabs from "@nuxt/ui/components/Tabs.vue";
 import type { TabsItem } from "@nuxt/ui";
-import EmptyState from "./EmptyState.vue";
-import PageLoader from "./PageLoader.vue";
+import EmptyState from "../feedback/EmptyState.vue";
+import PageLoader from "../feedback/PageLoader.vue";
 import ComplaintListItem from "./ComplaintListItem.vue";
 import {
   COMPLAINTS_INBOX_TABS,
   type ComplaintRow,
   type ComplaintsInboxTab,
-} from "../types/complaints";
+} from "../../types/complaints";
 
 const props = withDefaults(
   defineProps<{

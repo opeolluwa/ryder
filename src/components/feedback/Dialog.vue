@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed, onMounted, ref } from "vue";
 import UModal from "@nuxt/ui/components/Modal.vue";
-import { useIsMobile } from "../composables/useIsMobile";
+import { useIsMobile } from "../../composables/useIsMobile";
 import BottomSheet from "./BottomSheet.vue";
 
 // `UModal` has no `size` prop, so `size="xl"` used to be a dead attribute.

@@ -21,7 +21,7 @@ import UAvatar from "@nuxt/ui/components/Avatar.vue";
 import UIcon from "@nuxt/ui/components/Icon.vue";
 import UColorModeButton from "@nuxt/ui/components/color-mode/ColorModeButton.vue";
 import { useMobileNav } from "../composables/useMobileNav";
-import EmptyState from "../components/EmptyState.vue";
+import EmptyState from "../components/feedback/EmptyState.vue";
 
 export interface ShellUser {
   name?: string;

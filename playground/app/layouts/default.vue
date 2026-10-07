@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import RyderDefault from "@opeolluwa/ryder/layouts/RyderDefault.vue";
-import RyderLogo from "@opeolluwa/ryder/components/Logo.vue";
+import RyderLogo from "@opeolluwa/ryder/components/primitives/Logo.vue";
 
 /**
  * Playground adapter for `RyderDefault` — the shape an app's local layout
@@ -24,6 +24,7 @@ import RyderLogo from "@opeolluwa/ryder/components/Logo.vue";
           <NuxtLink to="/shell" class="hover:text-gray-900 dark:hover:text-white">Shell</NuxtLink>
           <NuxtLink to="/auth" class="hover:text-gray-900 dark:hover:text-white">Auth</NuxtLink>
           <NuxtLink to="/settings" class="hover:text-gray-900 dark:hover:text-white">Settings</NuxtLink>
+          <NuxtLink to="/editor" class="hover:text-gray-900 dark:hover:text-white">Editor</NuxtLink>
         </nav>
       </header>
     </template>

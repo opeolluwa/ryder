@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Dialog from "./Dialog.vue";
-import Button from "./Button.vue";
+import Button from "../primitives/Button.vue";
 
 withDefaults(
   defineProps<{

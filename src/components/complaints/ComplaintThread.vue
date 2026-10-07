@@ -1,14 +1,15 @@
 <script setup lang="ts">
+import { computed, nextTick, onMounted, ref, watch } from "vue";
 import UChatMessages from "@nuxt/ui/components/ChatMessages.vue";
 import UChatPrompt from "@nuxt/ui/components/ChatPrompt.vue";
 import UChatPromptSubmit from "@nuxt/ui/components/ChatPromptSubmit.vue";
-import PageLoader from "./PageLoader.vue";
-import { useIsMobile } from "../composables/useIsMobile";
+import PageLoader from "../feedback/PageLoader.vue";
+import { useIsMobile } from "../../composables/useIsMobile";
 import type {
   ComplaintReply,
   ComplaintRow,
   ThreadParty,
-} from "../types/complaints";
+} from "../../types/complaints";
 
 const props = withDefaults(
   defineProps<{

@@ -2,6 +2,26 @@
 
 All notable changes to **@opeolluwa/ryder**.
 
+## [1.3.0] - 2026-10-07
+
+Added shared `Card`, `BottomNav` and search-page building blocks.
+
+- **Components**: `Card` (`<RyderCard>`) — a bordered panel with a `title` prop
+  and `header`/`trailing` slots; `BottomNav` (`<RyderBottomNav>`) — the mobile
+  tab bar with `items`/`bgClass` props, a `select` emit for `action` items and a
+  scoped `badge` slot.
+- **Pages**: `Search` (`@opeolluwa/ryder/pages/Search.vue`) — a presentational
+  search-results page; the app supplies grouped `sections`, the page renders
+  them. Added the `./pages/*` export.
+- **Utils/types**: `search` helpers (`normalize`, `escapeHtml`, `truncate`,
+  `highlight`) and `SearchSection`/`SearchResultItem` types.
+- **`RyderSettings`**: the sidebar rail and the content area now render through
+  `RyderCard`; the rail keeps its compact look via class overrides.
+- **Playground**: `index` renders `Card` and `BottomNav`; `search` mounts the
+  shared page with fixture sections.
+- **Tooling**: `Justfile` + `scripts/release.sh` to bump, commit, tag and push.
+- **README/CHANGELOG**: layout table, component list and prefix examples updated.
+
 ## [1.2.0] - 2026-10-07
 
 De-branded the package: docs, doc-comments and demo data no longer reference

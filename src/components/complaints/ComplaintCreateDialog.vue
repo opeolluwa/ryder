@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import type { CreateComplaintPayload } from "../types/complaints";
-import CreateDialog from "./CreateDialog.vue";
+import { useTemplateRef } from "vue";
+import type { CreateComplaintPayload } from "../../types/complaints";
+import CreateDialog from "../feedback/CreateDialog.vue";
 import ComplaintForm from "./ComplaintForm.vue";
 
 const open = defineModel<boolean>("open", { default: false });
