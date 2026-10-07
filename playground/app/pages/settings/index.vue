@@ -9,8 +9,8 @@ definePageMeta({
   <div class="space-y-4">
     <h1 class="text-xl font-semibold">Profile</h1>
     <p class="text-sm text-gray-500 dark:text-white/50">
-      Default tab — rendered through `SharedSettings` inside the shell.
+      Default tab — rendered through `RyderSettings` inside the shell.
     </p>
-    <SharedInput label="Display name" name="displayName" placeholder="Name" />
+    <RyderInput label="Display name" name="displayName" placeholder="Name" />
   </div>
 </template>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import SharedComplaintList from "@weangel/shared/components/ComplaintList.vue";
-import SharedComplaintPreview from "@weangel/shared/components/ComplaintPreview.vue";
+import RyderComplaintList from "@opeolluwa/ryder/components/ComplaintList.vue";
+import RyderComplaintPreview from "@opeolluwa/ryder/components/ComplaintPreview.vue";
 import type {
   ComplaintRow,
   ComplaintsInboxTab,
-} from "@weangel/shared/types";
+} from "@opeolluwa/ryder/types";
 import {
   useComplaintEmailDemo,
   complaintRow,
@@ -47,10 +47,10 @@ definePageMeta({ layout: "dashboard" });
 
 <template>
   <div class="space-y-6">
-    <h1 class="text-lg font-semibold">Shared complaint UI</h1>
+    <h1 class="text-lg font-semibold">Ryder complaint UI</h1>
 
     <div class="flex min-h-[480px] flex-col gap-6 lg:h-[calc(100dvh-11rem)] lg:flex-row">
-      <SharedComplaintList
+      <RyderComplaintList
         :rows="rows"
         :loading="loading"
         :inbox-empty="false"
@@ -63,7 +63,7 @@ definePageMeta({ layout: "dashboard" });
         @select="selected = $event"
       />
 
-      <SharedComplaintPreview
+      <RyderComplaintPreview
         :row="rows.find((r) => r.complaint.identifier === selected) ?? null"
         :replies="thread"
         :loading-replies="false"

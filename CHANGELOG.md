@@ -1,6 +1,23 @@
 # Changelog
 
-All notable changes to **@weangel/shared**.
+All notable changes to **@opeolluwa/ryder**.
+
+## [1.1.0] - 2026-10-07
+
+Breaking rename of the package and its `Shared*` brand.
+
+- **Package**: `@weangel/shared` → `@opeolluwa/ryder`. Consumer dependency
+  keys, `modules`, `build.transpile` and every import specifier change to
+  `"@opeolluwa/ryder": "github:opeolluwa/weangel-ui#v1.1.0"`.
+- **Module**: `meta.name` → `@opeolluwa/ryder`; `configKey` `shared` → `ryder`
+  (no app sets either key today, so `nuxt.config` needs no change).
+- **Component prefix**: `Shared*` → `Ryder*` (`<SharedButton>` →
+  `<RyderButton>`); file names under `src/components/` are unchanged.
+- **Layouts**: `SharedDefault`/`SharedAuth`/`SharedShell`/`SharedSettings` →
+  `RyderDefault`/`RyderAuth`/`RyderShell`/`RyderSettings`, including the files
+  under `src/layouts/` and the paths apps import.
+- **Unchanged**: composables, utils, `createApiPlugin`, exports and the
+  component set.
 
 ## [1.0.0] - 2026-10-06
 

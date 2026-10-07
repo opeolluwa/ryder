@@ -1,6 +1,6 @@
 {
-  "name": "@weangel/shared",
-  "version": "1.0.1",
+  "name": "@opeolluwa/ryder",
+  "version": "1.1.0",
   "description": "Shared Nuxt components, layouts, composables, plugins and utils for weangel-client and backoffice-console",
   "type": "module",
   "license": "UNLICENSED",

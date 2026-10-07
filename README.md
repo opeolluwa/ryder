@@ -1,6 +1,9 @@
-# @weangel/shared
+# @opeolluwa/ryder
 
-Shared Nuxt 4 code for [weangel](https://github.com/opeolluwa/weangel) (the customer
+> Renamed from `@weangel/shared` in v1.1.0 — same package,
+> new scope/name, and every `Shared*` component/layout is now `Ryder*`.
+
+Ryder Nuxt 4 code for [weangel](https://github.com/opeolluwa/weangel) (the customer
 client) and [backoffice-console](https://github.com/opeolluwa/backoffice-console)
 (the admin console).
 
@@ -13,9 +16,9 @@ as optional props/slots.
 
 | Path                | Contents                                          |
 | ------------------- | ------------------------------------------------- |
-| `src/module.mjs`    | Nuxt module: registers `Shared*` components + layouts |
+| `src/module.mjs`    | Nuxt module: registers `Ryder*` components + layouts |
 | `src/components/`   | `Button Input Select EmptyState PageHeader Fab Logo PageLoader CreateDialog Dialog BottomSheet SideNav` |
-| `src/layouts/`      | `SharedDefault SharedAuth SharedShell SharedSettings` |
+| `src/layouts/`      | `RyderDefault RyderAuth RyderShell RyderSettings` |
 | `src/composables/`  | `useAuth useLogin useLogout useVerifyOtp useMobileNav useIsMobile usePlatform` + the `AuthSession` contract |
 | `src/utils/`        | `apiError date image number formatPrice settingsTabs` |
 | `src/plugins/api.ts`| `createApiPlugin()` — the shared `$api` axios plugin factory |
@@ -28,15 +31,15 @@ Install the git dependency and add the module:
 ```jsonc
 // package.json
 "dependencies": {
-  "@weangel/shared": "github:opeolluwa/weangel-ui#v1.0.0"
+  "@opeolluwa/ryder": "github:opeolluwa/weangel-ui#v1.1.0"
 }
 ```
 
 ```ts
 // nuxt.config.ts
 export default defineNuxtConfig({
-  modules: ["@weangel/shared"],
-  build: { transpile: ["@weangel/shared"] },
+  modules: ["@opeolluwa/ryder"],
+  build: { transpile: ["@opeolluwa/ryder"] },
 })
 ```
 
@@ -59,24 +62,24 @@ the release (see below).
 
 ### Components and layouts
 
-The module adds every component under the prefix `Shared`:
-`<SharedButton>`, `<SharedInput>`, `<SharedSelect>`, `<SharedEmptyState>`,
-`<SharedPageHeader>`, `<SharedFab>`, `<SharedLogo>`, `<SharedPageLoader>`,
-`<SharedCreateDialog>`, `<SharedDialog>`, `<SharedBottomSheet>`,
-`<SharedSideNav>`.
+The module adds every component under the prefix `Ryder`:
+`<RyderButton>`, `<RyderInput>`, `<RyderSelect>`, `<RyderEmptyState>`,
+`<RyderPageHeader>`, `<RyderFab>`, `<RyderLogo>`, `<RyderPageLoader>`,
+`<RyderCreateDialog>`, `<RyderDialog>`, `<RyderBottomSheet>`,
+`<RyderSideNav>`.
 
-Layouts are registered by name: `SharedDefault`, `SharedAuth`, `SharedShell`,
-`SharedSettings`.
+Layouts are registered by name: `RyderDefault`, `RyderAuth`, `RyderShell`,
+`RyderSettings`.
 
-**Gotcha — layouts vs. auto-imports:** Nuxt auto-imports the `Shared*`
+**Gotcha — layouts vs. auto-imports:** Nuxt auto-imports the `Ryder*`
 components into **pages and app components, but not into app layout files**
 (`app/layouts/*.vue`). A layout that renders a shared component must import it
 explicitly:
 
 ```vue
 <script setup lang="ts">
-import SharedShell from "@weangel/shared/layouts/SharedShell.vue"
-import SharedSideNav from "@weangel/shared/components/SideNav.vue"
+import RyderShell from "@opeolluwa/ryder/layouts/RyderShell.vue"
+import RyderSideNav from "@opeolluwa/ryder/components/SideNav.vue"
 </script>
 ```
 
@@ -91,17 +94,17 @@ component; `layout: "dashboard"` etc. in pages stays exactly as it is.
 [`layout: { name, props }`](https://nuxt.com) on newer Nuxt builds for *static*
 props.
 
-- **`SharedShell`** (console `dashboard` layout, with the client's chrome as
+- **`RyderShell`** (console `dashboard` layout, with the client's chrome as
   slots): props `navItems`, `user`, `notificationsUnreadCount`, `rootPath`,
   `profilePath`, `settingsPath`, `avatarPath`, `searchPath`, `contentClass`;
   emits `logout`; slots `sidebar-brand`, `mobile-nav`, `notifications`,
   `actions`, `bottom`, `offline`, plus any navigation-item slot (e.g. the
   client's `cart-trailing` badge) forwarded to `UNavigationMenu`.
-- **`SharedSettings`**: props `tabs` (a `SettingsTab[]`), `basePath`,
+- **`RyderSettings`**: props `tabs` (a `SettingsTab[]`), `basePath`,
   `defaultTabKey`, `wrapperLayout`, `heading`.
-- **`SharedAuth`**: props `variant: "split" | "centered"`, `src`,
+- **`RyderAuth`**: props `variant: "split" | "centered"`, `src`,
   `fallbackSrc`; slots `side` (frosted card), `header`, `hero`, `footer`.
-- **`SharedDefault`**: the bare shells, slots `header`, `footer`, `bottom`,
+- **`RyderDefault`**: the bare shells, slots `header`, `footer`, `bottom`,
   props `wrapperClass`, `mainClass`.
 
 ### Composables & utils are explicit imports
@@ -111,9 +114,9 @@ collide with the app-local copies that still exist during the migration. Import
 them explicitly:
 
 ```ts
-import { useLogin, type AuthSession } from "@weangel/shared/composables"
-import { ApiError, getApiErrorMessage } from "@weangel/shared/utils"
-import { createApiPlugin } from "@weangel/shared/plugins/api"
+import { useLogin, type AuthSession } from "@opeolluwa/ryder/composables"
+import { ApiError, getApiErrorMessage } from "@opeolluwa/ryder/utils"
+import { createApiPlugin } from "@opeolluwa/ryder/plugins/api"
 ```
 
 `createApiPlugin` bakes in the console's hardened behaviour (refresh-on-expiry,
@@ -133,7 +136,7 @@ wins, client features survive as slots".
 2. **One duplicate at a time.** Delete an app-local file only after the shared
    version renders in that app.
 3. For a **component**: alias the old name to the shared one —
-   `import AppButton from "@weangel/shared/components/Button.vue"` — then delete
+   `import AppButton from "@opeolluwa/ryder/components/Button.vue"` — then delete
    the local file in a later pass.
 4. For a **layout**: keep the app's layout file and name; replace its body with
    the shared component bound to app data (see "Layouts are app-side adapters").
@@ -165,7 +168,7 @@ Private GitHub repo, semver git tags, consumers pin tags by exact SHA.
 2. Create the release: `gh release create v1.2.0` (this also tags `main` when
    run from a lightweight tag flow, or tag first, then release).
 3. Let GitHub Actions pass (`lint` + `build:playground`).
-4. In each app, bump `"@weangel/shared": "github:opeolluwa/weangel-ui#vX.Y.Z"`
+4. In each app, bump `"@opeolluwa/ryder": "github:opeolluwa/weangel-ui#vX.Y.Z"`
    and `npm install` to record the new SHA.
 
 ```sh

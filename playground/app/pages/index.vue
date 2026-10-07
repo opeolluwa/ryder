@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { formatPrice } from "@weangel/shared/utils";
+import { formatPrice } from "@opeolluwa/ryder/utils";
 
 definePageMeta({
   breadcrumb: { title: "Playground" },
@@ -22,9 +22,9 @@ function onCreateTerm(value: string) {
 
 <template>
   <div class="space-y-10">
-    <SharedPageHeader
-      title="Shared components"
-      subtitle="Every component in @weangel/shared, rendered from one page."
+    <RyderPageHeader
+      title="Ryder components"
+      subtitle="Every component in @opeolluwa/ryder, rendered from one page."
       cta-text="Create dialog"
       @cta="dialogOpen = true"
     />
@@ -35,12 +35,12 @@ function onCreateTerm(value: string) {
       </h3>
 
       <div class="flex flex-wrap items-center gap-3">
-        <SharedButton>primary sm</SharedButton>
-        <SharedButton size="md" variant="outline">outline md</SharedButton>
-        <SharedButton variant="ghost" color="error">ghost error</SharedButton>
-        <SharedButton variant="soft" color="success">soft success</SharedButton>
-        <SharedButton loading>loading</SharedButton>
-        <SharedButton disabled>disabled</SharedButton>
+        <RyderButton>primary sm</RyderButton>
+        <RyderButton size="md" variant="outline">outline md</RyderButton>
+        <RyderButton variant="ghost" color="error">ghost error</RyderButton>
+        <RyderButton variant="soft" color="success">soft success</RyderButton>
+        <RyderButton loading>loading</RyderButton>
+        <RyderButton disabled>disabled</RyderButton>
       </div>
     </section>
 
@@ -49,7 +49,7 @@ function onCreateTerm(value: string) {
         Input &amp; Select
       </h3>
 
-      <SharedInput
+      <RyderInput
         v-model="query"
         label="Email"
         name="email"
@@ -57,16 +57,16 @@ function onCreateTerm(value: string) {
         hint="We never share it."
       />
 
-      <SharedInput
+      <RyderInput
         v-model="password"
         label="Password"
         name="password"
         type="password"
       />
 
-      <SharedInput label="Disabled" name="disabled" disabled placeholder="Read only" />
+      <RyderInput label="Disabled" name="disabled" disabled placeholder="Read only" />
 
-      <SharedSelect
+      <RyderSelect
         v-model="ripeness"
         label="Ripeness"
         name="ripeness"
@@ -74,7 +74,7 @@ function onCreateTerm(value: string) {
         :items="['ripe', 'green', 'rotten']"
       />
 
-      <SharedSelect
+      <RyderSelect
         v-model="term"
         label="Tag (creatable)"
         name="term"
@@ -91,7 +91,7 @@ function onCreateTerm(value: string) {
         Feedback &amp; chrome
       </h3>
 
-      <SharedEmptyState
+      <RyderEmptyState
         compact
         icon="heroicons:magnifying-glass"
         title="Nothing matched"
@@ -109,8 +109,8 @@ function onCreateTerm(value: string) {
       </p>
 
       <div class="flex items-center gap-6">
-        <SharedPageLoader class="h-16" />
-        <SharedFab icon="heroicons:plus" />
+        <RyderPageLoader class="h-16" />
+        <RyderFab icon="heroicons:plus" />
       </div>
     </section>
 
@@ -120,15 +120,15 @@ function onCreateTerm(value: string) {
       </h3>
 
       <div class="flex flex-wrap gap-3">
-        <SharedButton variant="soft" @click="dialogOpen = true">
+        <RyderButton variant="soft" @click="dialogOpen = true">
           Open dialog
-        </SharedButton>
-        <SharedButton variant="soft" @click="sheetOpen = true">
+        </RyderButton>
+        <RyderButton variant="soft" @click="sheetOpen = true">
           Open bottom sheet
-        </SharedButton>
+        </RyderButton>
       </div>
 
-      <SharedCreateDialog
+      <RyderCreateDialog
         v-model:open="dialogOpen"
         title="Create thing"
         description="The dialog on mobile collapses into a bottom sheet."
@@ -136,10 +136,10 @@ function onCreateTerm(value: string) {
         @submit="dialogOpen = false"
         @cancel="dialogOpen = false"
       >
-        <SharedInput label="Name" name="name" placeholder="Name" />
-      </SharedCreateDialog>
+        <RyderInput label="Name" name="name" placeholder="Name" />
+      </RyderCreateDialog>
 
-      <SharedBottomSheet
+      <RyderBottomSheet
         v-model:open="sheetOpen"
         title="Bottom sheet"
         description="Konsta sheet on mobile."
@@ -148,7 +148,7 @@ function onCreateTerm(value: string) {
         @cancel="sheetOpen = false"
       >
         <p class="text-sm text-gray-500 dark:text-white/50">Sheet body.</p>
-      </SharedBottomSheet>
+      </RyderBottomSheet>
     </section>
   </div>
 </template>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import SharedShell from "@weangel/shared/layouts/SharedShell.vue";
-import SharedSideNav from "@weangel/shared/components/SideNav.vue";
+import RyderShell from "@opeolluwa/ryder/layouts/RyderShell.vue";
+import RyderSideNav from "@opeolluwa/ryder/components/SideNav.vue";
 
 /**
- * Playground adapter for `SharedShell` — the console's `dashboard` layout
+ * Playground adapter for `RyderShell` — the console's `dashboard` layout
  * reduced to what an app supplies after migration: nav data, identity, logout
  * wiring, and its own drawer component through the slots.
  */
@@ -25,7 +25,7 @@ function onLogout() {
 </script>
 
 <template>
-  <SharedShell
+  <RyderShell
     :nav-items="navItems"
     :user="user"
     :notifications-unread-count="3"
@@ -36,7 +36,7 @@ function onLogout() {
     @logout="onLogout"
   >
     <template #mobile-nav>
-      <SharedSideNav
+      <RyderSideNav
         :items="navItems"
         :user="user"
         root-path="/"
@@ -45,5 +45,5 @@ function onLogout() {
     </template>
 
     <slot />
-  </SharedShell>
+  </RyderShell>
 </template>

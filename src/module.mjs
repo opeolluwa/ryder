@@ -4,35 +4,35 @@ import { fileURLToPath } from "node:url"
 import { addComponentsDir, addTemplate, defineNuxtModule, useNuxt } from "@nuxt/kit"
 
 /**
- * @typedef {Object} SharedModuleOptions
- * @property {boolean} [components] Register shared components under a prefix. Default: true
- * @property {boolean} [layouts] Register shared layouts. Default: true
- * @property {string} [prefix] Prefix for registered components. Default: "Shared"
+ * @typedef {Object} RyderModuleOptions
+ * @property {boolean} [components] Register ryder components under a prefix. Default: true
+ * @property {boolean} [layouts] Register ryder layouts. Default: true
+ * @property {string} [prefix] Prefix for registered components. Default: "Ryder"
  */
 
 const srcDir = fileURLToPath(new URL(".", import.meta.url))
 
-const LAYOUT_NAMES = ["SharedDefault", "SharedAuth", "SharedShell", "SharedSettings"]
+const LAYOUT_NAMES = ["RyderDefault", "RyderAuth", "RyderShell", "RyderSettings"]
 
 export default defineNuxtModule({
   meta: {
-    name: "@weangel/shared",
-    configKey: "shared",
+    name: "@opeolluwa/ryder",
+    configKey: "ryder",
     compatibility: { nuxt: ">=4.1.0" },
   },
   defaults: {
     components: true,
     layouts: true,
-    prefix: "Shared",
+    prefix: "Ryder",
   },
-  /** @param {SharedModuleOptions} options */
+  /** @param {RyderModuleOptions} options */
   setup(options) {
     useNuxt().options.build.transpile.push(srcDir)
 
     if (options.components !== false) {
       addComponentsDir({
         path: join(srcDir, "components"),
-        prefix: options.prefix ?? "Shared",
+        prefix: options.prefix ?? "Ryder",
         pathPrefix: false,
         global: false,
       })

@@ -3,7 +3,7 @@ import type {
   ComplaintReply,
   ComplaintRow,
   ThreadParty,
-} from "@weangel/shared/types";
+} from "@opeolluwa/ryder/types";
 
 export function complaint(): Complaint {
   return {

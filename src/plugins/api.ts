@@ -64,7 +64,7 @@ export interface CreateApiPluginOptions {
 }
 
 /**
- * Builds the `$api` axios plugin both apps shared before `@weangel/shared`.
+ * Builds the `$api` axios plugin both apps shared before `@opeolluwa/ryder`.
  *
  * The console's behaviour is the default — refresh on expiry, status-carrying
  * `ApiError` rejections, reachability hooks and the guarded session teardown —

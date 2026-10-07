@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import SharedSettings from "@weangel/shared/layouts/SharedSettings.vue";
+import RyderSettings from "@opeolluwa/ryder/layouts/RyderSettings.vue";
 
 /**
- * Playground adapter for `SharedSettings` — tabs come from the app (here a
+ * Playground adapter for `RyderSettings` — tabs come from the app (here a
  * local list; console: `~/data/settings-tabs`), the shell it wraps is named
  * through `wrapperLayout`.
  */
@@ -25,7 +25,7 @@ const tabs = [
 </script>
 
 <template>
-  <SharedSettings
+  <RyderSettings
     :tabs="tabs"
     base-path="/settings"
     default-tab-key="profile"
@@ -33,5 +33,5 @@ const tabs = [
     heading="Settings"
   >
     <slot />
-  </SharedSettings>
+  </RyderSettings>
 </template>

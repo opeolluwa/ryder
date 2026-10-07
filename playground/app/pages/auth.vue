@@ -12,10 +12,10 @@ const password = ref("");
 <template>
   <!-- The manual wrap mirrors console's login page: it is what lets a page fill
        the layout's named slots (`side`, `footer`). -->
-  <NuxtLayout name="SharedAuth">
+  <NuxtLayout name="RyderAuth">
     <template #side>
       <p class="text-xl leading-relaxed font-semibold text-white">
-        "Shared auth layout, split variant."
+        "Ryder auth layout, split variant."
       </p>
       <p class="mt-4 text-sm text-white/80">
         The frosted card is the `side` slot.
@@ -32,21 +32,21 @@ const password = ref("");
         </p>
       </div>
 
-      <SharedInput
+      <RyderInput
         v-model="email"
         label="Email"
         name="email"
         placeholder="you@example.com"
       />
 
-      <SharedInput
+      <RyderInput
         v-model="password"
         label="Password"
         name="password"
         type="password"
       />
 
-      <SharedButton type="submit" class="w-full">Sign in</SharedButton>
+      <RyderButton type="submit" class="w-full">Sign in</RyderButton>
     </div>
   </NuxtLayout>
 </template>

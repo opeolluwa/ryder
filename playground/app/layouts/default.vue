@@ -1,16 +1,16 @@
 <script setup lang="ts">
-import SharedDefault from "@weangel/shared/layouts/SharedDefault.vue";
-import SharedLogo from "@weangel/shared/components/Logo.vue";
+import RyderDefault from "@opeolluwa/ryder/layouts/RyderDefault.vue";
+import RyderLogo from "@opeolluwa/ryder/components/Logo.vue";
 
 /**
- * Playground adapter for `SharedDefault` — the shape an app's local layout
+ * Playground adapter for `RyderDefault` — the shape an app's local layout
  * takes after migration: app chrome through the slots, app classes through
  * the props.
  */
 </script>
 
 <template>
-  <SharedDefault
+  <RyderDefault
     wrapper-class="min-h-screen bg-white dark:bg-onyx-700"
     main-class="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6"
   >
@@ -18,7 +18,7 @@ import SharedLogo from "@weangel/shared/components/Logo.vue";
       <header
         class="flex items-center justify-between border-b border-gray-100 px-4 py-3 dark:border-white/10 sm:px-6"
       >
-        <SharedLogo />
+        <RyderLogo />
         <nav class="flex items-center gap-4 text-sm text-gray-500 dark:text-white/50">
           <NuxtLink to="/" class="hover:text-gray-900 dark:hover:text-white">Home</NuxtLink>
           <NuxtLink to="/shell" class="hover:text-gray-900 dark:hover:text-white">Shell</NuxtLink>
@@ -34,8 +34,8 @@ import SharedLogo from "@weangel/shared/components/Logo.vue";
       <footer
         class="mt-12 border-t border-gray-100 py-6 text-center text-xs text-gray-400 dark:border-white/10 dark:text-white/30"
       >
-        @weangel/shared playground
+        @opeolluwa/ryder playground
       </footer>
     </template>
-  </SharedDefault>
+  </RyderDefault>
 </template>

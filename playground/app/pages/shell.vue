@@ -20,11 +20,11 @@ const count = ref(0);
     </div>
 
     <div class="flex flex-wrap gap-3">
-      <SharedButton @click="count++">Clicked {{ count }} times</SharedButton>
+      <RyderButton @click="count++">Clicked {{ count }} times</RyderButton>
 
-      <SharedButton variant="outline" color="neutral">
+      <RyderButton variant="outline" color="neutral">
         <NuxtLink to="/settings">Go to settings</NuxtLink>
-      </SharedButton>
+      </RyderButton>
     </div>
 
     <div
