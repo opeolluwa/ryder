@@ -82,3 +82,9 @@ export interface ThreadParty {
   avatarSrc?: string;
   avatarText?: string;
 }
+/** Payload for creating a complaint. */
+export interface CreateComplaintPayload {
+  subject: string;
+  description: string;
+  orderIdentifier?: string;
+}
