@@ -9,7 +9,7 @@ import {
   type ComplaintRow,
   type ComplaintsInboxTab,
 } from "../../types/complaints";
-
+import { computed } from "vue";
 const props = withDefaults(
   defineProps<{
     rows: ComplaintRow[];
