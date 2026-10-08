@@ -12,7 +12,13 @@ import { addComponentsDir, addTemplate, defineNuxtModule, useNuxt } from "@nuxt/
 
 const srcDir = fileURLToPath(new URL(".", import.meta.url))
 
-const LAYOUT_NAMES = ["RyderDefault", "RyderAuth", "RyderShell", "RyderSettings"]
+const LAYOUT_NAMES = [
+  "RyderDefault",
+  "RyderAuth",
+  "RyderShell",
+  "RyderSettings",
+  "RyderSplitLayout",
+]
 
 export default defineNuxtModule({
   meta: {

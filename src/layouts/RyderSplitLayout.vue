@@ -1,32 +1,35 @@
+
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
 import { useRouter } from "#imports";
 import UButton from "@nuxt/ui/components/Button.vue";
 
 const props = withDefaults(
   defineProps<{
-    /**
-     * `split`: a 5-column grid whose image panel holds a frosted card (fill
-     * it through the `side` slot) beside the form, with router back/forward
-     * buttons. `centered`: a full-bleed image behind a floating card, with
-     * the brand/help header and hero copy through their slots.
-     */
-    variant?: "split" | "centered";
-    /** Background image source. */
+    /** Background image source for the left panel. */
     src?: string;
-    /** Where a failed image load falls back to. */
+    /** Image source to use when the primary image fails to load. */
     fallbackSrc?: string;
+    /** Show browser back/forward navigation buttons. */
+    showNav?: boolean;
   }>(),
   {
-    variant: "split",
     src: "/bg.jpg",
     fallbackSrc: "/bg.jpg",
+    showNav: true,
   },
 );
 
 const router = useRouter();
 
 const pageImage = ref(props.src);
+
+watch(
+  () => props.src,
+  (src) => {
+    pageImage.value = src;
+  },
+);
 
 const onImageError = () => {
   if (pageImage.value !== props.fallbackSrc) {
@@ -36,10 +39,8 @@ const onImageError = () => {
 </script>
 
 <template>
-  <!-- Console: 5-column split -->
   <div
-    v-if="variant === 'split'"
-    class="grid h-screen w-full grid-cols-1 overflow-hidden bg-white dark:bg-onyx-700 lg:grid-cols-5"
+    class="grid h-dvh w-full grid-cols-1 overflow-hidden bg-white dark:bg-onyx-700 lg:grid-cols-5"
   >
     <!-- Left: image -->
     <div class="relative hidden rounded-lg lg:col-span-3 lg:block">
@@ -57,7 +58,7 @@ const onImageError = () => {
         <div
           class="w-full max-w-lg rounded-2xl bg-white/30 p-10 shadow-lg backdrop-blur-md dark:bg-black/20"
         >
-          <slot name="side" />
+          <QuotesCard />
         </div>
       </div>
     </div>
@@ -97,50 +98,5 @@ const onImageError = () => {
         <slot name="footer" />
       </p>
     </div>
-  </div>
-
-  <!-- Client: centered card over a full-bleed image -->
-  <div
-    v-else
-    class="relative min-h-screen w-full overflow-x-hidden bg-white lg:h-screen lg:overflow-hidden dark:bg-onyx-700"
-  >
-    <div class="absolute inset-0 hidden lg:block">
-      <img
-        :src="pageImage"
-        alt=""
-        class="h-full w-full object-cover"
-        @error="onImageError"
-      />
-
-      <div class="absolute inset-0 bg-black/10 dark:bg-black/30" />
-    </div>
-
-    <header
-      class="absolute inset-x-0 top-0 z-20 hidden items-center justify-between px-6 py-6 lg:flex lg:px-14"
-    >
-      <slot name="header" />
-    </header>
-
-    <main class="relative z-10 flex min-h-screen lg:h-screen lg:px-4 lg:py-28 sm:lg:px-8">
-      <div
-        class="absolute left-10 top-1/2 hidden max-w-xl -translate-y-1/2 text-white xl:left-20 lg:block"
-      >
-        <slot name="hero" />
-      </div>
-
-      <div
-        class="flex w-full min-h-screen flex-col justify-center bg-white px-5 py-8 dark:bg-onyx-600 lg:m-auto lg:min-h-0 lg:max-w-[500px] lg:rounded-xl lg:px-8 lg:shadow-2xl"
-      >
-        <div class="w-full">
-          <slot />
-        </div>
-
-        <p
-          class="mt-6 text-center text-[11px] text-gray-400 dark:text-gray-500"
-        >
-          <slot name="footer" />
-        </p>
-      </div>
-    </main>
   </div>
 </template>

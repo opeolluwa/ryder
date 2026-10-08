@@ -1,7 +1,7 @@
 # Layouts
 
 Layouts are registered by name: `RyderDefault`, `RyderAuth`, `RyderShell`,
-`RyderSettings`.
+`RyderSettings`, `RyderSplitLayout`.
 
 ## Layouts are app-side adapters
 
@@ -44,3 +44,12 @@ behind a floating card.
 
 The bare shell: props `wrapperClass`, `mainClass`; slots `header`, `footer`,
 `bottom`. The app passes its own padding/background through the class props.
+
+## RyderSplitLayout
+
+A standalone split screen: a fixed 5-column grid, image panel on the left
+(frosted card in the `side` slot) and a scrollable content column on the right —
+side-by-side at every width. Props `src`,
+`fallbackSrc`, `showNav` (back/forward buttons over the image panel, default
+`true`); slots `side`, `footer`. It is a standalone extraction of the console's split auth
+layout, without the hardcoded quotes widget.
