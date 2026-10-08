@@ -32,7 +32,7 @@ const onImageError = () => {
 
 <template>
   <div
-    class="relative min-h-dvh w-full overflow-x-hidden bg-white lg:h-dvh lg:overflow-hidden dark:bg-onyx-700"
+    class="relative h-dvh w-full overflow-hidden bg-white dark:bg-onyx-700"
   >
     <div class="absolute inset-0 hidden lg:block">
       <img
@@ -52,7 +52,7 @@ const onImageError = () => {
     </header>
 
     <main
-      class="relative z-10 flex min-h-dvh lg:h-dvh lg:px-4 lg:py-28 sm:lg:px-8"
+      class="relative z-10 flex h-dvh overflow-y-auto overscroll-y-contain lg:overflow-visible lg:px-4 lg:py-28 sm:lg:px-8"
     >
       <div
         class="absolute left-10 top-1/2 hidden max-w-xl -translate-y-1/2 text-white xl:left-20 lg:block"
@@ -61,9 +61,9 @@ const onImageError = () => {
       </div>
 
       <div
-        class="flex w-full min-h-dvh flex-col justify-center bg-white px-5 py-8 dark:bg-onyx-600 lg:m-auto lg:min-h-0 lg:max-w-[500px] lg:rounded-xl lg:px-8 lg:shadow-2xl"
+        class="flex w-full flex-col bg-white px-6 pt-6 pb-10 transition-colors dark:bg-onyx-700 sm:px-10 lg:m-auto lg:min-h-0 lg:max-w-[500px] lg:rounded-xl lg:px-8 lg:py-8 lg:shadow-2xl lg:dark:bg-onyx-600"
       >
-        <div class="w-full">
+        <div class="mx-auto w-full max-w-md px-0 sm:px-6 lg:max-w-none lg:px-0">
           <slot />
         </div>
 

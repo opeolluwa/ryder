@@ -23,7 +23,7 @@ alias r := release
 
 # Lint the package and playground
 @lint:
-    npm run lint
+    npm run lint -- --fix 
 
 # Type-check the playground against the package
 @typecheck:

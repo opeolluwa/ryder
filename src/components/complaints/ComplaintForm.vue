@@ -27,7 +27,7 @@ const schema = v.object({
 
 type Schema = v.InferOutput<typeof schema>;
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     loading: boolean;
     showActions?: boolean;

@@ -74,14 +74,8 @@ export const COMPLAINTS_INBOX_TABS = ["all", "open", "resolved"] as const;
 
 export type ComplaintsInboxTab = (typeof COMPLAINTS_INBOX_TABS)[number];
 
-/** One end of a complaint thread, as rendered by the shared UI. */
-export interface ThreadParty {
-  /** Display name (customer name, staff name, "Support team"...). */
-  name: string;
-  email?: string | null;
-  avatarSrc?: string;
-  avatarText?: string;
-}
+export type { ThreadParty } from "./messaging";
+
 /** Payload for creating a complaint. */
 export interface CreateComplaintPayload {
   subject: string;

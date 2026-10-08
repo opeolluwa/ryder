@@ -1,4 +1,5 @@
 export * from "./complaints"
+export * from "./messaging"
 export * from "./notes"
 export * from "./orders"
 export * from "./search"
