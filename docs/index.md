@@ -12,7 +12,7 @@ hero:
       link: /guide/getting-started
     - theme: alt
       text: Components
-      link: /guide/components
+      link: /components/
 
 features:
   - icon: 🧱

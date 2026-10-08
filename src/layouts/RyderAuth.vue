@@ -19,8 +19,8 @@ const props = withDefaults(
   }>(),
   {
     variant: "split",
-    src: "/auth/login.jpg",
-    fallbackSrc: "/auth/login.jpg",
+    src: "/bg.jpg",
+    fallbackSrc: "/bg.jpg",
   },
 );
 
@@ -39,7 +39,7 @@ const onImageError = () => {
   <!-- Console: 5-column split -->
   <div
     v-if="variant === 'split'"
-    class="grid h-dvh w-full grid-cols-1 overflow-hidden bg-white dark:bg-onyx-700 lg:grid-cols-5"
+    class="grid h-screen w-full grid-cols-1 overflow-hidden bg-white dark:bg-onyx-700 lg:grid-cols-5"
   >
     <!-- Left: image -->
     <div class="relative hidden rounded-lg lg:col-span-3 lg:block">
@@ -102,7 +102,7 @@ const onImageError = () => {
   <!-- Client: centered card over a full-bleed image -->
   <div
     v-else
-    class="relative min-h-dvh w-full overflow-x-hidden bg-white lg:h-dvh lg:overflow-hidden dark:bg-onyx-700"
+    class="relative min-h-screen w-full overflow-x-hidden bg-white lg:h-screen lg:overflow-hidden dark:bg-onyx-700"
   >
     <div class="absolute inset-0 hidden lg:block">
       <img
@@ -121,7 +121,7 @@ const onImageError = () => {
       <slot name="header" />
     </header>
 
-    <main class="relative z-10 flex min-h-dvh lg:h-dvh lg:px-4 lg:py-28 sm:lg:px-8">
+    <main class="relative z-10 flex min-h-screen lg:h-screen lg:px-4 lg:py-28 sm:lg:px-8">
       <div
         class="absolute left-10 top-1/2 hidden max-w-xl -translate-y-1/2 text-white xl:left-20 lg:block"
       >
@@ -129,7 +129,7 @@ const onImageError = () => {
       </div>
 
       <div
-        class="flex w-full min-h-dvh flex-col justify-center bg-white px-5 py-8 dark:bg-onyx-600 lg:m-auto lg:min-h-0 lg:max-w-[500px] lg:rounded-xl lg:px-8 lg:shadow-2xl"
+        class="flex w-full min-h-screen flex-col justify-center bg-white px-5 py-8 dark:bg-onyx-600 lg:m-auto lg:min-h-0 lg:max-w-[500px] lg:rounded-xl lg:px-8 lg:shadow-2xl"
       >
         <div class="w-full">
           <slot />

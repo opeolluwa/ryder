@@ -1,0 +1,65 @@
+/* Tailwind v4 + Nuxt UI + konsta, scoped to the ryder source tree. */
+@import "tailwindcss";
+@import "@nuxt/ui";
+@import "konsta/vue/theme.css";
+
+/* Scan the kit so its utility classes resolve in the docs. */
+@source "../../../src";
+
+/* Class-based dark mode: `.dark` on <html>, toggled by VitePress and the
+   Nuxt UI color-mode stub alike. */
+@variant dark (&:is(.dark, .dark *));
+
+@theme {
+    --font-sans: "Lato", ui-sans-serif, system-ui, sans-serif;
+    --font-heading: "Poppins", ui-sans-serif, system-ui, sans-serif;
+
+    --color-app-green: oklch(66.928% 0.14749 161.18);
+    --color-app-green-50: oklch(89.797% 0.13463 168.42);
+    --color-app-green-100: oklch(88.75% 0.14857 167.43);
+    --color-app-green-200: oklch(87.036% 0.17158 164.58);
+    --color-app-green-300: oklch(86.059% 0.18836 161.41);
+    --color-app-green-400: oklch(77.693% 0.17164 161.11);
+    --color-app-green-500: oklch(66.928% 0.14749 161.18);
+    --color-app-green-600: oklch(51.285% 0.11091 162.13);
+    --color-app-green-700: oklch(34.294% 0.07192 163.42);
+    --color-app-green-800: oklch(14.757% 0.02506 175.02);
+    --color-app-green-900: oklch(0% 0 none);
+    --color-app-green-950: oklch(0% 0 none);
+    --breakpoint-3xl: 1920px;
+
+    --color-primary: oklch(66.928% 0.14749 161.18);
+    --color-primary-50: oklch(89.797% 0.13463 168.42);
+    --color-primary-100: oklch(88.75% 0.14857 167.43);
+    --color-primary-200: oklch(87.036% 0.17158 164.58);
+    --color-primary-300: oklch(86.059% 0.18836 161.41);
+    --color-primary-400: oklch(77.693% 0.17164 161.11);
+    --color-primary-500: oklch(66.928% 0.14749 161.18);
+    --color-primary-600: oklch(51.285% 0.11091 162.13);
+    --color-primary-700: oklch(34.294% 0.07192 163.42);
+    --color-primary-800: oklch(14.757% 0.02506 175.02);
+    --color-primary-900: oklch(0% 0 none);
+    --color-primary-950: oklch(0% 0 none);
+
+    /* Onyx dark theme palette */
+    --color-onyx-50: #e0e6f2;
+    --color-onyx-100: #b8c4e0;
+    --color-onyx-200: #8a9dc6;
+    --color-onyx-300: #5e7aab;
+    --color-onyx-400: #375990;
+    --color-onyx-500: #0d1220;
+    --color-onyx-600: #0a0f1c;
+    --color-onyx-700: #070b14;
+    --color-onyx-800: #04070d;
+    --color-onyx-900: #020407;
+    --color-onyx-950: #010203;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}

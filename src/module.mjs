@@ -12,7 +12,14 @@ import { addComponentsDir, addTemplate, defineNuxtModule, useNuxt } from "@nuxt/
 
 const srcDir = fileURLToPath(new URL(".", import.meta.url))
 
-const LAYOUT_NAMES = ["RyderDefault", "RyderAuth", "RyderShell", "RyderSettings"]
+const LAYOUT_NAMES = [
+  "RyderDefault",
+  "RyderAuth",
+  "RyderShell",
+  "RyderSettings",
+  "RyderSplitLayout",
+  "RyderCenteredLayout",
+]
 
 export default defineNuxtModule({
   meta: {
@@ -30,11 +37,25 @@ export default defineNuxtModule({
     const nuxt = useNuxt()
     nuxt.options.build.transpile.push(srcDir)
 
-    addTemplate({
-      filename: "ryder-tailwind-source.css",
-      getContents: () => `@source ${JSON.stringify(srcDir)};`,
+    nuxt.hook("vite:extendConfig", (viteConfig) => {
+      viteConfig.plugins = viteConfig.plugins || []
+      viteConfig.plugins.unshift({
+        name: "ryder-tailwind-source",
+        enforce: "pre",
+        transform(code, id) {
+          if (
+            /\.css(\?.*)?$/.test(id) &&
+            !id.includes("node_modules") &&
+            /@import\s+['"]tailwindcss['"]/.test(code)
+          ) {
+            return {
+              code: `@source ${JSON.stringify(srcDir)};\n${code}`,
+              map: null,
+            }
+          }
+        },
+      })
     })
-    nuxt.options.css.push(join("#build", "ryder-tailwind-source.css"))
 
     if (options.components !== false) {
       addComponentsDir({
