@@ -13,7 +13,6 @@ const props = withDefaults(
     loading: boolean;
     tabs: OrderListTab[];
     activeTab: string;
-    tabCount: Record<string, number>;
     selectedId: string | null;
     labels?: Partial<Record<OrderStatus, string>>;
     /** Shown when the active tab has no rows. */
@@ -59,16 +58,6 @@ function onTabChange(value: string | number) {
         :content="false"
         @update:model-value="onTabChange"
       />
-
-      <div class="mt-2 flex gap-1.5">
-        <span
-          v-for="tab in tabs"
-          :key="tab.value"
-          class="flex h-4.5 min-w-4.5 shrink-0 items-center justify-center rounded-full bg-gray-100 px-1 text-[10px] font-bold leading-none text-gray-600 dark:bg-white/5 dark:text-gray-300"
-        >
-          {{ tabCount[tab.value] ?? 0 }}
-        </span>
-      </div>
     </div>
 
     <div class="lg:flex-1 lg:overflow-y-auto">

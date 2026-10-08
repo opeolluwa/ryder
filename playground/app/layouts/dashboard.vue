@@ -10,6 +10,7 @@ import RyderSideNav from "@opeolluwa/ryder/components/navigation/SideNav.vue";
 const navItems = [
   { label: "Home", icon: "heroicons:home", to: "/" },
   { label: "Search", icon: "heroicons:magnifying-glass", to: "/search" },
+  { label: "Orders", icon: "heroicons:shopping-bag", to: "/orders" },
   { label: "Messaging", icon: "heroicons:chat-bubble-left", to: "/messaging" },
   { label: "Editor", icon: "heroicons:pencil-square", to: "/editor" },
   { label: "Shell demo", icon: "heroicons:squares-2x2", to: "/shell", badge: 3 },
