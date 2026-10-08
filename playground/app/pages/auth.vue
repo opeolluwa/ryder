@@ -8,41 +8,13 @@ definePageMeta({
 const email = ref("");
 const password = ref("");
 
-onMounted(() => {
-  const rect = (el: Element | null) => {
-    if (!el) return null;
-    const r = el.getBoundingClientRect();
-    const cs = getComputedStyle(el);
-    return {
-      cls: (el as HTMLElement).className.slice(0, 80),
-      rect: [Math.round(r.width), Math.round(r.height), Math.round(r.top), Math.round(r.left)],
-      h: cs.height,
-      display: cs.display,
-      overflow: cs.overflow,
-    };
-  };
-  const grid = document.querySelector('[class~="grid"][class~="h-screen"]') as HTMLElement | null;
-  const p = document.createElement("p");
-  p.id = "measure";
-  p.textContent = JSON.stringify({
-    win: [window.innerWidth, window.innerHeight],
-    scroll: [document.documentElement.scrollWidth, document.documentElement.scrollHeight],
-    html: rect(document.documentElement),
-    body: rect(document.body),
-    nuxt: rect(document.querySelector("#__nuxt")),
-    kapp: rect(document.querySelector(".k-app")),
-    grid: rect(grid),
-    gridCols: grid ? getComputedStyle(grid).gridTemplateColumns : null,
-    children: grid ? Array.from(grid.children).map(rect) : null,
-  });
-  document.body.appendChild(p);
-});
+
 </script>
 
 <template>
   <!-- The manual wrap mirrors a typical login page: it is what lets a page fill
        the layout's named slots (`side`, `footer`). -->
-  <NuxtLayout name="RyderAuth">
+  <NuxtLayout name="RyderSplitLayout">
     <template #side>
       <p class="text-xl leading-relaxed font-semibold text-white">
         "Ryder auth layout, split variant."
