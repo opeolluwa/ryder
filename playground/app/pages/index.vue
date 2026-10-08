@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { formatPrice } from "@opeolluwa/ryder/utils";
 
 definePageMeta({
+  layout: "dashboard",
   breadcrumb: { title: "Playground" },
 });
 
@@ -25,7 +26,7 @@ const lastBottomAction = ref("");
 const bottomNavItems = [
   { label: "Home", to: "/", icon: "heroicons:home" },
   { label: "Search", to: "/search", icon: "heroicons:magnifying-glass" },
-  { label: "Complaints", to: "/complaints", icon: "heroicons:chat-bubble-left" },
+  { label: "Messaging", to: "/messaging", icon: "heroicons:chat-bubble-left" },
   { label: "Settings", to: "/settings", icon: "heroicons:cog-6-tooth" },
   { label: "Cart", icon: "heroicons:squares-2x2", action: "toggle-cart" },
 ];
