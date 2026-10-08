@@ -1,7 +1,7 @@
 # Layouts
 
 Layouts are registered by name: `RyderDefault`, `RyderAuth`, `RyderShell`,
-`RyderSettings`, `RyderSplitLayout`.
+`RyderSettings`, `RyderSplitLayout`, `RyderCenteredLayout`.
 
 ## Layouts are app-side adapters
 
@@ -53,3 +53,10 @@ side-by-side at every width. Props `src`,
 `fallbackSrc`, `showNav` (back/forward buttons over the image panel, default
 `true`); slots `side`, `footer`. It is a standalone extraction of the console's split auth
 layout, without the hardcoded quotes widget.
+
+## RyderCenteredLayout
+
+A centered card over a full-bleed background image: props `bg`,
+`fallbackBg` (both default `/bg.jpg`, with an error fallback swap); slots
+`header` (top bar, desktop only), `hero` (left panel copy, desktop only),
+default (the centered card) and `footer` (caption under the card).

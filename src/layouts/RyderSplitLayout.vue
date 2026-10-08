@@ -54,11 +54,11 @@ const onImageError = () => {
       <div class="absolute inset-0 bg-black/10 dark:bg-black/30" />
 
       <!-- Frosted quote card -->
-      <div class="absolute inset-0 flex items-center justify-center p-8" v-if="$slots.frost">
+      <div v-if="$slots.frost" class="absolute inset-0 flex items-center justify-center p-8">
         <div
           class="w-full max-w-lg rounded-2xl bg-white/30 p-10 shadow-lg backdrop-blur-md dark:bg-black/20"
         >
-          <slot name="frost"/>
+          <slot name="frost" />
         </div>
       </div>
     </div>
