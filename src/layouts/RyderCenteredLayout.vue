@@ -48,7 +48,7 @@ const onImageError = () => {
     <header
       v-if="$slots.header" class="absolute inset-x-0 top-0 z-20 hidden items-center justify-between px-6 py-6 lg:flex lg:px-14"
     >
-      <slot />
+      <slot name="header" />
     </header>
 
     <main

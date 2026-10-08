@@ -15,14 +15,7 @@ const password = ref("");
   <!-- The manual wrap mirrors a typical login page: it is what lets a page fill
        the layout's named slots (`side`, `footer`). -->
   <NuxtLayout name="RyderSplitLayout">
-    <template #side>
-      <p class="text-xl leading-relaxed font-semibold text-white">
-        "Ryder auth layout, split variant."
-      </p>
-      <p class="mt-4 text-sm text-white/80">
-        The frosted card is the `side` slot.
-      </p>
-    </template>
+
 
     <template #footer>© Playground</template>
 

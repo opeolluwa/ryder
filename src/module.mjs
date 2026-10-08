@@ -18,6 +18,7 @@ const LAYOUT_NAMES = [
   "RyderShell",
   "RyderSettings",
   "RyderSplitLayout",
+  "RyderCenteredLayout",
 ]
 
 export default defineNuxtModule({
