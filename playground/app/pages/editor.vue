@@ -1,10 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-definePageMeta({
-  layout: "default",
-  breadcrumb: { title: "Editor" },
-});
+definePageMeta({ layout: "dashboard" });
 
 const content = ref(
   "<h1>Ryder notes</h1><p>Start typing — <strong>bold</strong>, lists, tables, links and equations all work.</p>",
