@@ -59,6 +59,7 @@ Allows typing new values not in items; emits `@create` so parent can append.
 | `avatar` | `string` | `undefined` | Avatar image src passed to USelectMenu. |
 | `disabled` | `boolean` | `false` | Disable the select. |
 | `preserveCase` | `boolean` | `false` | Preserve case instead of lowercasing. |
+| `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Select size. |
 | `items` | `string[] \| { label: string; value: string }[]` | `undefined` | Required: list of options. |
 | `labelClass` | `string` | `undefined` | Additional classes for label. |
 | `creatable` | `boolean` | `false` | Allow creating new items; emits `create` event. |
@@ -76,5 +77,6 @@ None.
 ## Notes
 
 - Uses `v-model` with `defineModel<string>()`.
+- Adjusts placeholder text size based on `size` prop (matches `Input`).
 - When `creatable` is true, the typed term is emitted via `@create` — parent must append to `items` for it to remain selectable (see examples).
 - `value-key="value"` is set; items can be strings or objects with label/value.

@@ -21,11 +21,19 @@ const props = withDefaults(
     sending?: boolean;
     sentCount?: number;
     isSelfMessage?: (senderEmail: string) => boolean;
+    /**
+     * Whether the opening message (the conversation body) was written by the
+     * viewer rather than the counterparty. False for a staff inbox, where the
+     * opening comes from the customer; true for the customer's own view, so
+     * their message sits on the same side as their replies.
+     */
+    openingFromSelf?: boolean;
   }>(),
   {
     loadingReplies: false,
     sending: false,
     sentCount: 0,
+    openingFromSelf: false,
   },
 );
 
@@ -58,11 +66,11 @@ function authorFor(senderEmail: string) {
 const threadMessages = computed(() => {
   const opening: Record<string, unknown> = {
     id: props.row.conversation.identifier,
-    role: "assistant",
-    color: "neutral",
+    role: props.openingFromSelf ? "user" : "assistant",
+    color: props.openingFromSelf ? "primary" : "neutral",
     parts: [{ type: "text", text: props.row.conversation.description }],
     metadata: {
-      author: props.counterpart.name,
+      author: props.openingFromSelf ? props.self.name : props.counterpart.name,
       createdAt: props.row.conversation.createdAt,
       text: props.row.conversation.description,
     },
@@ -91,7 +99,7 @@ function formatShortDate(dateStr: string) {
     month: "short",
     hour: "2-digit",
     minute: "2-digit",
-    hour12: false,
+    hour12: true,
   });
 }
 
@@ -130,7 +138,7 @@ onMounted(scrollToLatest);
 <template>
   <section
     ref="threadRef"
-    class="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-5 sm:px-6"
+    class="flex min-h-0 flex-1 flex-col overflow-y-auto overscroll-contain px-4 py-5 pb-28 sm:px-6 lg:pb-5"
   >
     <div v-if="loadingReplies" class="flex justify-center py-8">
       <PageLoader />
@@ -182,7 +190,7 @@ onMounted(scrollToLatest);
   </section>
 
   <footer
-    class="shrink-0 border-t border-gray-100 bg-white px-4 py-3 dark:border-white/5 dark:bg-gray-950 sm:px-6 sm:py-4"
+    class="fixed inset-x-0 bottom-0 z-20 shrink-0 border-t border-gray-100 bg-white px-4 py-3 dark:border-white/5 dark:bg-gray-950 sm:px-6 sm:py-4 lg:static lg:inset-auto lg:z-auto"
   >
     <UChatPrompt
       v-model="body"
