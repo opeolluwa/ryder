@@ -89,7 +89,7 @@ const activeKey = computed<string | null>(() => {
         </Card>
       </aside>
 
-      <div class="min-w-0 max-w-xl flex-1 lg:rounded-xl lg:border lg:border-gray-200 lg:bg-white lg:p-4 lg:dark:border-gray-400/20 lg:dark:bg-onyx-700">
+      <div class="min-w-0 max-w-xl flex-1 lg:rounded-xl lg:bg-white lg:p-4 lg:dark:border-gray-400/20 lg:dark:bg-onyx-700">
         <slot />
       </div>
     </div>
