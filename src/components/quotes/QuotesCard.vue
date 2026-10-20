@@ -2,7 +2,7 @@
 import { type Quote } from "./data";
 import quotes from "./data";
 import LeadingText from "../typography/LeadingText.vue";
-
+import { ref } from "vue";
 const duration = 15000;
 
 const current = ref<Quote | null>(null);
