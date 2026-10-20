@@ -27,7 +27,7 @@ import RyderSideNav from "@opeolluwa/ryder/components/navigation/SideNav.vue"
 | Folder | Import path after `@opeolluwa/ryder/components/` | Components |
 | ------ | ------------------------------------------------- | ---------- |
 | [primitives](/components/primitives/Button) | `primitives/` | [Button](/components/primitives/Button) [Card](/components/primitives/Card) [Input](/components/primitives/Input) [Logo](/components/primitives/Logo) [Select](/components/primitives/Select) [Textarea](/components/primitives/Textarea) |
-| [feedback](/components/feedback/Dialog) | `feedback/` | [BottomSheet](/components/feedback/BottomSheet) [CreateDialog](/components/feedback/CreateDialog) [Dialog](/components/feedback/Dialog) [EmptyState](/components/feedback/EmptyState) [PageHeader](/components/feedback/PageHeader) [PageLoader](/components/feedback/PageLoader) |
+| [feedback](/components/feedback/Dialog) | `feedback/` | [CreateDialog](/components/feedback/CreateDialog) [Dialog](/components/feedback/Dialog) [EmptyState](/components/feedback/EmptyState) [PageHeader](/components/feedback/PageHeader) [PageLoader](/components/feedback/PageLoader) |
 | [navigation](/components/navigation/BottomNav) | `navigation/` | [BottomNav](/components/navigation/BottomNav) [Fab](/components/navigation/Fab) [SideNav](/components/navigation/SideNav) |
 | [typography](/components/typography/LeadingText) | `typography/` | [LeadingText](/components/typography/LeadingText) [SubText](/components/typography/SubText) |
 | [auth](/components/auth/AuthHeader) | `auth/` | [AuthHeader](/components/auth/AuthHeader) |

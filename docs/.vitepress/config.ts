@@ -102,7 +102,6 @@ export default defineConfig({
         text: "Feedback",
         collapsed: false,
         items: [
-          { text: "BottomSheet", link: "/components/feedback/BottomSheet" },
           { text: "CreateDialog", link: "/components/feedback/CreateDialog" },
           { text: "Dialog", link: "/components/feedback/Dialog" },
           { text: "EmptyState", link: "/components/feedback/EmptyState" },

@@ -36,7 +36,7 @@ function onCancel() {
     <CreateDialog
       v-model:open="open"
       title="Create thing"
-      description="A modal on desktop, a konsta bottom sheet below 1024px."
+      description="A form modal with a pre-built Cancel / Submit footer."
       submit-label="Create"
       :submit-disabled="name.trim() === ''"
       @submit="onSubmit"
