@@ -52,7 +52,7 @@ const disabledBgClass = computed(() =>
 const placeholderSizeClass = computed(() => {
   if (props.size) {
     return props.size === "md" || props.size === "lg" || props.size === "xl"
-      ? "placeholder:text-base"
+      ? "placeholder:text-xs"
       : "placeholder:text-sm";
   }
 
@@ -70,7 +70,7 @@ const placeholderSizeClass = computed(() => {
       error: 'text-red-500 mt-1',
       label:
         labelClass || 'text-xs font-medium text-gray-600 dark:text-gray-400',
-      hint: ' mr-auto text-gray-400 dark:text-gray-600 font-normal ml-1',
+      hint: ' mr-auto text-gray-400 dark:text-gray-600 font-normal ml-1 text-2xs lg:text-sm',
     }"
   >
     <template v-if="type === 'password'">
@@ -115,7 +115,7 @@ const placeholderSizeClass = computed(() => {
         v-model="model"
         :icon="icon"
         :disabled="disabled"
-        :placeholder="label || placeholder"
+        :placeholder="placeholder || label"
         :type="type"
         :size="size"
         :trailing-icon="trailingIcon"
