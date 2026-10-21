@@ -1,6 +1,6 @@
 {
   "name": "@opeolluwa/ryder",
-  "version": "1.5.16",
+  "version": "1.5.17",
   "description": "Shared Nuxt 4 components, layouts, composables, plugins and utils",
   "type": "module",
   "license": "UNLICENSED",
@@ -63,7 +63,9 @@
     "vue": "^3.5.21"
   },
   "peerDependenciesMeta": {
-    "konsta": { "optional": true }
+    "konsta": {
+      "optional": true
+    }
   },
   "devDependencies": {
     "@domternal/core": "^1.1.1",
