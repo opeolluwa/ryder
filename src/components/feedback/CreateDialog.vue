@@ -56,6 +56,7 @@ function onSubmit() {
 
           <Button
             variant="ghost"
+            class="bg-primary-50 hover:bg-primary-100 dark:bg-primary-500/10 dark:hover:bg-primary-500/20"
             :loading="loading"
             :disabled="loading || submitDisabled"
             @click="onSubmit"

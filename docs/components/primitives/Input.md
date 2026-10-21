@@ -4,7 +4,7 @@ import Basic from "../../examples/primitives/InputBasic.vue";
 
 # Input
 
-Form input field built on Nuxt UI with label, hint, error handling, and optional password toggle.
+Form input field built on Nuxt UI with label, hint, and error handling. For password fields use `RyderPasswordInput`.
 
 ```vue
 <script setup lang="ts">
@@ -39,8 +39,7 @@ const email = ref("");
 | `placeholder` | `string` | `undefined` | Placeholder text. |
 | `hint` | `string` | `undefined` | Hint text below field. |
 | `disabled` | `boolean` | `false` | Disable the input. |
-| `type` | `string` | `"text"` | Input type (e.g., `text`, `password`, `email`). |
-| `enablePasswordToggle` | `boolean` | `true` | Show password visibility toggle when `type` is `password`. |
+| `type` | `string` | `"text"` | Input type (e.g., `text`, `email`). Password fields belong to RyderPasswordInput. |
 | `trailingIcon` | `string` | `undefined` | Trailing icon name. |
 | `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"md"` | Input size. |
 | `inputClass` | `string` | `undefined` | Additional classes for input base. |
@@ -57,5 +56,4 @@ None.
 ## Notes
 
 - Uses `v-model` with `defineModel<string>()`.
-- For password inputs, toggles visibility with internal `ref`.
 - Adjusts placeholder size based on `size` prop.

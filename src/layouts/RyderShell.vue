@@ -329,7 +329,7 @@ const RESERVED_SLOTS = new Set([
 
             <UButton
               v-else
-              icon="heroicons:chevron-left"
+              icon="heroicons:arrow-left"
               color="neutral"
               variant="ghost"
               aria-label="Go back"
@@ -402,6 +402,7 @@ const RESERVED_SLOTS = new Set([
                 mobileSearchOpen ? 'Close search' : 'Search'
               "
               class="text-gray-500 hover:text-gray-900 md:hidden dark:text-white/50 dark:hover:text-white"
+              
               @click="
                 mobileSearchOpen
                   ? onSearchEscape()

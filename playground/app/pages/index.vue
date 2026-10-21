@@ -72,11 +72,10 @@ function onBottomNavSelect(item: { label: string }) {
         hint="We never share it."
       />
 
-      <RyderInput
+      <RyderPasswordInput
         v-model="password"
         label="Password"
         name="password"
-        type="password"
       />
 
       <RyderInput label="Disabled" name="disabled" disabled placeholder="Read only" />

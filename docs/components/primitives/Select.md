@@ -77,6 +77,6 @@ None.
 ## Notes
 
 - Uses `v-model` with `defineModel<string>()`.
-- Adjusts placeholder text size based on `size` prop (matches `Input`).
+- Adjusts placeholder text size based on `size` prop (matches `Input` — `text-xs` for `md`/`lg`/`xl`, `text-sm` otherwise).
 - When `creatable` is true, the typed term is emitted via `@create` — parent must append to `items` for it to remain selectable (see examples).
 - `value-key="value"` is set; items can be strings or objects with label/value.

@@ -49,16 +49,12 @@ const model = defineModel<string>();
 
 // Mirrors the text size Nuxt UI applies for each `size`, so the placeholder
 // doesn't land a step below the typed value. Unlike `UInput` the placeholder
-// here is a `<span>`, not an `<input>::placeholder`, so the plain size class
+// here is a `<span>`, not an `input::placeholder`, so the plain size class
 // goes on the `placeholder` ui slot instead of a `placeholder:` variant.
 const placeholderSizeClass = computed(() => {
-  if (props.size) {
-    return props.size === "md" || props.size === "lg" || props.size === "xl"
-      ? "text-base"
-      : "text-sm";
-  }
-
-  return "text-sm lg:text-base";
+  return props.size === "md" || props.size === "lg" || props.size === "xl"
+    ? "text-xs"
+    : "text-sm";
 });
 </script>
 
@@ -72,7 +68,7 @@ const placeholderSizeClass = computed(() => {
       error: 'text-red-500 mt-1',
       label:
         labelClass ||
-        'text-xs font-medium text-gray-600 dark:text-gray-400 capitalize',
+        'text-sm font-medium text-gray-600 dark:text-gray-400 capitalize',
       hint: 'mr-auto text-gray-400 dark:text-gray-600 font-normal ml-1',
       root: preserveCase ? '' : 'lowercase',
     }"
@@ -83,13 +79,12 @@ const placeholderSizeClass = computed(() => {
       :icon="icon"
       :trailing-icon="trailingIcon"
       value-key="value"
-      :avatar="{ src: avatar, loading: 'lazy' }"
       :disabled="disabled"
       :size="size"
       :placeholder="placeholder"
       :create-item="creatable ? 'always' : undefined"
       :ui="{
-        base: preserveCase ? 'normal-case py-3' : 'lowercase py-3',
+        base: preserveCase ? 'normal-case py-3 text-sm' : 'lowercase py-3 text-sm',
         placeholder: placeholderSizeClass,
       }"
       :class="[

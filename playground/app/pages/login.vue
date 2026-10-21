@@ -28,11 +28,10 @@ const password = ref("");
           placeholder="name@example.com"
         />
 
-        <RyderInput
+        <RyderPasswordInput
           v-model="password"
           name="password"
           label="Password"
-          type="password"
         />
 
         <RyderButton

@@ -94,6 +94,7 @@ export default defineConfig({
           { text: "Card", link: "/components/primitives/Card" },
           { text: "Input", link: "/components/primitives/Input" },
           { text: "Logo", link: "/components/primitives/Logo" },
+          { text: "PasswordInput", link: "/components/primitives/PasswordInput" },
           { text: "Select", link: "/components/primitives/Select" },
           { text: "Textarea", link: "/components/primitives/Textarea" },
         ],
