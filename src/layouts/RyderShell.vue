@@ -46,6 +46,13 @@ const props = withDefaults(
         searchPath?: string;
         /** Extra classes on the page content wrapper (e.g. `pb-28` for a tab bar). */
         contentClass?: string;
+        /**
+         * Set when the page fills the shell's content box and scrolls its own
+         * regions (thread/inbox panes). The shell's `main` then stops scrolling,
+         * so the `overflow-y-auto` panes inside the page are not fighting a
+         * second scroller. `contentClass` should pin a height in that case.
+         */
+        fixedHeight?: boolean;
         /** Whether to show the search input in the header. */
         showSearch?: boolean;
         /**notificiation path */
@@ -61,6 +68,7 @@ const props = withDefaults(
         avatarPath: "/settings/profile",
         searchPath: "/search",
         contentClass: "",
+        fixedHeight: false,
         showSearch: true,
         notificationsPath: "/notifications",
     },
@@ -509,7 +517,10 @@ const RESERVED_SLOTS = new Set([
           </div>
         </header>
 
-        <main class="flex-1 overflow-y-auto bg-gray-50 dark:bg-onyx-900">
+        <main
+          class="min-h-0 flex-1 bg-gray-50 dark:bg-onyx-900"
+          :class="fixedHeight ? 'overflow-hidden' : 'overflow-y-auto'"
+        >
           <div
             v-if="!hideBreadcrumb"
             class="hidden px-4 pt-5 sm:block sm:px-6 lg:px-8"
