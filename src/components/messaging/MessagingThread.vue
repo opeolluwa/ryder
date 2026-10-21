@@ -187,7 +187,7 @@ onMounted(scrollToLatest);
     </section>
 
     <footer
-      class="shrink-0 border-t border-gray-100 bg-white px-4 py-3 dark:border-white/5 dark:bg-gray-950 sm:px-6 sm:py-4"
+      class="shrink-0 border-t border-gray-100 bg-white px-4 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] dark:border-white/5 dark:bg-gray-950 sm:px-6 sm:py-4"
     >
       <UChatPrompt
         v-model="body"
