@@ -76,8 +76,7 @@ const threadMessages = computed(() => {
     },
   };
 
-  const replies = [...props.replies]
-    .sort((a, b) => a.createdAt.localeCompare(b.createdAt))
+  const replies = props.replies
     .map((reply) => ({
       id: reply.identifier,
       role: isSelf(reply.senderEmail) ? "user" : "assistant",
@@ -204,13 +203,11 @@ onMounted(scrollToLatest);
           <p class="text-[11px] text-gray-400 dark:text-gray-500">
             Replying as {{ self.name }}
           </p>
-          <div class="hidden lg:block">
-            <UChatPromptSubmit
-              class="ml-auto"
-              :loading="sending"
-              :disabled="!body.trim() || sending"
-            />
-          </div>
+          <UChatPromptSubmit
+            class="ml-auto bg-primary-500/20 dark:bg-primary-500/20"
+            :loading="sending"
+            :disabled="!body.trim() || sending"
+          />
         </div>
       </template>
     </UChatPrompt>
