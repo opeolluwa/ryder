@@ -2,6 +2,20 @@
 
 All notable changes to **@opeolluwa/ryder**.
 
+## [Unreleased]
+
+Fixed mobile scrolling in the messaging flow.
+
+- **`MessagingThread`**: the thread and composer now share a bounded
+  `flex min-h-0 flex-1 flex-col` column, so the message list scrolls inside its
+  pane instead of growing with its content. The composer is no longer `fixed`
+  to the viewport on mobile — it sits in-flow at the bottom of the pane, so it
+  can no longer overlap messages or drift away from the scroll region. The
+  `pb-28` reservation that existed only to clear the fixed footer is gone.
+- **`MessagingList`**: the list body scrolls inside the pane at every
+  breakpoint (`min-h-0 flex-1 overflow-y-auto`), not just `lg`. The empty
+  states fill the pane (`h-full`) rather than guessing `h-[60vh]`.
+
 ## [1.3.0] - 2026-10-07
 
 Added shared `Card`, `BottomNav` and search-page building blocks.
