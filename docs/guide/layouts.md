@@ -1,7 +1,7 @@
 # Layouts
 
 Layouts are registered by name: `RyderDefault`, `RyderAuth`, `RyderShell`,
-`RyderSettings`, `RyderSplitLayout`, `RyderCenteredLayout`.
+`RyderSettings`, `RyderSplitLayout`, `RyderCenteredLayout`, `RyderComplaint`.
 
 ## Layouts are app-side adapters
 
@@ -60,3 +60,22 @@ A centered card over a full-bleed background image: props `bg`,
 `fallbackBg` (both default `/bg.jpg`, with an error fallback swap); slots
 `header` (top bar, desktop only), `hero` (left panel copy, desktop only),
 default (the centered card) and `footer` (caption under the card).
+
+## RyderComplaint
+
+A message-thread shell: the full `RyderShell` from `lg` up, and minimal mobile
+chrome below it. The split exists because a thread page owns its own scroll
+regions (the message list, the composer), so the mobile branch is a
+non-scrolling host that hands a definite height to the slot; a scrolling `main`
+would fight the pages' inner `overflow-y-auto` panes. Its mobile height comes
+from `useVisualViewportHeight`, so it also shrinks when the keyboard opens and
+keeps the composer visible.
+
+Props `navItems`, `user`, `notificationsUnreadCount`, `rootPath`, `profilePath`,
+`settingsPath`, `avatarPath`, `searchPath`, `notificationsPath`, `contentClass`
+(defaults to removing the shell padding and pinning the content under the 4rem
+header), `fixedHeight` (default `true`; forwarded to `RyderShell` so its `main`
+does not scroll), `mobileTitle`, `fallbackPath` (mobile back-button target when
+there is no history and no `backTo` meta) and `showSearch`. Emits `logout`;
+slots `sidebar-brand` (forwarded to the shell) plus everything `RyderShell`
+forwards.

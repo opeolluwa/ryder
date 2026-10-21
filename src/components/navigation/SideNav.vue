@@ -145,14 +145,12 @@ function handleLogout() {
                 :name="item.icon"
                 class="size-5 shrink-0 text-white/70 dark:text-gray-400"
               />
-
               <span class="text-sm truncate">{{ item.label }}</span>
-
               <span
-                v-if="item.badge !== null && item.badge !== undefined"
-                class="ml-auto shrink-0 rounded-full bg-white px-1.5 py-0.5 text-[10px] font-semibold text-primary-600 dark:bg-primary-500 dark:text-white"
+                v-if="item.badge != null && Number(item.badge) > 0"
+                class="shrink-0 flex h-4 min-w-4 items-center justify-center rounded-full bg-white/20 px-1 text-[10px] font-semibold leading-none text-white"
               >
-                {{ item.badge }}
+                {{ Number(item.badge) > 9 ? "9+" : item.badge }}
               </span>
             </button>
 
@@ -176,14 +174,12 @@ function handleLogout() {
                     : 'text-white/70 dark:text-gray-400'
                 "
               />
-
               <span class="text-sm truncate">{{ item.label }}</span>
-
               <span
-                v-if="item.badge !== null && item.badge !== undefined"
-                class="ml-auto shrink-0 rounded-full bg-white px-1.5 py-0.5 text-[10px] font-semibold text-primary-600 dark:bg-primary-500 dark:text-white"
+                v-if="item.badge != null && Number(item.badge) > 0"
+                class="shrink-0 flex h-4 min-w-4 items-center justify-center rounded-full bg-white/20 px-1 text-[10px] font-semibold leading-none text-white"
               >
-                {{ item.badge }}
+                {{ Number(item.badge) > 9 ? "9+" : item.badge }}
               </span>
             </NuxtLink>
           </template>

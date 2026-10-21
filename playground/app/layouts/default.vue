@@ -23,6 +23,7 @@ import RyderLogo from "@opeolluwa/ryder/components/primitives/Logo.vue";
           <NuxtLink to="/" class="hover:text-brown-900 dark:hover:text-white">Home</NuxtLink>
           <NuxtLink to="/shell" class="hover:text-brown-900 dark:hover:text-white">Shell</NuxtLink>
           <NuxtLink to="/auth" class="hover:text-brown-900 dark:hover:text-white">Auth</NuxtLink>
+          <NuxtLink to="/complaint" class="hover:text-brown-900 dark:hover:text-white">Complaint</NuxtLink>
           <NuxtLink to="/settings" class="hover:text-brown-900 dark:hover:text-white">Settings</NuxtLink>
           <NuxtLink to="/editor" class="hover:text-brown-900 dark:hover:text-white">Editor</NuxtLink>
         </nav>

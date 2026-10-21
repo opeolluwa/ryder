@@ -103,10 +103,8 @@ function formatShortDate(dateStr: string) {
 
 function scrollToLatest() {
   const el = threadRef.value;
-  const scrolls = el && el.scrollHeight > el.clientHeight;
-  const target = scrolls ? el : (document.scrollingElement ?? el);
-
-  target?.scrollTo({ top: target.scrollHeight, behavior: "smooth" });
+  if (!el || el.scrollHeight <= el.clientHeight) return;
+  el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
 }
 
 function submit() {

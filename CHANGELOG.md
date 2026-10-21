@@ -16,6 +16,20 @@ Fixed mobile scrolling in the messaging flow.
   breakpoint (`min-h-0 flex-1 overflow-y-auto`), not just `lg`. The empty
   states fill the pane (`h-full`) rather than guessing `h-[60vh]`.
 
+Added the `RyderComplaint` layout and `useVisualViewportHeight`.
+
+- **Layouts**: `RyderComplaint` — a message-thread shell: the full `RyderShell`
+  from `lg` up and minimal mobile chrome below it. The mobile branch is a
+  non-scrolling host that hands a definite height to a page owning its own
+  scroll regions (thread list, composer). Props cover the shell
+  (`navItems`, `user`, `notificationsUnreadCount`, paths, `contentClass`,
+  `fixedHeight`, `showSearch`), plus `mobileTitle` and `fallbackPath`; emits
+  `logout`; forwards the shell's slots. Registered in the module's
+  `LAYOUT_NAMES`.
+- **Composables**: `useVisualViewportHeight` — exposes the visual viewport
+  height (keyboard included) as `--app-viewport-height` and a `style` binding,
+  so the mobile thread shell stays above the mobile keyboard.
+
 ## [1.3.0] - 2026-10-07
 
 Added shared `Card`, `BottomNav` and search-page building blocks.

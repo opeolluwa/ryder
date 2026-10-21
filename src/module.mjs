@@ -25,6 +25,7 @@ const LAYOUT_NAMES = [
   "RyderSettings",
   "RyderSplitLayout",
   "RyderCenteredLayout",
+  "RyderComplaint",
 ]
 
 export default defineNuxtModule({

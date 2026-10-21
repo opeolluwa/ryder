@@ -21,6 +21,7 @@ withDefaults(
     statusMenu?: boolean;
     showParticipant?: boolean;
     openingFromSelf?: boolean;
+    showBack?: boolean;
   }>(),
   {
     loadingReplies: false,
@@ -29,18 +30,20 @@ withDefaults(
     statusMenu: true,
     showParticipant: true,
     openingFromSelf: false,
+    showBack: false,
   },
 );
 
 const emit = defineEmits<{
   setStatus: [status: MessagingWritableStatus];
   send: [body: string];
+  back: [];
 }>();
 </script>
 
 <template>
   <div
-    class="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-xl border border-gray-200 bg-white p-0! dark:border-gray-400/20 dark:bg-gray-950"
+    class="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden bg-white p-0! lg:rounded-xl lg:border lg:border-gray-200 dark:bg-gray-950 lg:dark:border-gray-400/20"
   >
     <EmptyState
       v-if="!row"
@@ -56,7 +59,9 @@ const emit = defineEmits<{
         :status-menu="statusMenu"
         :show-participant="showParticipant"
         :opening-from-self="openingFromSelf"
+        :show-back="showBack"
         @set-status="emit('setStatus', $event)"
+        @back="emit('back')"
       />
 
       <MessagingThread
