@@ -19,17 +19,6 @@ const rows = computed(() =>
     ? orders
     : orders.filter((order) => order.status === activeTab.value),
 );
-
-const tabCount = computed<Record<string, number>>(() => {
-  const counts: Record<string, number> = { all: orders.length };
-
-  for (const order of orders) {
-    const key = order.status ?? "pending";
-    counts[key] = (counts[key] ?? 0) + 1;
-  }
-
-  return counts;
-});
 </script>
 
 <template>
@@ -38,7 +27,6 @@ const tabCount = computed<Record<string, number>>(() => {
     :loading="false"
     :tabs="tabs"
     :active-tab="activeTab"
-    :tab-count="tabCount"
     :selected-id="selectedId"
     @update:active-tab="activeTab = $event"
     @select="selectedId = $event"

@@ -94,6 +94,7 @@ export default defineConfig({
           { text: "Card", link: "/components/primitives/Card" },
           { text: "Input", link: "/components/primitives/Input" },
           { text: "Logo", link: "/components/primitives/Logo" },
+          { text: "PasswordInput", link: "/components/primitives/PasswordInput" },
           { text: "Select", link: "/components/primitives/Select" },
           { text: "Textarea", link: "/components/primitives/Textarea" },
         ],
@@ -102,7 +103,6 @@ export default defineConfig({
         text: "Feedback",
         collapsed: false,
         items: [
-          { text: "BottomSheet", link: "/components/feedback/BottomSheet" },
           { text: "CreateDialog", link: "/components/feedback/CreateDialog" },
           { text: "Dialog", link: "/components/feedback/Dialog" },
           { text: "EmptyState", link: "/components/feedback/EmptyState" },

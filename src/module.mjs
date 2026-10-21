@@ -1,7 +1,13 @@
 import { existsSync } from "node:fs"
 import { join } from "node:path"
 import { fileURLToPath } from "node:url"
-import { addComponentsDir, addTemplate, defineNuxtModule, useNuxt } from "@nuxt/kit"
+import {
+  addComponentsDir,
+  addTemplate,
+  defineNuxtModule,
+  installModule,
+  useNuxt,
+} from "@nuxt/kit"
 
 /**
  * @typedef {Object} RyderModuleOptions
@@ -32,10 +38,25 @@ export default defineNuxtModule({
     layouts: true,
     prefix: "Ryder",
   },
-  /** @param {RyderModuleOptions} options */
-  setup(options) {
+  async setup(options) {
     const nuxt = useNuxt()
     nuxt.options.build.transpile.push(srcDir)
+
+    const installed = nuxt.options.modules.map((entry) =>
+      (Array.isArray(entry) ? entry[0] : entry)?.toString?.() ?? "",
+    )
+    const has = (name) => installed.some((entry) => entry.includes(name))
+
+    const ensureModule = async (name, moduleOptions) => {
+      // Let the consumer keep ownership when they already register it.
+      if (has(name)) return
+      await installModule(name, moduleOptions)
+    }
+
+    await ensureModule("@nuxt/ui")
+    await ensureModule("@nuxtjs/color-mode", { classSuffix: "" })
+    await ensureModule("@vueuse/nuxt")
+    await ensureModule("nuxt-seo-utils")
 
     nuxt.hook("vite:extendConfig", (viteConfig) => {
       viteConfig.plugins = viteConfig.plugins || []

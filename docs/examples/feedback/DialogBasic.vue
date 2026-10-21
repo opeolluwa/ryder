@@ -31,8 +31,7 @@ const status = ref("");
     >
       <template #body>
         <p class="text-sm text-gray-500 dark:text-white/50">
-          Above 1024px this is a Nuxt UI modal; below that the same component
-          collapses into a konsta bottom sheet that draws its own header from
+          A Nuxt UI modal that draws its own header from
           <code class="font-mono">title</code> /
           <code class="font-mono">description</code>.
         </p>

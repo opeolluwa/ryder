@@ -16,7 +16,7 @@ const props = withDefaults(
   {
     src: "/bg.jpg",
     fallbackSrc: "/bg.jpg",
-    showNav: true,
+    showNav: false,
   },
 );
 
@@ -64,7 +64,7 @@ const onImageError = () => {
     </div>
 
     <!-- Navigation -->
-    <div class="absolute left-6 top-6 z-10 hidden items-center gap-2 lg:flex">
+    <div v-if="showNav==true" class="absolute left-6 top-6 z-10 hidden items-center gap-2 lg:flex">
       <UButton
         icon="heroicons:arrow-left"
         size="lg"

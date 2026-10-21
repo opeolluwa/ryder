@@ -3,6 +3,7 @@ import { ref } from "vue";
 import { formatPrice } from "@opeolluwa/ryder/utils";
 
 definePageMeta({
+  layout: "dashboard",
   breadcrumb: { title: "Playground" },
 });
 
@@ -12,7 +13,6 @@ const ripeness = ref<string>();
 const term = ref<string>();
 const terms = ref<string[]>(["ripe", "green"]);
 const dialogOpen = ref(false);
-const sheetOpen = ref(false);
 
 function onCreateTerm(value: string) {
   terms.value = [...terms.value, value];
@@ -25,7 +25,7 @@ const lastBottomAction = ref("");
 const bottomNavItems = [
   { label: "Home", to: "/", icon: "heroicons:home" },
   { label: "Search", to: "/search", icon: "heroicons:magnifying-glass" },
-  { label: "Complaints", to: "/complaints", icon: "heroicons:chat-bubble-left" },
+  { label: "Messaging", to: "/messaging", icon: "heroicons:chat-bubble-left" },
   { label: "Settings", to: "/settings", icon: "heroicons:cog-6-tooth" },
   { label: "Cart", icon: "heroicons:squares-2x2", action: "toggle-cart" },
 ];
@@ -72,11 +72,10 @@ function onBottomNavSelect(item: { label: string }) {
         hint="We never share it."
       />
 
-      <RyderInput
+      <RyderPasswordInput
         v-model="password"
         label="Password"
         name="password"
-        type="password"
       />
 
       <RyderInput label="Disabled" name="disabled" disabled placeholder="Read only" />
@@ -164,32 +163,17 @@ function onBottomNavSelect(item: { label: string }) {
         <RyderButton variant="soft" @click="dialogOpen = true">
           Open dialog
         </RyderButton>
-        <RyderButton variant="soft" @click="sheetOpen = true">
-          Open bottom sheet
-        </RyderButton>
       </div>
 
       <RyderCreateDialog
         v-model:open="dialogOpen"
         title="Create thing"
-        description="The dialog on mobile collapses into a bottom sheet."
         submit-label="Create"
         @submit="dialogOpen = false"
         @cancel="dialogOpen = false"
       >
         <RyderInput label="Name" name="name" placeholder="Name" />
       </RyderCreateDialog>
-
-      <RyderBottomSheet
-        v-model:open="sheetOpen"
-        title="Bottom sheet"
-        description="Konsta sheet on mobile."
-        submit-label="Confirm"
-        @submit="sheetOpen = false"
-        @cancel="sheetOpen = false"
-      >
-        <p class="text-sm text-gray-500 dark:text-white/50">Sheet body.</p>
-      </RyderBottomSheet>
     </section>
 
     <section class="space-y-3">

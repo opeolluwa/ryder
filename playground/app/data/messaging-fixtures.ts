@@ -5,32 +5,90 @@ import type {
   ThreadParty,
 } from "@opeolluwa/ryder/types";
 
-export function conversation(): Conversation {
+function conversation(
+  identifier: string,
+  subject: string,
+  description: string,
+  status: Conversation["status"],
+  createdAt: string,
+): Conversation {
   return {
-    identifier: "MSG-0001",
-    customerIdentifier: "CUS-001",
+    identifier,
+    customerIdentifier: `CUS-${identifier.slice(4)}`,
     orderIdentifier: "ORD-778812",
-    subject: "Order still marked in progress",
-    description:
-      "Payment went through two days ago but the order was never shipped. Please look into it.",
-    status: "in_progress",
-    createdAt: "2026-09-28T09:12:00.000Z",
+    subject,
+    description,
+    status,
+    createdAt,
     updatedAt: null,
   };
 }
 
-export function conversationRow(): ConversationRow {
+export function conversationRowFor(
+  identifier: string,
+  participant: NonNullable<ConversationRow["participant"]>,
+  subject: string,
+  description: string,
+  status: Conversation["status"],
+  createdAt: string,
+): ConversationRow {
   return {
-    conversation: conversation(),
-    participant: {
+    conversation: conversation(identifier, subject, description, status, createdAt),
+    participant,
+    order: { identifier: "ORD-778812" },
+  };
+}
+
+export function conversationRow(): ConversationRow {
+  return conversationRowFor(
+    "MSG-0001",
+    {
       firstName: "Ada",
       lastName: "Okafor",
       email: "ada.o@example.com",
       picture: null,
     },
-    order: { identifier: "ORD-778812" },
-  };
+    "Order still marked in progress",
+    "Payment went through two days ago but the order was never shipped. Please look into it.",
+    "in_progress",
+    "2026-09-28T09:12:00.000Z",
+  );
 }
+
+/**
+ * One shared inbox, so the `/messaging` list and `/messaging/[id]` detail page
+ * render the same conversations and threads — a reply sent on the detail page
+ * is in the reply counts when you go back to the list.
+ */
+export const conversationRows: ConversationRow[] = [
+  conversationRow(),
+  conversationRowFor(
+    "MSG-0002",
+    {
+      firstName: "Chinedu",
+      lastName: "Nwosu",
+      email: "chinedu.n@example.com",
+      picture: null,
+    },
+    "Delivery address change",
+    "My parcel is going to my office now — please update the address before dispatch.",
+    "open",
+    "2026-09-30T14:02:00.000Z",
+  ),
+  conversationRowFor(
+    "MSG-0003",
+    {
+      firstName: "Bola",
+      lastName: "Adeyemi",
+      email: "bola.a@example.com",
+      picture: null,
+    },
+    "Discount not applied",
+    "The 10% welcome code did not come off at checkout. Can you sort this out?",
+    "resolved",
+    "2026-09-25T11:47:00.000Z",
+  ),
+];
 
 export const threadReplies: ConversationReply[] = [
   {
@@ -59,6 +117,17 @@ export const threadReplies: ConversationReply[] = [
   },
 ];
 
+const msg0002Replies: ConversationReply[] = [
+  {
+    identifier: "RPL-4",
+    conversationIdentifier: "MSG-0002",
+    body: "Sure — send over the office address and I'll get it updated.",
+    senderEmail: "support@example.com",
+    createdAt: "2026-09-30T14:45:00.000Z",
+    updatedAt: null,
+  },
+];
+
 export const staffParty: ThreadParty = {
   name: "Chioma",
   email: "support@example.com",
@@ -73,21 +142,30 @@ export function counterpartParty(): ThreadParty {
   };
 }
 
-export function useMessagingDemo() {
-  const thread = ref<ConversationReply[]>([...threadReplies]);
-  const sendsAreLoading = ref(false);
-  const sendCount = ref(0);
+const SEND_REPLY_DELAY_MS = 400;
 
-  async function sendReply(body: string) {
+const inboxRows = ref<ConversationRow[]>([...conversationRows]);
+const threads = ref<Record<string, ConversationReply[]>>({
+  "MSG-0001": [...threadReplies],
+  "MSG-0002": [...msg0002Replies],
+  "MSG-0003": [],
+});
+const sendsAreLoading = ref(false);
+const sentCount = ref(0);
+
+export function useMessagingDemo() {
+  async function sendReply(identifier: string, body: string) {
     sendsAreLoading.value = true;
 
-    await new Promise((resolve) => setTimeout(resolve, 400));
+    await new Promise((resolve) => setTimeout(resolve, SEND_REPLY_DELAY_MS));
 
-    thread.value = [
-      ...thread.value,
+    const existing = threads.value[identifier] ?? [];
+
+    threads.value[identifier] = [
+      ...existing,
       {
         identifier: `RPL-${Date.now()}`,
-        conversationIdentifier: conversation().identifier,
+        conversationIdentifier: identifier,
         body,
         senderEmail: staffParty.email!,
         createdAt: new Date().toISOString(),
@@ -96,8 +174,14 @@ export function useMessagingDemo() {
     ];
 
     sendsAreLoading.value = false;
-    sendCount.value += 1;
+    sentCount.value += 1;
   }
 
-  return { thread, sendsAreLoading, sendCount, sendReply };
+  return {
+    rows: inboxRows,
+    threads,
+    sendsAreLoading,
+    sentCount,
+    sendReply,
+  };
 }

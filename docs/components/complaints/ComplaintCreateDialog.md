@@ -81,5 +81,5 @@ None. The dialog's title, description and footer labels are fixed
 - Inherits every validation rule and quirk of
   [ComplaintForm](/components/complaints/ComplaintForm) — the form is the
   same component with `show-actions: false`.
-- Rendered through [Dialog](/components/feedback/Dialog), so below `lg` it
-  becomes a bottom sheet; `UModal` on desktop.
+- Rendered through [Dialog](/components/feedback/Dialog), so it is always a
+  `UModal` on every viewport.

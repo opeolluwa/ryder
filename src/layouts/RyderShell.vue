@@ -1,11 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, reactive, ref } from "vue";
-import {
-  navigateTo,
-  useBreadcrumbItems,
-  useRoute,
-  useRouter,
-} from "#imports";
+import { navigateTo, useBreadcrumbItems, useRoute, useRouter } from "#imports";
 import { useOnline } from "@vueuse/core";
 import * as v from "valibot";
 import UDashboardGroup from "@nuxt/ui/components/DashboardGroup.vue";
@@ -24,53 +19,56 @@ import { useMobileNav } from "../composables/useMobileNav";
 import EmptyState from "../components/feedback/EmptyState.vue";
 
 export interface ShellUser {
-  name?: string;
-  avatar?: { src?: string; text?: string; alt?: string; icon?: string };
+    name?: string;
+    avatar?: { src?: string; text?: string; alt?: string; icon?: string };
 }
 
 const props = withDefaults(
-  defineProps<{
-    /**
-     * Sidebar menu for `UNavigationMenu` (including any `badge`/`onSelect`
-     * entries). Computed by the app — shared code never imports `~/data`.
-     */
-    navItems?: any[];
-    /** Header identity: dropdown label and avatar. */
-    user?: ShellUser;
-    /** Unread count for the default bell; pass your own `notifications` slot to replace it. */
-    notificationsUnreadCount?: number;
-    /** Path the back-button falls back to when history has nowhere to go. */
-    rootPath?: string;
-    /** Dropdown "Profile" target. */
-    profilePath?: string;
-    /** Dropdown "Settings" target. */
-    settingsPath?: string;
-    /** Mobile avatar tap target. */
-    avatarPath?: string;
-    /** Search submit target (`` `${searchPath}?q=` ``). */
-    searchPath?: string;
-    /** Extra classes on the page content wrapper (e.g. `pb-28` for a tab bar). */
-    contentClass?: string;
-    /** Whether to show the search input in the header. */
-    showSearch?: boolean;
-  }>(),
-  {
-    navItems: () => [],
-    user: () => ({}),
-    notificationsUnreadCount: 0,
-    rootPath: "/",
-    profilePath: "/settings/profile",
-    settingsPath: "/settings",
-    avatarPath: "/settings/profile",
-    searchPath: "/search",
-    contentClass: "",
-    showSearch: true,
-  },
+    defineProps<{
+        /**
+         * Sidebar menu for `UNavigationMenu` (including any `badge`/`onSelect`
+         * entries). Computed by the app — shared code never imports `~/data`.
+         */
+        navItems?: any[];
+        /** Header identity: dropdown label and avatar. */
+        user?: ShellUser;
+        /** Unread count for the default bell; pass your own `notifications` slot to replace it. */
+        notificationsUnreadCount?: number;
+        /** Path the back-button falls back to when history has nowhere to go. */
+        rootPath?: string;
+        /** Dropdown "Profile" target. */
+        profilePath?: string;
+        /** Dropdown "Settings" target. */
+        settingsPath?: string;
+        /** Mobile avatar tap target. */
+        avatarPath?: string;
+        /** Search submit target (`` `${searchPath}?q=` ``). */
+        searchPath?: string;
+        /** Extra classes on the page content wrapper (e.g. `pb-28` for a tab bar). */
+        contentClass?: string;
+        /** Whether to show the search input in the header. */
+        showSearch?: boolean;
+        /**notificiation path */
+        notificationsPath?: string;
+    }>(),
+    {
+        navItems: () => [],
+        user: () => ({}),
+        notificationsUnreadCount: 0,
+        rootPath: "/",
+        profilePath: "/settings/profile",
+        settingsPath: "/settings",
+        avatarPath: "/settings/profile",
+        searchPath: "/search",
+        contentClass: "",
+        showSearch: true,
+        notificationsPath: "/notifications",
+    },
 );
 
 const emit = defineEmits<{
-  /** Sign out was requested (sidebar footer or dropdown) — the app tears down its session. */
-  logout: [];
+    /** Sign out was requested (sidebar footer or dropdown) — the app tears down its session. */
+    logout: [];
 }>();
 
 const route = useRoute();
@@ -93,9 +91,9 @@ const { toggleMobileNav } = useMobileNav();
 const isOnline = useOnline();
 
 const lastPathSegment = computed(() => {
-  const path = (route.path.split("?")[0] ?? "").replace(/\/+$/, "");
+    const path = (route.path.split("?")[0] ?? "").replace(/\/+$/, "");
 
-  return path.split("/").pop() ?? "";
+    return path.split("/").pop() ?? "";
 });
 
 /**
@@ -104,29 +102,29 @@ const lastPathSegment = computed(() => {
  * slug. Route params get an explicit label instead.
  */
 const breadcrumbOverrides = computed(() => {
-  const segment = lastPathSegment.value;
-  const isRouteParam = Object.values(route.params).some((value) =>
-    Array.isArray(value) ? value.includes(segment) : value === segment,
-  );
+    const segment = lastPathSegment.value;
+    const isRouteParam = Object.values(route.params).some((value) =>
+        Array.isArray(value) ? value.includes(segment) : value === segment,
+    );
 
-  if (!isRouteParam) {
-    return [];
-  }
+    if (!isRouteParam) {
+        return [];
+    }
 
-  const segmentCount = (route.path.split("?")[0] ?? "")
-    .split("/")
-    .filter(Boolean).length;
+    const segmentCount = (route.path.split("?")[0] ?? "")
+        .split("/")
+        .filter(Boolean).length;
 
-  return Array.from({ length: segmentCount + 1 }, (_, index) =>
-    index === segmentCount ? { label: segment } : undefined,
-  );
+    return Array.from({ length: segmentCount + 1 }, (_, index) =>
+        index === segmentCount ? { label: segment } : undefined,
+    );
 });
 
 const items = useBreadcrumbItems({
-  rootSegment: "/",
-  hideRoot: true,
-  hideNonExisting: true,
-  overrides: breadcrumbOverrides,
+    rootSegment: "/",
+    hideRoot: true,
+    hideNonExisting: true,
+    overrides: breadcrumbOverrides,
 });
 
 const hideBreadcrumb = computed(() => route.meta.hideBreadcrumb === true);
@@ -134,103 +132,101 @@ const hideBreadcrumb = computed(() => route.meta.hideBreadcrumb === true);
 const showBack = computed(() => route.meta.back === true);
 
 const mobileTitle = computed(() => {
-  const breadcrumb = route.meta.breadcrumb as { title?: string } | undefined;
+    const breadcrumb = route.meta.breadcrumb as { title?: string } | undefined;
 
-  return typeof breadcrumb?.title === "string" ? breadcrumb.title : "";
+    return typeof breadcrumb?.title === "string" ? breadcrumb.title : "";
 });
 
 const goBack = () => {
-  if (import.meta.client && window.history.state?.back) {
-    router.back();
+    if (import.meta.client && window.history.state?.back) {
+        router.back();
 
-    return;
-  }
+        return;
+    }
 
-  const override = route.meta.backTo as string | undefined;
+    const override = route.meta.backTo as string | undefined;
 
-  if (override) {
-    navigateTo(override);
+    if (override) {
+        navigateTo(override);
 
-    return;
-  }
+        return;
+    }
 
-  const segments = route.path.split("/").filter(Boolean);
+    const segments = route.path.split("/").filter(Boolean);
 
-  navigateTo(
-    segments.length > 1
-      ? `/${segments.slice(0, -1).join("/")}`
-      : props.rootPath,
-  );
+    navigateTo(
+        segments.length > 1 ? `/${segments.slice(0, -1).join("/")}` : props.rootPath,
+    );
 };
 
 const searchInputRef = ref<HTMLInputElement | null>(null);
 const mobileSearchOpen = ref(false);
 
 const isMac =
-  typeof navigator !== "undefined" &&
-  /mac|iphone|ipad|ipod/i.test(navigator.userAgent);
+    typeof navigator !== "undefined" &&
+    /mac|iphone|ipad|ipod/i.test(navigator.userAgent);
 
 const schema = v.object({
-  query: v.string(),
+    query: v.string(),
 });
 
 const state = reactive({
-  query: "",
+    query: "",
 });
 
 const focusSearch = (event: KeyboardEvent) => {
-  const isTrigger =
-    event.key.toLowerCase() === "f" &&
-    (isMac ? event.metaKey : event.ctrlKey) &&
-    !event.shiftKey;
+    const isTrigger =
+        event.key.toLowerCase() === "f" &&
+        (isMac ? event.metaKey : event.ctrlKey) &&
+        !event.shiftKey;
 
-  if (!isTrigger) {
-    return;
-  }
+    if (!isTrigger) {
+        return;
+    }
 
-  event.preventDefault();
-  searchInputRef.value?.focus();
+    event.preventDefault();
+    searchInputRef.value?.focus();
 };
 
 const onLogout = () => {
-  emit("logout");
+    emit("logout");
 };
 
 const onSearchSubmit = () => {
-  const query = state.query.trim();
+    const query = state.query.trim();
 
-  mobileSearchOpen.value = false;
+    mobileSearchOpen.value = false;
 
-  if (!query) {
+    if (!query) {
+        searchInputRef.value?.blur();
+        return;
+    }
+
     searchInputRef.value?.blur();
-    return;
-  }
-
-  searchInputRef.value?.blur();
-  navigateTo(`${props.searchPath}?q=${encodeURIComponent(query)}`);
+    navigateTo(`${props.searchPath}?q=${encodeURIComponent(query)}`);
 };
 
 async function openMobileSearch() {
-  mobileSearchOpen.value = true;
+    mobileSearchOpen.value = true;
 
-  await nextTick();
+    await nextTick();
 
-  searchInputRef.value?.focus();
+    searchInputRef.value?.focus();
 }
 
 function onSearchEscape() {
-  state.query = "";
+    state.query = "";
 
-  searchInputRef.value?.blur();
-  mobileSearchOpen.value = false;
+    searchInputRef.value?.blur();
+    mobileSearchOpen.value = false;
 }
 
 onMounted(() => {
-  window.addEventListener("keydown", focusSearch);
+    window.addEventListener("keydown", focusSearch);
 });
 
 onUnmounted(() => {
-  window.removeEventListener("keydown", focusSearch);
+    window.removeEventListener("keydown", focusSearch);
 });
 
 /**
@@ -239,12 +235,12 @@ onUnmounted(() => {
  * a `cart-trailing` badge.
  */
 const RESERVED_SLOTS = new Set([
-  "default",
-  "sidebar-brand",
-  "notifications",
-  "actions",
-  "bottom",
-  "mobile-nav",
+    "default",
+    "sidebar-brand",
+    "notifications",
+    "actions",
+    "bottom",
+    "mobile-nav",
 ]);
 </script>
 
@@ -258,8 +254,7 @@ const RESERVED_SLOTS = new Set([
           root: 'bg-primary-600 border-r-0 dark:bg-onyx-700 dark:border-r dark:border-white/10',
           header: 'h-16 bg-primary-600 dark:bg-onyx-700',
           body: 'gap-1 bg-primary-600 px-2 py-2 dark:bg-onyx-700',
-          footer:
-            'border-t border-white/10 bg-primary-600 dark:bg-onyx-700 dark:border-white/10',
+          footer: 'border-t border-white/10 bg-primary-600 dark:bg-onyx-700 dark:border-white/10',
         }"
       >
         <template #header>
@@ -334,7 +329,7 @@ const RESERVED_SLOTS = new Set([
 
             <UButton
               v-else
-              icon="heroicons:chevron-left"
+              icon="heroicons:arrow-left"
               color="neutral"
               variant="ghost"
               aria-label="Go back"
@@ -354,7 +349,9 @@ const RESERVED_SLOTS = new Set([
               :schema="schema"
               :state="state"
               :class="
-                mobileSearchOpen ? 'w-full' : 'hidden w-full max-w-sm md:block'
+                mobileSearchOpen
+                  ? 'w-full'
+                  : 'hidden w-full max-w-sm md:block'
               "
               @submit.prevent="onSearchSubmit"
             >
@@ -363,7 +360,9 @@ const RESERVED_SLOTS = new Set([
                   :ref="
                     (element: any) =>
                       (searchInputRef =
-                        element?.$el?.querySelector('input') ?? null)
+                        element?.$el?.querySelector(
+                          'input',
+                        ) ?? null)
                   "
                   v-model="state.query"
                   placeholder="Search"
@@ -372,7 +371,8 @@ const RESERVED_SLOTS = new Set([
                   class="w-full"
                   :ui="{
                     base: 'rounded-lg bg-gray-50 px-3 py-2 text-sm ring-0 focus:ring-1 focus:ring-primary-500/30 dark:bg-white/5',
-                    leadingIcon: 'text-gray-400 dark:text-white/30',
+                    leadingIcon:
+                      'text-gray-400 dark:text-white/30',
                   }"
                   @keydown.escape="onSearchEscape"
                 >
@@ -398,9 +398,16 @@ const RESERVED_SLOTS = new Set([
               "
               color="neutral"
               variant="ghost"
-              :aria-label="mobileSearchOpen ? 'Close search' : 'Search'"
+              :aria-label="
+                mobileSearchOpen ? 'Close search' : 'Search'
+              "
               class="text-gray-500 hover:text-gray-900 md:hidden dark:text-white/50 dark:hover:text-white"
-              @click="mobileSearchOpen ? onSearchEscape() : openMobileSearch()"
+              
+              @click="
+                mobileSearchOpen
+                  ? onSearchEscape()
+                  : openMobileSearch()
+              "
             />
 
             <!-- Default bell; override with the `notifications` slot. -->
@@ -410,9 +417,8 @@ const RESERVED_SLOTS = new Set([
                   icon="heroicons:bell"
                   color="neutral"
                   variant="ghost"
-                  size="sm"
                   aria-label="Notifications"
-                  :to="profilePath"
+                  :to="notificationsPath"
                   class="text-gray-500 hover:text-gray-900 dark:text-white/50 dark:hover:text-white"
                 />
 
@@ -446,7 +452,9 @@ const RESERVED_SLOTS = new Set([
             />
 
             <div class="hidden items-center sm:flex">
-              <div class="mx-1 h-6 w-px bg-gray-100 dark:bg-white/10 sm:mx-2" />
+              <div
+                class="mx-1 h-6 w-px bg-gray-100 dark:bg-white/10 sm:mx-2"
+              />
 
               <UDropdownMenu
                 :items="[
@@ -488,7 +496,6 @@ const RESERVED_SLOTS = new Set([
                     :alt="user.avatar?.alt || user.name"
                     :text="user.avatar?.text"
                     :icon="user.avatar?.icon || 'i-lucide-user'"
-                    size="sm"
                     class="squircle"
                   />
 
@@ -544,11 +551,11 @@ const RESERVED_SLOTS = new Set([
 <style scoped>
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.15s ease;
+    transition: opacity 0.15s ease;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-  opacity: 0;
+    opacity: 0;
 }
 </style>

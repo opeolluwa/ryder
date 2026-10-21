@@ -30,11 +30,10 @@ const password = ref("");
         placeholder="you@example.com"
       />
 
-      <RyderInput
+      <RyderPasswordInput
         v-model="password"
         label="Password"
         name="password"
-        type="password"
       />
 
       <RyderButton type="submit" class="w-full">Sign in</RyderButton>

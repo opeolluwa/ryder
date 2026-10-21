@@ -52,11 +52,11 @@ function formatDate(dateStr: string) {
 <template>
   <button
     type="button"
-    class="w-full rounded-xl border p-4 text-left transition-colors active:scale-[0.99] lg:rounded-none lg:border-0 lg:border-b lg:border-gray-50 lg:p-3 lg:px-4 lg:active:scale-100 dark:border-white/5 dark:lg:border-white/[0.03]"
+    class="w-full rounded-xl border border-gray-200 bg-white p-4 text-left transition-colors active:scale-[0.99] dark:border-gray-400/20 dark:bg-onyx-700 lg:rounded-none lg:border-0 lg:border-b lg:border-gray-50 lg:p-3 lg:px-4 lg:active:scale-100 dark:lg:border-white/[0.03]"
     :class="
       selected
-        ? 'border-primary-200 bg-primary-50/50 dark:border-primary-500/30 dark:bg-primary-500/5 lg:bg-gray-50/60 lg:dark:bg-white/5'
-        : 'border-gray-100 bg-white active:bg-gray-50 dark:border-white/5 dark:bg-gray-950 dark:active:bg-white/5 lg:bg-transparent lg:dark:bg-transparent'
+        ? 'lg:bg-gray-50/60 lg:dark:bg-white/5'
+        : 'active:bg-gray-50 dark:active:bg-white/5 lg:bg-transparent lg:dark:bg-transparent'
     "
     :aria-current="selected ? 'true' : undefined"
     @click="$emit('select', row.conversation.identifier)"

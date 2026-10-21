@@ -20,6 +20,7 @@ withDefaults(
     sentCount?: number;
     statusMenu?: boolean;
     showParticipant?: boolean;
+    openingFromSelf?: boolean;
   }>(),
   {
     loadingReplies: false,
@@ -27,6 +28,7 @@ withDefaults(
     sentCount: 0,
     statusMenu: true,
     showParticipant: true,
+    openingFromSelf: false,
   },
 );
 
@@ -53,6 +55,7 @@ const emit = defineEmits<{
         :row="row"
         :status-menu="statusMenu"
         :show-participant="showParticipant"
+        :opening-from-self="openingFromSelf"
         @set-status="emit('setStatus', $event)"
       />
 
@@ -64,6 +67,7 @@ const emit = defineEmits<{
         :counterpart="counterpart"
         :sending="sending"
         :sent-count="sentCount"
+        :opening-from-self="openingFromSelf"
         @send="emit('send', $event)"
       />
     </template>

@@ -24,10 +24,16 @@ const props = withDefaults(
     row: ConversationRow;
     statusMenu?: boolean;
     showParticipant?: boolean;
+    /**
+     * Whether the conversation's opening message was written by the viewer.
+     * When true the header reads "Sent" instead of "Received".
+     */
+    openingFromSelf?: boolean;
   }>(),
   {
     statusMenu: true,
     showParticipant: true,
+    openingFromSelf: false,
   },
 );
 
@@ -71,7 +77,7 @@ function formatFullDate(dateStr: string) {
     year: "numeric",
     hour: "2-digit",
     minute: "2-digit",
-    hour12: false,
+    hour12: true,
   });
 }
 </script>
@@ -105,7 +111,8 @@ function formatFullDate(dateStr: string) {
           </div>
 
           <p class="mt-1 text-xs text-gray-500 dark:text-gray-400">
-            Received {{ formatFullDate(row.conversation.createdAt) }}
+            {{ openingFromSelf ? "Sent" : "Received" }}
+            {{ formatFullDate(row.conversation.createdAt) }}
           </p>
         </div>
       </div>

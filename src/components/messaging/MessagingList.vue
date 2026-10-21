@@ -22,16 +22,23 @@ const props = withDefaults(
     selectedId: string | null;
     tabs?: MessagingInboxTab[];
     showParticipant?: boolean;
+    /**
+     * Renders a call-to-action on the fully-empty inbox. Omitted leaves the
+     * empty state as plain text, which is what read-only inboxes want.
+     */
+    emptyActionLabel?: string;
   }>(),
   {
     tabs: () => [...MESSAGING_INBOX_TABS],
     showParticipant: true,
+    emptyActionLabel: undefined,
   },
 );
 
 const emit = defineEmits<{
   "update:activeTab": [value: MessagingInboxTab];
   select: [identifier: string];
+  emptyAction: [];
 }>();
 
 const tabItems = computed<TabsItem[]>(() =>
@@ -65,20 +72,22 @@ function onTabChange(value: string | number) {
       />
     </div>
 
-    <div class="lg:flex-1 lg:overflow-y-auto">
+    <div class="min-h-0 flex-1 overflow-y-auto overscroll-contain">
       <PageLoader v-if="loading" />
 
       <EmptyState
         v-else-if="inboxEmpty"
-        class="h-[60vh] lg:h-full"
+        class="h-full lg:h-full"
         icon="heroicons:inbox"
         title="No conversations yet"
         description="Conversations will appear here."
+        :action-label="emptyActionLabel"
+        @action="emit('emptyAction')"
       />
 
       <EmptyState
         v-else-if="rows.length === 0"
-        class="h-[60vh] lg:h-full"
+        class="h-full lg:h-full"
         icon="heroicons:adjustments-horizontal"
         title="No conversations in this tab"
         description="Try selecting a different tab."

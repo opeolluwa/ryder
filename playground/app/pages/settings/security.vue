@@ -13,10 +13,9 @@ definePageMeta({
       Nested tab — `settingsTabForPath` keeps this tab highlighted under
       <code class="font-mono">/settings/security</code>.
     </p>
-    <RyderInput
+    <RyderPasswordInput
       label="Current password"
       name="currentPassword"
-      type="password"
     />
   </div>
 </template>

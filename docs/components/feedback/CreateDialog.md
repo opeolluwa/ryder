@@ -6,8 +6,7 @@ import Basic from "../../examples/feedback/CreateDialogBasic.vue";
 
 A form-style wrapper around `Dialog`: the default slot becomes the modal body
 and the footer is pre-built as Cancel / Submit buttons, so creating a record is
-a one-liner. Like `Dialog`, it renders a Nuxt UI modal on desktop and collapses
-into a konsta bottom sheet below 1024px.
+a one-liner.
 
 ```vue
 <script setup lang="ts">
@@ -35,7 +34,7 @@ import RyderCreateDialog from "@opeolluwa/ryder/components/feedback/CreateDialog
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
-| `title` | `string` | — | Required; the dialog/sheet heading. |
+| `title` | `string` | — | Required; the dialog heading. |
 | `description` | `string \| undefined` | `undefined` | Subtext under the heading. |
 | `loading` | `boolean \| undefined` | `undefined` | Falsy by default; truthy shows a spinner on Submit and disables both footer buttons. |
 | `submitDisabled` | `boolean \| undefined` | `undefined` | Falsy by default; truthy disables only Submit (e.g. until the form validates). |
@@ -58,10 +57,9 @@ import RyderCreateDialog from "@opeolluwa/ryder/components/feedback/CreateDialog
 
 ## Notes
 
-- Wraps `Dialog`, so it inherits the responsive modal → bottom-sheet behaviour.
+- Wraps `Dialog` (Nuxt UI `UModal`).
 - `Dialog`'s own props (`size`, `scrollable`, `dismissible`, `closeIcon`) are
   **not** forwarded — CreateDialog only exposes the submit-form surface.
-- A backdrop tap closes the overlay but is not emitted here: `Dialog` forwards
-  `leave`/`after:leave` on desktop and `cancel` on mobile, and CreateDialog
-  forwards neither. Only the footer's own Cancel emits `cancel`.
-- Like `BottomSheet`, Submit emits without closing; the footer's Cancel closes.
+- A backdrop tap closes the overlay but is not emitted here: CreateDialog
+  forwards no `Dialog` events. Only the footer's own Cancel emits `cancel`.
+- Submit emits without closing; the footer's Cancel closes.

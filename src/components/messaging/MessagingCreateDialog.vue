@@ -1,4 +1,4 @@
-<script setup lang="ts">
+    <script setup lang="ts">
 import { useTemplateRef } from "vue";
 import type { CreateConversationPayload } from "../../types/messaging";
 import CreateDialog from "../feedback/CreateDialog.vue";
