@@ -29,16 +29,24 @@ const props = withDefaults(
      * When true the header reads "Sent" instead of "Received".
      */
     openingFromSelf?: boolean;
+    /**
+     * Whether to render a back affordance before the subject. Mobile detail
+     * views use this so the header is the screen's whole title bar; the shell's
+     * own bar is hidden for those routes.
+     */
+    showBack?: boolean;
   }>(),
   {
     statusMenu: true,
     showParticipant: true,
     openingFromSelf: false,
+    showBack: false,
   },
 );
 
 const emit = defineEmits<{
   setStatus: [status: MessagingWritableStatus];
+  back: [];
 }>();
 
 const isMobile = useIsMobile();
@@ -86,6 +94,17 @@ function formatFullDate(dateStr: string) {
   <header class="shrink-0 border-b border-gray-100 dark:border-white/5">
     <div class="flex items-start justify-between gap-3 px-4 py-4 sm:px-6">
       <div class="flex min-w-0 items-start gap-3">
+        <UButton
+          v-if="showBack"
+          icon="heroicons:arrow-left"
+          color="neutral"
+          variant="ghost"
+          size="sm"
+          class="-ml-1 shrink-0 lg:hidden"
+          aria-label="Go back"
+          @click="emit('back')"
+        />
+
         <div class="min-w-0 flex-1">
           <div class="flex flex-wrap items-center gap-2">
             <h2

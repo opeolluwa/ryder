@@ -21,6 +21,8 @@ withDefaults(
     statusMenu?: boolean;
     showParticipant?: boolean;
     openingFromSelf?: boolean;
+    /** Render a back affordance in the header (mobile detail views). */
+    showBack?: boolean;
   }>(),
   {
     loadingReplies: false,
@@ -29,12 +31,14 @@ withDefaults(
     statusMenu: true,
     showParticipant: true,
     openingFromSelf: false,
+    showBack: false,
   },
 );
 
 const emit = defineEmits<{
   setStatus: [status: MessagingWritableStatus];
   send: [body: string];
+  back: [];
 }>();
 </script>
 
@@ -56,7 +60,9 @@ const emit = defineEmits<{
         :status-menu="statusMenu"
         :show-participant="showParticipant"
         :opening-from-self="openingFromSelf"
+        :show-back="showBack"
         @set-status="emit('setStatus', $event)"
+        @back="emit('back')"
       />
 
       <MessagingThread
