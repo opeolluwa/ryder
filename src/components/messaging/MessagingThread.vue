@@ -202,7 +202,9 @@ onMounted(scrollToLatest);
               Replying as {{ self.name }}
             </p>
             <UChatPromptSubmit
-              class="ml-auto bg-primary-500/20 dark:bg-primary-500/20"
+              icon="heroicons:paper-airplane-solid"
+              class="ml-auto"
+              color="primary"
               :loading="sending"
               :disabled="!body.trim() || sending"
             />
