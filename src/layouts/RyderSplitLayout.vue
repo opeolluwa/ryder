@@ -51,7 +51,7 @@ const onImageError = () => {
         @error="onImageError"
       />
 
-      <div class="absolute inset-0 bg-black/10 dark:bg-black/30" />
+      <div class="absolute inset-0  " />
 
       <!-- Frosted quote card -->
       <div v-if="$slots.frost" class="absolute inset-0 flex items-center justify-center p-8">
