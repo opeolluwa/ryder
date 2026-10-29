@@ -61,7 +61,7 @@ const placeholderSizeClass = "placeholder:text-2xs";
         labelClass || 'text-sm font-medium text-gray-600 dark:text-gray-400',
       hint: ' mr-auto text-gray-400 dark:text-gray-600 font-normal ml-1 text-2xs lg:text-sm',
     }"
-    required
+    :required="required"
   >
     <UInput
       v-model="model"

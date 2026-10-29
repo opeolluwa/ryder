@@ -23,6 +23,7 @@ const props = withDefaults(
      * model either, because `USelectMenu` only displays a value it can find in
      * `items` — setting it before the list catches up renders as blank.
      */
+    required?: boolean;
     creatable?: boolean;
   }>(),
   {
@@ -39,6 +40,7 @@ const props = withDefaults(
     size: "md",
     labelClass: undefined,
     creatable: false,
+    required:false
   },
 );
 
@@ -63,7 +65,7 @@ const placeholderSizeClass = "text-sm";
       hint: 'mr-auto text-gray-400 dark:text-gray-600 font-normal ml-1',
       root: preserveCase ? '' : 'lowercase',
     }"
-  >
+  :required="required">
     <USelectMenu
       v-model="model"
       :items="items"
