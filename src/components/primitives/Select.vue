@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from "vue";
 
 const props = withDefaults(
   defineProps<{
@@ -47,15 +46,7 @@ const emit = defineEmits<{ create: [term: string] }>();
 
 const model = defineModel<string>();
 
-// Mirrors the text size Nuxt UI applies for each `size`, so the placeholder
-// doesn't land a step below the typed value. Unlike `UInput` the placeholder
-// here is a `<span>`, not an `input::placeholder`, so the plain size class
-// goes on the `placeholder` ui slot instead of a `placeholder:` variant.
-const placeholderSizeClass = computed(() => {
-  return props.size === "md" || props.size === "lg" || props.size === "xl"
-    ? "text-xs"
-    : "text-sm";
-});
+const placeholderSizeClass = "text-sm";
 </script>
 
 <template>
@@ -84,7 +75,9 @@ const placeholderSizeClass = computed(() => {
       :placeholder="placeholder"
       :create-item="creatable ? 'always' : undefined"
       :ui="{
-        base: preserveCase ? 'normal-case py-3 text-sm' : 'lowercase py-3 text-sm',
+        base: preserveCase
+          ? `normal-case py-3 text-sm${props.icon ? '' : ' pl-4'}`
+          : `lowercase py-3 text-sm${props.icon ? '' : ' pl-4'}`,
         placeholder: placeholderSizeClass,
       }"
       :class="[
