@@ -1,6 +1,6 @@
 {
   "name": "@opeolluwa/ryder",
-  "version": "1.6.5",
+  "version": "1.6.6",
   "description": "Shared Nuxt 4 components, layouts, composables, plugins and utils",
   "type": "module",
   "license": "UNLICENSED",
