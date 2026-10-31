@@ -47,11 +47,11 @@ const activeKey = computed<string | null>(() => {
   <NuxtLayout :name="layoutName">
     <div class="flex items-start gap-6">
       <aside class="hidden w-52 shrink-0 lg:block">
-        <Card
-          class="sticky top-0 rounded-2xl! border-gray-100! p-2! dark:border-white/5! dark:bg-onyx-600!"
+        <RyderCard
+          class="sticky top-0 rounded-2xl! p-2!  dark:bg-onyx-600!"
         >
           <p
-            class="px-3 py-2 text-[10px] font-semibold uppercase tracking-widest text-gray-400 dark:text-white/25"
+            class="px-3 py-2 text-2xs font-semibold uppercase tracking-widest text-gray-400 dark:text-white/25"
           >
             {{ heading }}
           </p>
@@ -86,12 +86,12 @@ const activeKey = computed<string | null>(() => {
               </div>
             </NuxtLink>
           </nav>
-        </Card>
+        </RyderCard>
       </aside>
 
-      <div class="min-w-0 max-w-xl flex-1 lg:rounded-xl lg:bg-white lg:p-4 lg:dark:border-gray-400/20 lg:dark:bg-onyx-700">
-        <slot />
+   <Card class="min-w-0 max-w-xl flex-1 lg:rounded-xl lg:bg-white lg:p-4 lg:dark:border-gray-400/20 lg:dark:bg-onyx-700">
+            <slot />
+   </Card>
       </div>
-    </div>
   </NuxtLayout>
 </template>
