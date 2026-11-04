@@ -21,11 +21,11 @@ defineProps<{
       :class="['flex items-center justify-between gap-3', ui?.header]"
     >
       <slot name="header">
-        <div class="flex min-w-0 items-center mb-3">
+        <div class="flex min-w-0 items-center ">
           <h3
             v-if="title"
             :class="[
-              'truncate text-sm font-semibold text-gray-900 dark:text-white',
+              'truncate text-sm font-semibold text-gray-900 dark:text-white mb-4',
               ui?.title,
             ]"
           >
