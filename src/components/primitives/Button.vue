@@ -50,7 +50,7 @@ defineProps({
     :size="size"
     :variant="variant"
     :disabled="disabled || loading"
-    class=""
+    class="cursor-pointer"
     :ui="{ base: 'py-3 text-center justify-center' }"
   >
     <slot />
