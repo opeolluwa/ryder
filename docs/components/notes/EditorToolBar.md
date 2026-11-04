@@ -1,3 +1,9 @@
+---
+title: EditorToolBar
+description: "The formatting bar for Editor: undo/redo, text style, marks, lists, alignment, link, colour, emoji, image, table, divider, equations and collapsible sections."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/notes/EditorBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/notes/EditorBasic.vue";
 The formatting bar for [Editor](./Editor): undo/redo, text style, marks, lists,
 alignment, link, colour, emoji, image, table, divider, equations and collapsible
 sections, plus contextual table operations.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -31,6 +39,8 @@ import RyderEditorToolBar from "@opeolluwa/ryder/components/notes/EditorToolBar.
 
 ## Examples
 
+### Basic
+
 The live bar (inside an Editor, which is where it belongs):
 
 <Demo>
@@ -41,17 +51,19 @@ The live bar (inside an Editor, which is where it belongs):
 
 <<< @/examples/notes/EditorBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `uploadImage` | `(file: File) => Promise<string>` | — | Uploads a picked image and resolves to its public URL; falls back to `POST /api/upload`. This is the only prop. |
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 None.
 

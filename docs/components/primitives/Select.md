@@ -1,3 +1,9 @@
+---
+title: Select
+description: "Dropdown select built on Nuxt UI's USelectMenu with form field wrapper, v-model support, and optional creatable mode."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/primitives/SelectBasic.vue";
 import Case from "../../examples/primitives/SelectCase.vue";
@@ -6,6 +12,8 @@ import Case from "../../examples/primitives/SelectCase.vue";
 # Select
 
 Dropdown select built on Nuxt UI's `USelectMenu` with form field wrapper, v-model support, and optional creatable mode.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -22,6 +30,8 @@ const value = ref("");
 ```
 
 ## Examples
+
+### Basic
 
 ### Basic
 
@@ -45,7 +55,9 @@ Allows typing new values not in items; emits `@create` so parent can append.
 
 <<< @/examples/primitives/SelectCase.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -64,13 +76,13 @@ Allows typing new values not in items; emits `@create` so parent can append.
 | `labelClass` | `string` | `undefined` | Additional classes for label. |
 | `creatable` | `boolean` | `false` | Allow creating new items; emits `create` event. |
 
-## Emits
+### Emits
 
 | Event | Payload | When |
 | ---- | ----- | ------- |
 | `create` | `[term: string]` | When a new item is created in creatable mode. |
 
-## Slots
+### Slots
 
 None.
 

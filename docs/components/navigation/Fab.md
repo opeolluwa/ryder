@@ -1,3 +1,9 @@
+---
+title: Fab
+description: "Floating action button — konsta's kFab in ryder colours, fixed to the bottom-right of the viewport and hidden at lg and up (the desktop shell has its own chrome)."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/navigation/FabBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/navigation/FabBasic.vue";
 Floating action button — konsta's `kFab` in ryder colours, fixed to the
 bottom-right of the viewport and hidden at `lg` and up (the desktop shell has
 its own chrome).
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -20,6 +28,8 @@ import RyderFab from "@opeolluwa/ryder/components/navigation/Fab.vue"
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -28,19 +38,21 @@ import RyderFab from "@opeolluwa/ryder/components/navigation/Fab.vue"
 
 <<< @/examples/navigation/FabBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `icon` | `string \| undefined` | `"heroicons:plus"` | Icon rendered inside the button (ignored when the default slot is used). |
 
-## Emits
+### Emits
 
 | Event | Payload | When |
 | ----- | ------- | ---- |
 | `click` | `event: MouseEvent` | The button was tapped. |
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

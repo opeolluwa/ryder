@@ -1,3 +1,9 @@
+---
+title: Card
+description: "Simple container for grouping content with optional title, header, and trailing slots."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/primitives/CardBasic.vue";
 </script>
@@ -5,6 +11,8 @@ import Basic from "../../examples/primitives/CardBasic.vue";
 # Card
 
 Simple container for grouping content with optional title, header, and trailing slots.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -20,6 +28,8 @@ import RyderCard from "@opeolluwa/ryder/components/primitives/Card.vue"
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -28,17 +38,19 @@ import RyderCard from "@opeolluwa/ryder/components/primitives/Card.vue"
 
 <<< @/examples/primitives/CardBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `title` | `string` | `undefined` | Optional card title displayed in header. |
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

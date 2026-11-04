@@ -68,6 +68,29 @@ export default defineConfig({
       { text: "GitHub", link: "https://github.com/opeolluwa/ryder" },
     ],
 
+    search: {
+      provider: "local",
+    },
+
+    outline: {
+      level: [2, 3],
+    },
+
+    editLink: {
+      pattern: "https://github.com/opeolluwa/ryder/edit/main/docs/:path",
+      text: "Edit this page on GitHub",
+    },
+
+    lastUpdated: {
+      text: "Last updated",
+      formatOptions: { dateStyle: "medium", timeStyle: "short" },
+    },
+
+    footer: {
+      message: "Released under the UNLICENSED terms in the repository.",
+      copyright: "Shared Nuxt 4 UI kit for consumer apps.",
+    },
+
     sidebar: [
       {
         text: "Guide",
@@ -75,6 +98,7 @@ export default defineConfig({
           { text: "Getting started", link: "/guide/getting-started" },
           { text: "Layouts", link: "/guide/layouts" },
           { text: "Search page", link: "/guide/pages" },
+          { text: "Theming", link: "/guide/theming" },
           {
             text: "Composables, utils & types",
             link: "/guide/composables-utils",
@@ -199,6 +223,61 @@ export default defineConfig({
             link: "/components/notes/PullToRefresh",
           },
           { text: "ToolBarWrapper", link: "/components/notes/ToolBarWrapper" },
+        ],
+      },
+      {
+        text: "Messaging",
+        collapsed: true,
+        items: [
+          {
+            text: "MessagingList",
+            link: "/components/messaging/MessagingList",
+          },
+          {
+            text: "MessagingListItem",
+            link: "/components/messaging/MessagingListItem",
+          },
+          {
+            text: "MessagingHeader",
+            link: "/components/messaging/MessagingHeader",
+          },
+          {
+            text: "MessagingThread",
+            link: "/components/messaging/MessagingThread",
+          },
+          {
+            text: "MessagingPreview",
+            link: "/components/messaging/MessagingPreview",
+          },
+          {
+            text: "MessagingForm",
+            link: "/components/messaging/MessagingForm",
+          },
+          {
+            text: "MessagingCreateDialog",
+            link: "/components/messaging/MessagingCreateDialog",
+          },
+          {
+            text: "MessagingDialog",
+            link: "/components/messaging/MessagingDialog",
+          },
+        ],
+      },
+      {
+        text: "Notifications",
+        collapsed: true,
+        items: [
+          {
+            text: "NotificationCard",
+            link: "/components/notifications/NotificationCard",
+          },
+        ],
+      },
+      {
+        text: "Quotes",
+        collapsed: true,
+        items: [
+          { text: "QuotesCard", link: "/components/quotes/QuotesCard" },
         ],
       },
     ],

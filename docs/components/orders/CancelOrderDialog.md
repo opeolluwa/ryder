@@ -1,3 +1,9 @@
+---
+title: CancelOrderDialog
+description: "Confirmation dialog for cancelling an order, built on the shared Dialog and Button."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/orders/CancelOrderDialogBasic.vue";
 </script>
@@ -9,6 +15,8 @@ Confirmation dialog for cancelling an order, built on the shared
 Before it is confirmed it states the cancellation's impact — lines, units,
 payment and delivery — so nobody has to open the order to find out what is
 about to be called off.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -27,6 +35,8 @@ import RyderCancelOrderDialog from "@opeolluwa/ryder/components/orders/CancelOrd
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -35,7 +45,9 @@ import RyderCancelOrderDialog from "@opeolluwa/ryder/components/orders/CancelOrd
 
 <<< @/examples/orders/CancelOrderDialogBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -44,13 +56,13 @@ import RyderCancelOrderDialog from "@opeolluwa/ryder/components/orders/CancelOrd
 | `loading` | `boolean` | — | Disables the confirm button and shows its spinner while the request runs. |
 | `formatMoney` | `(amount: string \| number, currency: string) => string` | `formatPrice` | Formatter for the order total shown in the header row. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `confirm` | `[identifier: string]` | "Cancel order" was clicked and `order` is set; payload is `order.identifier`. |
 
-## Slots
+### Slots
 
 None.
 

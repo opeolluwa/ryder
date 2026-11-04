@@ -1,30 +1,20 @@
+---
+title: ComplaintDialog
+description: A naming alias for ComplaintCreateDialog that forwards every prop and listener through $attrs.
+outline: deep
+---
+
+<script setup lang="ts">
+import Basic from "../../examples/complaints/ComplaintDialogBasic.vue";
+</script>
+
 # ComplaintDialog
 
 A naming alias for [ComplaintCreateDialog](./ComplaintCreateDialog): an
 11-line wrapper that sets `inheritAttrs: false` and re-binds everything with
 `v-bind="$attrs"`.
 
-```vue
-<script setup lang="ts">
-import ComplaintCreateDialog from "./ComplaintCreateDialog.vue";
-
-defineOptions({
-  inheritAttrs: false,
-});
-</script>
-
-<template>
-  <ComplaintCreateDialog v-bind="$attrs" />
-</template>
-```
-
-There is no live demo on this page — it would be the
-[ComplaintCreateDialog demo](./ComplaintCreateDialog#examples) verbatim.
-
-## Examples
-
-Minimal usage; every prop and event behaves exactly as on
-[ComplaintCreateDialog](./ComplaintCreateDialog):
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -51,22 +41,43 @@ function onSubmit(payload: CreateComplaintPayload) {
 </template>
 ```
 
-## Props
+## Examples
+
+### Basic
+
+Every prop and event behaves exactly as on
+[ComplaintCreateDialog](./ComplaintCreateDialog).
+
+<Demo>
+
+<Basic />
+
+</Demo>
+
+<<< @/examples/complaints/ComplaintDialogBasic.vue
+
+## API Reference
+
+### Props
 
 None of its own — inherited entirely through `$attrs`. See the
 [ComplaintCreateDialog props table](./ComplaintCreateDialog#props): `open`
 (`v-model`), `loading` (required), `orders`, `ordersLoading`,
 `orderStatusLabel`, `orderItemCount`.
 
-## Emits
+### Emits
 
 None declared — `update:open`, `submit` and `cancel` pass through `$attrs`.
 See [ComplaintCreateDialog emits](./ComplaintCreateDialog#emits).
 
-## Slots
+### Slots
 
 None. The template has no slot outlet (and none is forwarded); the wrapped
 dialog declares none either.
+
+### Expose
+
+None. The inner dialog's `reset()` is not forwarded.
 
 ## Notes
 
@@ -80,3 +91,8 @@ dialog declares none either.
   imperative API.
 - Inherits [ComplaintForm's known render bug](./ComplaintForm#notes)
   through the wrapped chain.
+
+## Related
+
+- [ComplaintCreateDialog](./ComplaintCreateDialog)
+- [ComplaintCreateForm](./ComplaintCreateForm)

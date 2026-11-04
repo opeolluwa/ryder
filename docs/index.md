@@ -5,7 +5,7 @@ layout: home
 hero:
   name: "@opeolluwa/ryder"
   text: ""
-  tagline: Consumer apps keep their own thin adapters; the kit never imports app code.
+  tagline: Design System for SaaS
   actions:
     - theme: brand
       text: Getting started
@@ -17,7 +17,7 @@ hero:
 features:
   - icon: 🧱
     title: Components & layouts
-    details: 33 components under the Ryder* prefix plus RyderDefault, RyderAuth, RyderShell and RyderSettings — every surface app-aware through props/slots.
+    details: 46 components under the Ryder* prefix plus RyderDefault, RyderAuth, RyderShell and RyderSettings — every surface app-aware through props/slots.
   - icon: 🔌
     title: Composables & types
     details: Auth composables over an AuthSession adapter, shared utils, and domain types that mirror the backend's OpenAPI document.

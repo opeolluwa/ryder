@@ -1,3 +1,9 @@
+---
+title: AuthHeader
+description: "The heading block at the top of the auth screens: LeadingText for the title and SubText for the subtitle, wrapped once."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/auth/AuthHeaderBasic.vue";
 </script>
@@ -6,6 +12,8 @@ import Basic from "../../examples/auth/AuthHeaderBasic.vue";
 
 The heading block at the top of the auth screens: `LeadingText` for the title
 and `SubText` for the subtitle, wrapped once.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -22,6 +30,8 @@ import RyderAuthHeader from "@opeolluwa/ryder/components/auth/AuthHeader.vue"
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -30,18 +40,20 @@ import RyderAuthHeader from "@opeolluwa/ryder/components/auth/AuthHeader.vue"
 
 <<< @/examples/auth/AuthHeaderBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `title` | `string` | `""` | Heading, rendered through `LeadingText`. |
 | `subtitle` | `string` | `""` | Supporting line, rendered through `SubText`. |
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 None.
 

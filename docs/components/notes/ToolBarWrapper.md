@@ -1,3 +1,9 @@
+---
+title: ToolBarWrapper
+description: "The fixed bottom bar that hosts a toolbar: full width, safe-area padded, and lifted by the --kb-inset CSS variable when the on-screen keyboard is up."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/notes/ToolBarWrapperBasic.vue";
 </script>
@@ -6,6 +12,8 @@ import Basic from "../../examples/notes/ToolBarWrapperBasic.vue";
 
 The fixed bottom bar that hosts a toolbar: full width, safe-area padded, and
 lifted by the `--kb-inset` CSS variable when the on-screen keyboard is up.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -22,6 +30,8 @@ import RyderToolBarWrapper from "@opeolluwa/ryder/components/notes/ToolBarWrappe
 
 ## Examples
 
+### Basic
+
 Normally only used inside [EditorToolBar](./EditorToolBar), which wraps its
 buttons in it — the standalone demo below pins the bar inside the box:
 
@@ -33,15 +43,17 @@ buttons in it — the standalone demo below pins the bar inside the box:
 
 <<< @/examples/notes/ToolBarWrapperBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 None.
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

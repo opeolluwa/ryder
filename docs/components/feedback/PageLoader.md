@@ -1,3 +1,9 @@
+---
+title: PageLoader
+description: "A centered, CSS-only spinner for the first paint of a route (or any blocking load)."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/feedback/PageLoaderBasic.vue";
 </script>
@@ -6,6 +12,8 @@ import Basic from "../../examples/feedback/PageLoaderBasic.vue";
 
 A centered, CSS-only spinner for the first paint of a route (or any blocking
 load). No state, no props — drop it in and remove it when the data arrives.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -19,6 +27,8 @@ import RyderPageLoader from "@opeolluwa/ryder/components/feedback/PageLoader.vue
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -27,15 +37,17 @@ import RyderPageLoader from "@opeolluwa/ryder/components/feedback/PageLoader.vue
 
 <<< @/examples/feedback/PageLoaderBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 None.
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 None.
 

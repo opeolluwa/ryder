@@ -1,3 +1,9 @@
+---
+title: ComplaintHeader
+description: "The conversation header: subject, status pill, received date, complainer identity, related order, and a staff status menu limited to legal transitions."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/complaints/ComplaintHeaderBasic.vue";
 </script>
@@ -8,6 +14,8 @@ The top bar of the conversation pane: subject, status pill, received date, the
 complainer's identity, the related order, and — for staff — a status menu that
 only offers moves the API would accept. [ComplaintPreview](./ComplaintPreview)
 embeds it, but it is usable on its own.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -25,6 +33,8 @@ const status = ref<ComplaintWritableStatus | null>(null)
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -33,7 +43,9 @@ const status = ref<ComplaintWritableStatus | null>(null)
 
 <<< @/examples/complaints/ComplaintHeaderBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -41,13 +53,13 @@ const status = ref<ComplaintWritableStatus | null>(null)
 | `statusMenu` | `boolean` | `true` | Offer the "update status" dropdown. Off for the customer-facing app. |
 | `showCustomer` | `boolean` | `true` | Show the complainer's avatar, name and email. The customer-facing app hides it. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `setStatus` | `[status: ComplaintWritableStatus]` | A menu item was picked. Legal transitions only: `in_progress`, `resolved` or `closed` — never `open`. |
 
-## Slots
+### Slots
 
 None.
 

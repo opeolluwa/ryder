@@ -1,3 +1,9 @@
+---
+title: PageHeader
+description: "The desktop page title row: heading, subtitle, and an optional CTA button on the right."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/feedback/PageHeaderBasic.vue";
 </script>
@@ -6,6 +12,8 @@ import Basic from "../../examples/feedback/PageHeaderBasic.vue";
 
 The desktop page title row: heading, subtitle, and an optional CTA button on
 the right.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -24,6 +32,8 @@ import RyderPageHeader from "@opeolluwa/ryder/components/feedback/PageHeader.vue
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -32,7 +42,9 @@ import RyderPageHeader from "@opeolluwa/ryder/components/feedback/PageHeader.vue
 
 <<< @/examples/feedback/PageHeaderBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -40,13 +52,13 @@ import RyderPageHeader from "@opeolluwa/ryder/components/feedback/PageHeader.vue
 | `subtitle` | `string` | `""` | Subtext under the heading. |
 | `ctaText` | `string` | `""` | CTA button label; the button only renders when this is non-empty. |
 
-## Emits
+### Emits
 
 | Event | Payload | When |
 | ----- | ------- | ---- |
 | `cta` | — | The CTA button was tapped. |
 
-## Slots
+### Slots
 
 None.
 

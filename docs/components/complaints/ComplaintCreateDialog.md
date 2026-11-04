@@ -1,3 +1,9 @@
+---
+title: ComplaintCreateDialog
+description: "A modal \"New complaint\" dialog: CreateDialog provides the chrome, ComplaintForm the body, and the dialog's footer drives the form's validation."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/complaints/ComplaintCreateDialogBasic.vue";
 </script>
@@ -8,6 +14,8 @@ A modal "New complaint" dialog: [CreateDialog](/components/feedback/CreateDialog
 provides the chrome, [ComplaintForm](./ComplaintForm) the body, and the
 dialog's footer drives the form's validation. Open it with `v-model:open` and
 listen for `submit` with the validated payload.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -36,6 +44,8 @@ function onSubmit(payload: CreateComplaintPayload) {
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -44,7 +54,9 @@ function onSubmit(payload: CreateComplaintPayload) {
 
 <<< @/examples/complaints/ComplaintCreateDialogBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -55,7 +67,7 @@ function onSubmit(payload: CreateComplaintPayload) {
 | `orderStatusLabel` | `(status: any) => string` | — | Option-label status formatter; the form's default applies when omitted. |
 | `orderItemCount` | `(order: any) => number` | — | Option-label item counter; the form's default applies when omitted. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
@@ -63,7 +75,7 @@ function onSubmit(payload: CreateComplaintPayload) {
 | `submit` | `[payload: CreateComplaintPayload]` | The form validated; payload relayed from [ComplaintForm](./ComplaintForm). |
 | `cancel` | `[]` | Cancel clicked: the dialog closes, the form resets, then this fires. |
 
-## Slots
+### Slots
 
 None. The dialog's title, description and footer labels are fixed
 (`New complaint` / `Tell us what went wrong…` / `Submit complaint`).

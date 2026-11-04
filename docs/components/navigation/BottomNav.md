@@ -1,3 +1,9 @@
+---
+title: BottomNav
+description: "The mobile tab bar: a fixed, lg:hidden bar pinned to the bottom of the viewport with labels, icons and per-item badges."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/navigation/BottomNavBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/navigation/BottomNavBasic.vue";
 The mobile tab bar: a fixed, `lg:hidden` bar pinned to the bottom of the
 viewport with labels, icons and per-item badges. Tabs either navigate (`to`) or
 emit (`action`), and the app owns the item list.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -20,6 +28,8 @@ import RyderBottomNav from "@opeolluwa/ryder/components/navigation/BottomNav.vue
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -28,7 +38,9 @@ import RyderBottomNav from "@opeolluwa/ryder/components/navigation/BottomNav.vue
 
 <<< @/examples/navigation/BottomNavBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -45,13 +57,13 @@ import RyderBottomNav from "@opeolluwa/ryder/components/navigation/BottomNav.vue
 | `activeIcon` | `string?` | Swap in while the item is active (filled variant, e.g.). |
 | `action` | `string?` | Non-navigation item — emitted through `select` instead of being routed. |
 
-## Emits
+### Emits
 
 | Event | Payload | When |
 | ----- | ------- | ---- |
 | `select` | `item: BottomNavItem` | An `action` item was tapped. Never fires for `to` items (those navigate). |
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

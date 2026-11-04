@@ -1,3 +1,9 @@
+---
+title: ComplaintListItem
+description: "One selectable row in the complaints inbox: status dot, headline, timestamp, description excerpt and an optional reply badge."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/complaints/ComplaintListItemBasic.vue";
 </script>
@@ -8,6 +14,8 @@ One selectable row in the complaints inbox: status dot, headline, timestamp,
 description excerpt and an optional reply badge. It is a native `<button>`, so
 selection is keyboard-accessible out of the box; [ComplaintList](./ComplaintList)
 renders these for you, but it stands alone too.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -26,6 +34,8 @@ import RyderComplaintListItem from "@opeolluwa/ryder/components/complaints/Compl
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -34,7 +44,9 @@ import RyderComplaintListItem from "@opeolluwa/ryder/components/complaints/Compl
 
 <<< @/examples/complaints/ComplaintListItemBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -44,13 +56,13 @@ import RyderComplaintListItem from "@opeolluwa/ryder/components/complaints/Compl
 | `viewed` | `boolean` | `true` | Whether the complainer has been seen: `false` swaps the headline from `font-medium` to `font-semibold`. |
 | `showCustomer` | `boolean` | `true` | Headline is the customer name with the subject on the second line; `false` promotes the subject to the headline. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `select` | `[identifier: string]` | The row was clicked; payload is `row.complaint.identifier`. |
 
-## Slots
+### Slots
 
 None.
 

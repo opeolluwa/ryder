@@ -1,3 +1,9 @@
+---
+title: Editor
+description: "Rich-text notes editor (domternal) with headings, lists, tables, links, code, equations, emoji and images."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/notes/EditorBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/notes/EditorBasic.vue";
 Rich-text notes editor (domternal) with headings, lists, tables, links, code,
 equations, emoji and images. The HTML lives in a `v-model` string; legacy
 Markdown notes are converted to HTML on load and every update is sanitised.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -25,6 +33,8 @@ import RyderEditorToolBar from "@opeolluwa/ryder/components/notes/EditorToolBar.
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -33,17 +43,19 @@ import RyderEditorToolBar from "@opeolluwa/ryder/components/notes/EditorToolBar.
 
 <<< @/examples/notes/EditorBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `uploadImage` | `(file: File) => Promise<string>` | — | Uploads a picked image and resolves to its public URL; falls back to `POST /api/upload`. |
 
-## Emits
+### Emits
 
 None — the HTML document is exchanged through `v-model` (`string`).
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

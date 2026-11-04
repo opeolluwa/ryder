@@ -1,3 +1,9 @@
+---
+title: OrderStatusBadge
+description: "Small uppercase pill for an order's status, coloured by what the status means rather than by its name."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/orders/OrderStatusBadgeBasic.vue";
 </script>
@@ -6,6 +12,8 @@ import Basic from "../../examples/orders/OrderStatusBadgeBasic.vue";
 
 Small uppercase pill for an order's status, coloured by what the status means
 rather than by its name. A single `<span>` driven by the shared status utils.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -19,6 +27,8 @@ import RyderOrderStatusBadge from "@opeolluwa/ryder/components/orders/OrderStatu
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -27,18 +37,20 @@ import RyderOrderStatusBadge from "@opeolluwa/ryder/components/orders/OrderStatu
 
 <<< @/examples/orders/OrderStatusBadgeBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `status` | `OrderStatus \| null` | — | Status to badge; `null` resolves to `pending`. |
 | `labels` | `Partial<Record<OrderStatus, string>>` | — | Per-status label overrides; statuses omitted keep the canonical label. |
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 None.
 

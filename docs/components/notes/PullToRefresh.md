@@ -1,3 +1,9 @@
+---
+title: PullToRefresh
+description: "Touch pull-to-refresh gesture for a scrollable area: pulling from the top shows a konsta preloader, and releasing past the threshold emits refresh."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/notes/PullToRefreshBasic.vue";
 </script>
@@ -6,6 +12,8 @@ import Basic from "../../examples/notes/PullToRefreshBasic.vue";
 
 Touch pull-to-refresh gesture for a scrollable area: pulling from the top shows
 a konsta preloader, and releasing past the threshold emits `refresh`.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -23,6 +31,8 @@ import RyderPullToRefresh from "@opeolluwa/ryder/components/notes/PullToRefresh.
 
 ## Examples
 
+### Basic
+
 Touch-only — this demo does nothing with a mouse:
 
 <Demo>
@@ -33,19 +43,21 @@ Touch-only — this demo does nothing with a mouse:
 
 <<< @/examples/notes/PullToRefreshBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
 | `threshold` | `number` | `64` | Pull distance, in pixels, that triggers a refresh. Read **once** at setup — changing it later has no effect. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `refresh` | `[]` | The gesture completed; run your reload here. |
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

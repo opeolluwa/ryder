@@ -1,3 +1,9 @@
+---
+title: SideNav
+description: "The mobile menu: a left USlideover holding the user header, nav items, a light/dark toggle and a sign-out row."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/navigation/SideNavBasic.vue";
 </script>
@@ -8,6 +14,8 @@ The mobile menu: a left `USlideover` holding the user header, nav items, a
 light/dark toggle and a sign-out row. Its open state lives in
 `useMobileNav()` rather than in a prop, so the app's hamburger and this drawer
 stay in sync.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -21,6 +29,8 @@ import RyderSideNav from "@opeolluwa/ryder/components/navigation/SideNav.vue"
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -29,7 +39,9 @@ import RyderSideNav from "@opeolluwa/ryder/components/navigation/SideNav.vue"
 
 <<< @/examples/navigation/SideNavBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -47,14 +59,14 @@ import RyderSideNav from "@opeolluwa/ryder/components/navigation/SideNav.vue"
 | `badge` | `string \| number \| null?` | Trailing count pill (unread count, cart items, …). |
 | `action` | `string?` | Non-navigation entry — closes the drawer and emits `action` with this name. |
 
-## Emits
+### Emits
 
 | Event | Payload | When |
 | ----- | ------- | ---- |
 | `action` | `name: string` | An `action` item was tapped — `item.action ?? item.label`, after the drawer closes. |
 | `logout` | — | The built-in "Sign out" row was tapped — the app performs its own teardown. |
 
-## Slots
+### Slots
 
 None.
 

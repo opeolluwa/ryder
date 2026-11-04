@@ -1,3 +1,9 @@
+---
+title: Dialog
+description: "A dialog built on Nuxt UI's UModal, so one component serves desktop and mobile."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/feedback/DialogBasic.vue";
 import Scrollable from "../../examples/feedback/DialogScrollable.vue";
@@ -7,6 +13,8 @@ import Scrollable from "../../examples/feedback/DialogScrollable.vue";
 
 A dialog built on Nuxt UI's `UModal`, so one component serves desktop and
 mobile.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -24,6 +32,8 @@ import RyderDialog from "@opeolluwa/ryder/components/feedback/Dialog.vue"
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -31,6 +41,8 @@ import RyderDialog from "@opeolluwa/ryder/components/feedback/Dialog.vue"
 </Demo>
 
 <<< @/examples/feedback/DialogBasic.vue
+
+### Scrollable
 
 With `scrollable` the header and footer stay pinned while the body scrolls,
 and the `header`/`footer` slots show their `close` prop:
@@ -43,7 +55,9 @@ and the `header`/`footer` slots show their `close` prop:
 
 <<< @/examples/feedback/DialogScrollable.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -54,7 +68,7 @@ and the `header`/`footer` slots show their `close` prop:
 | `scrollable` | `boolean \| undefined` | `undefined` | Pin the modal header/footer while the body scrolls. No local default — `undefined` falls through to `UModal`, whose own default is `false`. |
 | `size` | `string \| undefined` | `undefined` | Maps to a max width: `sm`→`max-w-sm`, `md`→`max-w-md`, `lg`→`max-w-lg`, `xl`→`max-w-2xl`. Other values add no width class. |
 
-## Emits
+### Emits
 
 | Event | Payload | When |
 | ----- | ------- | ---- |
@@ -62,7 +76,7 @@ and the `header`/`footer` slots show their `close` prop:
 | `after:leave` | — | The close transition finished. |
 | `close:prevent` | — | A close was blocked because `dismissible` is `false`. |
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

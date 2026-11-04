@@ -1,3 +1,9 @@
+---
+title: ComplaintList
+description: "The complaints inbox sidebar: a tab bar over the rows, a loader while fetching and two empty states, all in one column."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/complaints/ComplaintListBasic.vue";
 </script>
@@ -8,6 +14,8 @@ The complaints inbox sidebar: a tab bar over the rows, a loader while fetching
 and two empty states, all in one column. Rows render through
 [ComplaintListItem](./ComplaintListItem); the parent owns filtering — the
 component renders `rows` exactly as handed over.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -36,6 +44,8 @@ const selectedId = ref<string | null>(null)
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -44,7 +54,9 @@ const selectedId = ref<string | null>(null)
 
 <<< @/examples/complaints/ComplaintListBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -58,14 +70,14 @@ const selectedId = ref<string | null>(null)
 | `tabs` | `ComplaintsInboxTab[]` | `[...COMPLAINTS_INBOX_TABS]` | Which tabs exist — by default `all`, `open`, `resolved`. Pass `[]` to drop the tab bar (e.g. a customer's short history). |
 | `showCustomer` | `boolean` | `true` | Forwarded to each row: headline by customer vs by subject. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `update:activeTab` | `[value: ComplaintsInboxTab]` | A tab was picked; write it back into `activeTab`. |
 | `select` | `[identifier: string]` | A row was clicked. |
 
-## Slots
+### Slots
 
 None.
 

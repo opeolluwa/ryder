@@ -1,3 +1,9 @@
+---
+title: ComplaintThread
+description: "The message history plus reply composer for one complaint."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/complaints/ComplaintThreadBasic.vue";
 </script>
@@ -8,6 +14,8 @@ The message history plus reply composer for one complaint. The complaint
 itself is the opening message, replies are sorted chronologically, and the
 component is stateful: it owns the draft, decides which side each message is
 on, and clears the composer once the parent confirms a send.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -35,6 +43,8 @@ const sentCount = ref(0)
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -43,7 +53,9 @@ const sentCount = ref(0)
 
 <<< @/examples/complaints/ComplaintThreadBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -56,13 +68,13 @@ const sentCount = ref(0)
 | `sentCount` | `number` | `0` | Bumped by the parent on each successful send; a change clears the composer and scrolls to the latest message. |
 | `isSelfMessage` | `(senderEmail: string) => boolean` | matches `self.email` (trim + case-insensitive) | Decides which side a reply belongs to — pass a custom matcher to compare against the complaint's customer instead. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `send` | `[body: string]` | The trimmed composer text was submitted. Ignored while `sending` or when the draft is blank. |
 
-## Slots
+### Slots
 
 None.
 

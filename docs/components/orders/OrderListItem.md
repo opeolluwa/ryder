@@ -1,3 +1,9 @@
+---
+title: OrderListItem
+description: "One tappable order row: product name, status badge, unit/item counts, headline total, payment reference and a truncated identifier."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/orders/OrderListItemBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/orders/OrderListItemBasic.vue";
 One tappable order row: product name, status badge, unit/item counts, headline
 total, payment reference and a truncated identifier. It is the row
 [OrderList](./OrderList) renders, and can be used standalone.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -24,6 +32,8 @@ import RyderOrderListItem from "@opeolluwa/ryder/components/orders/OrderListItem
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -32,7 +42,9 @@ import RyderOrderListItem from "@opeolluwa/ryder/components/orders/OrderListItem
 
 <<< @/examples/orders/OrderListItemBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -40,13 +52,13 @@ import RyderOrderListItem from "@opeolluwa/ryder/components/orders/OrderListItem
 | `selected` | `boolean` | — | Tints the row and sets `aria-current="true"`. |
 | `labels` | `Partial<Record<OrderStatus, string>>` | `() => ({})` | Status label overrides for the embedded badge. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `select` | `[identifier: string]` | The row was clicked; payload is `order.identifier`. |
 
-## Slots
+### Slots
 
 None.
 

@@ -1,31 +1,21 @@
+---
+title: ComplaintCreateForm
+description: A naming alias for ComplaintForm that forwards every prop and listener through $attrs.
+outline: deep
+---
+
+<script setup lang="ts">
+import Basic from "../../examples/complaints/ComplaintCreateFormBasic.vue";
+</script>
+
 # ComplaintCreateForm
 
 A naming alias for [ComplaintForm](./ComplaintForm): an 11-line wrapper that
-sets `inheritAttrs: false` and re-binds everything with `v-bind="$attrs"`.
+sets `inheritAttrs: false` and re-binds everything with `v-bind="$attrs"`. Use
+it where the semantic name reads better ("this surface creates a complaint")
+while keeping one source of truth for the form itself.
 
-```vue
-<script setup lang="ts">
-import ComplaintForm from "./ComplaintForm.vue";
-
-defineOptions({
-  inheritAttrs: false,
-});
-</script>
-
-<template>
-  <ComplaintForm v-bind="$attrs" />
-</template>
-```
-
-Use it where the semantic name reads better ("this surface creates a
-complaint") while keeping one source of truth for the form itself. There is no
-live demo on this page — it would be the
-[ComplaintForm demo](./ComplaintForm#examples) verbatim, bug included.
-
-## Examples
-
-Minimal usage — every prop and event behaves exactly as on
-[ComplaintForm](./ComplaintForm):
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -50,21 +40,42 @@ function onSubmit(payload: CreateComplaintPayload) {
 </template>
 ```
 
-## Props
+## Examples
+
+### Basic
+
+Every prop and event behaves exactly as on
+[ComplaintForm](./ComplaintForm).
+
+<Demo>
+
+<Basic />
+
+</Demo>
+
+<<< @/examples/complaints/ComplaintCreateFormBasic.vue
+
+## API Reference
+
+### Props
 
 None of its own — inherited entirely through `$attrs`. See the
 [ComplaintForm props table](./ComplaintForm#props): `loading` (required),
 `showActions`, `orders`, `ordersLoading`, `orderStatusLabel`, `orderItemCount`.
 
-## Emits
+### Emits
 
 None declared — `submit` and `cancel` pass through `$attrs` to the wrapped
 form. See [ComplaintForm emits](./ComplaintForm#emits).
 
-## Slots
+### Slots
 
 None. The template has no slot outlet, so slot content would be dropped — the
 wrapped form declares none either.
+
+### Expose
+
+None. The wrapped form's `reset()` / `submit()` are not re-exposed.
 
 ## Notes
 
@@ -78,3 +89,8 @@ wrapped form declares none either.
   imperatively (the dialog does).
 - Inherits [ComplaintForm's known render bug](./ComplaintForm#notes) — this
   alias neither fixes nor worsens it.
+
+## Related
+
+- [ComplaintForm](./ComplaintForm)
+- [ComplaintDialog](./ComplaintDialog)

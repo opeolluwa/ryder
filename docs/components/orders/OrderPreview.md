@@ -1,3 +1,9 @@
+---
+title: OrderPreview
+description: "Detail pane for the selected order: status, placement time, line items with per-currency totals, delivery, and an actions slot for the next step."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/orders/OrderPreviewBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/orders/OrderPreviewBasic.vue";
 Detail pane for the order selected in an [OrderList](./OrderList): status,
 placement time, line items with per-currency totals, the delivery block, and an
 `actions` slot for whatever the console needs to do next.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -24,6 +32,8 @@ import RyderOrderPreview from "@opeolluwa/ryder/components/orders/OrderPreview.v
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -32,7 +42,9 @@ import RyderOrderPreview from "@opeolluwa/ryder/components/orders/OrderPreview.v
 
 <<< @/examples/orders/OrderPreviewBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -41,11 +53,11 @@ import RyderOrderPreview from "@opeolluwa/ryder/components/orders/OrderPreview.v
 | `labels` | `Partial<Record<OrderStatus, string>>` | `() => ({})` | Status label overrides for the header badge. |
 | `formatMoney` | `(amount: string \| number, currency: string) => string` | `formatPrice` | Money formatter used for line, unit and total figures. |
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

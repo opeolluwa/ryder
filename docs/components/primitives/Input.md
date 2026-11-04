@@ -1,3 +1,9 @@
+---
+title: Input
+description: "Form input field built on Nuxt UI with label, hint, and error handling."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/primitives/InputBasic.vue";
 </script>
@@ -5,6 +11,8 @@ import Basic from "../../examples/primitives/InputBasic.vue";
 # Input
 
 Form input field built on Nuxt UI with label, hint, and error handling. For password fields use `RyderPasswordInput`.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -21,6 +29,8 @@ const email = ref("");
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -29,7 +39,9 @@ const email = ref("");
 
 <<< @/examples/primitives/InputBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -45,11 +57,11 @@ const email = ref("");
 | `inputClass` | `string` | `undefined` | Additional classes for input base. |
 | `labelClass` | `string` | `undefined` | Additional classes for label. |
 
-## Emits
+### Emits
 
 None declared — model updates and native events fall through.
 
-## Slots
+### Slots
 
 None.
 

@@ -1,3 +1,9 @@
+---
+title: Textarea
+description: "Multi-line text input built on Nuxt UI's UTextarea with form field wrapper."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/primitives/TextareaBasic.vue";
 </script>
@@ -5,6 +11,8 @@ import Basic from "../../examples/primitives/TextareaBasic.vue";
 # Textarea
 
 Multi-line text input built on Nuxt UI's `UTextarea` with form field wrapper.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -21,6 +29,8 @@ const message = ref("");
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -29,7 +39,9 @@ const message = ref("");
 
 <<< @/examples/primitives/TextareaBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -41,11 +53,11 @@ const message = ref("");
 | `rows` | `number` | `undefined` | Number of rows. |
 | `labelClass` | `string` | `undefined` | Additional classes for label. |
 
-## Emits
+### Emits
 
 None declared — model updates fall through.
 
-## Slots
+### Slots
 
 None.
 

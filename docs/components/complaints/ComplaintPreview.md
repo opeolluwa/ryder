@@ -1,3 +1,9 @@
+---
+title: ComplaintPreview
+description: "The right-hand pane of the inbox: ComplaintHeader over ComplaintThread, or an empty state when nothing is selected."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/complaints/ComplaintPreviewBasic.vue";
 </script>
@@ -8,6 +14,8 @@ The right-hand pane of the inbox: [ComplaintHeader](./ComplaintHeader) over
 [ComplaintThread](./ComplaintThread), or an empty state when nothing is
 selected. It is a relay — it renders the two children and forwards their
 `setStatus` / `send` events untouched.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -30,6 +38,8 @@ import RyderComplaintPreview from "@opeolluwa/ryder/components/complaints/Compla
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -38,7 +48,9 @@ import RyderComplaintPreview from "@opeolluwa/ryder/components/complaints/Compla
 
 <<< @/examples/complaints/ComplaintPreviewBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -52,14 +64,14 @@ import RyderComplaintPreview from "@opeolluwa/ryder/components/complaints/Compla
 | `statusMenu` | `boolean` | `true` | Forwarded to the header: offer the status menu. |
 | `showCustomer` | `boolean` | `true` | Forwarded to the header: show the complainer's identity. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `setStatus` | `[status: ComplaintWritableStatus]` | Relayed unchanged from the header's status menu. |
 | `send` | `[body: string]` | Relayed unchanged from the thread composer. |
 
-## Slots
+### Slots
 
 None.
 

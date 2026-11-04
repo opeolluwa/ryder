@@ -1,3 +1,9 @@
+---
+title: LeadingText
+description: "The kit's primary heading: a capitalized <h1> with responsive sizing for auth headers, page sections and any title that needs no heading-level plumbing."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/typography/TypographyBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/typography/TypographyBasic.vue";
 The kit's primary heading: a capitalized `<h1>` with responsive sizing — used
 by `AuthHeader`, page sections and anywhere a title should read as a title
 without any heading-level plumbing.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -20,6 +28,8 @@ import RyderLeadingText from "@opeolluwa/ryder/components/typography/LeadingText
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -28,15 +38,17 @@ import RyderLeadingText from "@opeolluwa/ryder/components/typography/LeadingText
 
 <<< @/examples/typography/TypographyBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 None.
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

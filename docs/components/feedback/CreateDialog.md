@@ -1,3 +1,9 @@
+---
+title: CreateDialog
+description: "A form-style wrapper around Dialog: the default slot becomes the modal body and the footer is pre-built as Cancel / Submit buttons, so creating a record is a one-liner."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/feedback/CreateDialogBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/feedback/CreateDialogBasic.vue";
 A form-style wrapper around `Dialog`: the default slot becomes the modal body
 and the footer is pre-built as Cancel / Submit buttons, so creating a record is
 a one-liner.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -22,6 +30,8 @@ import RyderCreateDialog from "@opeolluwa/ryder/components/feedback/CreateDialog
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -30,7 +40,9 @@ import RyderCreateDialog from "@opeolluwa/ryder/components/feedback/CreateDialog
 
 <<< @/examples/feedback/CreateDialogBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -41,14 +53,14 @@ import RyderCreateDialog from "@opeolluwa/ryder/components/feedback/CreateDialog
 | `submitLabel` | `string` | `"Submit"` | Submit-button label. |
 | `cancelLabel` | `string` | `"Cancel"` | Cancel-button label. |
 
-## Emits
+### Emits
 
 | Event | Payload | When |
 | ----- | ------- | ---- |
 | `submit` | — | Submit was tapped. The dialog stays open — the app closes it. |
 | `cancel` | — | The footer's Cancel button was tapped; the dialog also closes itself. |
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

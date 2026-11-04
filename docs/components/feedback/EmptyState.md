@@ -1,3 +1,9 @@
+---
+title: EmptyState
+description: "A compact \"nothing found\" placeholder with an optional action button."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/feedback/EmptyStateBasic.vue";
 import Compact from "../../examples/feedback/EmptyStateCompact.vue";
@@ -7,6 +13,8 @@ import Compact from "../../examples/feedback/EmptyStateCompact.vue";
 
 A compact "nothing found" placeholder with an optional action button. Useful
 for empty lists/tabs (with `compact`) and full-page "no results" states.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -25,6 +33,8 @@ import RyderEmptyState from "@opeolluwa/ryder/components/feedback/EmptyState.vue
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -32,6 +42,8 @@ import RyderEmptyState from "@opeolluwa/ryder/components/feedback/EmptyState.vue
 </Demo>
 
 <<< @/examples/feedback/EmptyStateBasic.vue
+
+### Compact
 
 `compact` reduces the height from `h-[60vh]` to `h-56` (use inside a panel):
 
@@ -43,7 +55,9 @@ import RyderEmptyState from "@opeolluwa/ryder/components/feedback/EmptyState.vue
 
 <<< @/examples/feedback/EmptyStateCompact.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -54,13 +68,13 @@ import RyderEmptyState from "@opeolluwa/ryder/components/feedback/EmptyState.vue
 | `compact` | `boolean` | `false` | If `true`, `h-56`; else `h-[60vh]`. |
 | `ui` | `{ root?: string; title?: string; description?: string; iconWrapper?: string; icon?: string; actionLabel?: string }` | `{}` | Class-concat map merged onto each element of the block. |
 
-## Emits
+### Emits
 
 | Event | Payload | When |
 | ----- | ------- | ---- |
 | `action` | — | The action button was tapped. |
 
-## Slots
+### Slots
 
 None.
 

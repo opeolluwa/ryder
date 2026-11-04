@@ -1,3 +1,9 @@
+---
+title: OrderList
+description: "Master list of orders: an optional status tab bar above a scrollable column of OrderListItem rows."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/orders/OrderListBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/orders/OrderListBasic.vue";
 Master list of orders: an optional status tab bar above a scrollable column of
 [OrderListItem](./OrderListItem) rows. Loading, empty and selection states are
 all driven by props, so the parent keeps the data.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -28,6 +36,8 @@ import RyderOrderList from "@opeolluwa/ryder/components/orders/OrderList.vue"
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -36,7 +46,9 @@ import RyderOrderList from "@opeolluwa/ryder/components/orders/OrderList.vue"
 
 <<< @/examples/orders/OrderListBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -48,14 +60,14 @@ import RyderOrderList from "@opeolluwa/ryder/components/orders/OrderList.vue"
 | `labels` | `Partial<Record<OrderStatus, string>>` | `() => ({})` | Status label overrides, forwarded to each row's badge. |
 | `empty` | `{ title: string, description: string }` | `{ title: "No orders here", description: "" }` | Copy for the `EmptyState` shown when `rows` is empty. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `update:activeTab` | `[value: string]` | A tab was picked — bind it back with `v-model:activeTab`. |
 | `select` | `[identifier: string]` | A row was clicked; the identifier is `order.identifier`. |
 
-## Slots
+### Slots
 
 None.
 

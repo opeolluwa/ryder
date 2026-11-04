@@ -1,3 +1,9 @@
+---
+title: SubText
+description: "The muted supporting line: a plain <p> with a soft grey colour and a comfortable leading-6."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/typography/TypographyBasic.vue";
 </script>
@@ -7,6 +13,8 @@ import Basic from "../../examples/typography/TypographyBasic.vue";
 The muted supporting line: a plain `<p>` with a soft grey colour and a
 comfortable `leading-6`. Pair it with `LeadingText` for title + description
 blocks (see `AuthHeader`).
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -20,6 +28,8 @@ import RyderSubText from "@opeolluwa/ryder/components/typography/SubText.vue"
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -28,15 +38,17 @@ import RyderSubText from "@opeolluwa/ryder/components/typography/SubText.vue"
 
 <<< @/examples/typography/TypographyBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 None.
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |

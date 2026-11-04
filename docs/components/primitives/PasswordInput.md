@@ -1,3 +1,9 @@
+---
+title: PasswordInput
+description: "Password field with a built-in visibility toggle."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/primitives/PasswordInputBasic.vue";
 </script>
@@ -5,6 +11,8 @@ import Basic from "../../examples/primitives/PasswordInputBasic.vue";
 # PasswordInput
 
 Password field with a built-in visibility toggle. Separate from Input so regular inputs never carry toggle logic.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -21,6 +29,8 @@ const password = ref("");
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -29,7 +39,9 @@ const password = ref("");
 
 <<< @/examples/primitives/PasswordInputBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -45,11 +57,11 @@ const password = ref("");
 | `inputClass` | `string` | `undefined` | Additional classes for input base. |
 | `labelClass` | `string` | `undefined` | Additional classes for label. |
 
-## Emits
+### Emits
 
 None declared — model updates and native events fall through.
 
-## Slots
+### Slots
 
 None.
 

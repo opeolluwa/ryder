@@ -1,3 +1,9 @@
+---
+title: ComplaintForm
+description: "The \"raise a complaint\" form: subject, optional related order and a description, validated with valibot before emitting a CreateComplaintPayload."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/complaints/ComplaintFormBasic.vue";
 </script>
@@ -9,6 +15,8 @@ description, validated with valibot before emitting a
 `CreateComplaintPayload`. It owns its own state and exposes `reset()` /
 `submit()` for parents that drive it from outside (as
 [ComplaintCreateDialog](./ComplaintCreateDialog) does).
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -35,6 +43,8 @@ function onSubmit(payload: CreateComplaintPayload) {
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -43,7 +53,9 @@ function onSubmit(payload: CreateComplaintPayload) {
 
 <<< @/examples/complaints/ComplaintFormBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -54,14 +66,14 @@ function onSubmit(payload: CreateComplaintPayload) {
 | `orderStatusLabel` | `(status: any) => string` | `(status) => String(status ?? "")` | Formats an order's status inside the option label. |
 | `orderItemCount` | `(order: any) => number` | `() => 0` | Supplies the item count inside the option label. |
 
-## Emits
+### Emits
 
 | Event | Payload | Description |
 | ----- | ------- | ----------- |
 | `submit` | `[payload: CreateComplaintPayload]` | Validation passed: `{ subject, description, orderIdentifier? }`. An empty order maps to `undefined`. |
 | `cancel` | `[]` | The Cancel button was clicked. |
 
-## Slots
+### Slots
 
 None.
 

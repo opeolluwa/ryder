@@ -1,3 +1,9 @@
+---
+title: Logo
+description: "Brand logo link that shows light/dark variants."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/primitives/LogoBasic.vue";
 </script>
@@ -5,6 +11,8 @@ import Basic from "../../examples/primitives/LogoBasic.vue";
 # Logo
 
 Brand logo link that shows light/dark variants. Built with NuxtLink and img elements.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -18,6 +26,8 @@ import RyderLogo from "@opeolluwa/ryder/components/primitives/Logo.vue"
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -26,7 +36,9 @@ import RyderLogo from "@opeolluwa/ryder/components/primitives/Logo.vue"
 
 <<< @/examples/primitives/LogoBasic.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -35,11 +47,11 @@ import RyderLogo from "@opeolluwa/ryder/components/primitives/Logo.vue"
 | `alt` | `string` | `"logo"` | Image alt text. |
 | `to` | `string` | `"/"` | Destination URL for NuxtLink. |
 
-## Emits
+### Emits
 
 None.
 
-## Slots
+### Slots
 
 None.
 

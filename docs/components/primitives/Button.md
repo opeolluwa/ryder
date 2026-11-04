@@ -1,3 +1,9 @@
+---
+title: Button
+description: "Thin wrapper over Nuxt UI's UButton that locks in ryder's defaults (type=\"button\", variant=\"solid\", color=\"primary\", size=\"sm\") plus a full-width py-3 hit area."
+outline: deep
+---
+
 <script setup lang="ts">
 import Basic from "../../examples/primitives/ButtonBasic.vue";
 import Form from "../../examples/primitives/ButtonForm.vue";
@@ -9,6 +15,8 @@ Thin wrapper over Nuxt UI's `UButton` that locks in ryder's defaults
 (`type="button"`, `variant="solid"`, `color="primary"`, `size="sm"`) plus a
 full-width `py-3` hit area. Single root, so attrs/classes fall through to
 `UButton`.
+
+## Usage
 
 ```vue
 <script setup lang="ts">
@@ -22,6 +30,8 @@ import RyderButton from "@opeolluwa/ryder/components/primitives/Button.vue"
 
 ## Examples
 
+### Basic
+
 <Demo>
 
 <Basic />
@@ -29,6 +39,8 @@ import RyderButton from "@opeolluwa/ryder/components/primitives/Button.vue"
 </Demo>
 
 <<< @/examples/primitives/ButtonBasic.vue
+
+### Submit button
 
 The `type` prop makes it a real submit button inside forms; `icon` (and any
 other `UButton` prop) falls through:
@@ -41,7 +53,9 @@ other `UButton` prop) falls through:
 
 <<< @/examples/primitives/ButtonForm.vue
 
-## Props
+## API Reference
+
+### Props
 
 | Prop | Type | Default | Description |
 | ---- | ---- | ------- | ----------- |
@@ -53,11 +67,11 @@ other `UButton` prop) falls through:
 | `size` | `"xs" \| "sm" \| "md" \| "lg" \| "xl"` | `"sm"` | Control height. |
 | `error` | `boolean` | `false` | Declared but currently unused (no template reference). |
 
-## Emits
+### Emits
 
 None declared — `click` and native events fall through to `UButton`.
 
-## Slots
+### Slots
 
 | Slot | Props | Content |
 | ---- | ----- | ------- |
