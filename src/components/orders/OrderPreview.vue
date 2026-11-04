@@ -65,7 +65,7 @@ function lineTotal(item: Order["items"][number]) {
     />
 
     <template v-else>
-      <div class="flex flex-col gap-6 p-5">
+      <div class="flex min-h-0 flex-1 flex-col gap-6 overflow-y-auto p-5">
         <div class="flex flex-wrap items-center justify-between gap-3">
           <OrderStatusBadge :status="order.status" :labels="labels" />
 
