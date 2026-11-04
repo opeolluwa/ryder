@@ -21,7 +21,7 @@ defineProps<{
       :class="['flex items-center justify-between gap-3', ui?.header]"
     >
       <slot name="header">
-        <div class="flex min-w-0 items-center">
+        <div class="flex min-w-0 items-center mb-3">
           <h3
             v-if="title"
             :class="[
