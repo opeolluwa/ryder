@@ -80,8 +80,8 @@ function onBottomNavSelect(item: { label: string }) {
 
       <RyderInput label="Disabled" name="disabled" disabled placeholder="Read only" />
 
-      <RyderTimeInput  label="Due date" name="dueDate" variant="solid" />
-       
+      <RyderTimeInput label="Due date" name="dueDate" variant="solid" />
+             <RyderDateInput label="Due date" name="dueDate" variant="solid" />
       <RyderSelect
         v-model="ripeness"
         label="Ripeness"

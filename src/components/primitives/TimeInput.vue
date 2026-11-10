@@ -32,7 +32,7 @@ const props = withDefaults(
     {
         label: undefined,
         name: undefined,
-        icon: undefined,
+        icon: "heroicons:clock",
         placeholder: undefined,
         hint: undefined,
         disabled: false,
