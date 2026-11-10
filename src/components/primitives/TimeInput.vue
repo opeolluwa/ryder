@@ -55,34 +55,43 @@ const placeholderSizeClass = "placeholder:text-2xs";
 </script>
 
 <template>
-  <UFormField
-    v-slot="{ error }"
-    :name="props.name"
-    :label="props.label || undefined"
-    :hint="props.hint"
-   
-    :required="props.required"
-  >
-    <UInputTime
-      v-model="model"
-      :icon="props.icon"
-      :disabled="props.disabled"
-      :size="props.size"
-      :color="props.color"
-      :ui="{
-        base: [
-          'py-3 bg-transparent placeholder:text-sm text-sm',
-          !props.icon && 'pl-4',
-          props.inputClass,
-        ],
-      }"
-      :class="[
-        'w-full  border transition-colors ring-0 focus-visible:ring-0',
-        disabledBgClass,
-        error
-          ? 'border-red-500 focus-within:border-red-500'
-          : 'border-gray-300 dark:border-gray-600 focus-within:border-primary-400 dark:focus-within:border-primary-500',
-      ]"
-    />
-  </UFormField>
+    <UFormField
+        v-slot="{ error }"
+        :name="props.name"
+        :label="props.label || undefined"
+        :hint="props.hint"
+        :required="props.required"
+        :ui="{
+            error: 'text-red-500 mt-1',
+            label:
+                props.labelClass ||
+                'text-sm font-medium text-gray-600 dark:text-gray-400',
+            hint: 'mr-auto text-gray-400 dark:text-gray-600 font-normal ml-1 text-2xs lg:text-sm',
+        }"
+    >
+        <UInputTime
+            v-model="model"
+            :icon="props.icon"
+            :disabled="props.disabled"
+            :placeholder="props.placeholder"
+            :size="props.size"
+            :variant="props.variant"
+            :color="error ? 'error' : props.color"
+            :ui="{
+                base: [
+                    'py-3 bg-transparent placeholder:text-sm text-sm',
+                    !props.icon && 'pl-4',
+                    props.inputClass,
+                ],
+            }"
+            :class="[
+                'w-full border transition-colors ring-0 focus-visible:ring-0',
+                placeholderSizeClass,
+                disabledBgClass,
+                error
+                    ? 'border-red-500 focus-within:border-red-500'
+                    : 'border-gray-300 dark:border-gray-600 focus-within:border-primary-400 dark:focus-within:border-primary-500',
+            ]"
+        />
+    </UFormField>
 </template>
