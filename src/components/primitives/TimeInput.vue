@@ -10,7 +10,7 @@ const props = withDefaults(
         label?: string;
         name?: string;
         icon?: string;
-        placeholder?: string;
+
         hint?: string;
         disabled?: boolean;
 
@@ -33,7 +33,7 @@ const props = withDefaults(
         label: undefined,
         name: undefined,
         icon: "heroicons:clock",
-        placeholder: undefined,
+
         hint: undefined,
         disabled: false,
         size: "md",
@@ -51,7 +51,6 @@ const disabledBgClass = computed(() =>
     props.disabled ? "bg-gray-100 dark:bg-onyx-600" : "",
 );
 
-const placeholderSizeClass = "placeholder:text-2xs";
 </script>
 
 <template>
@@ -73,20 +72,19 @@ const placeholderSizeClass = "placeholder:text-2xs";
             v-model="model"
             :icon="props.icon"
             :disabled="props.disabled"
-            :placeholder="props.placeholder"
             :size="props.size"
             :variant="props.variant"
             :color="error ? 'error' : props.color"
             :ui="{
                 base: [
-                    'py-3 bg-transparent placeholder:text-sm text-sm',
+                    'py-3 bg-transparent text-sm',
                     !props.icon && 'pl-4',
                     props.inputClass,
                 ],
             }"
             :class="[
                 'w-full border transition-colors ring-0 focus-visible:ring-0',
-                placeholderSizeClass,
+
                 disabledBgClass,
                 error
                     ? 'border-red-500 focus-within:border-red-500'
