@@ -65,7 +65,8 @@ const placeholderSizeClass = "text-sm";
       hint: 'mr-auto text-gray-400 dark:text-gray-600 font-normal ml-1',
       root: preserveCase ? '' : 'lowercase',
     }"
-  :required="required">
+    :required="required"
+  >
     <USelectMenu
       v-model="model"
       :items="items"

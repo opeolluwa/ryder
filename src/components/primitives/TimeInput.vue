@@ -1,0 +1,88 @@
+
+<script setup lang="ts">
+import { computed } from "vue";
+import UFormField from "@nuxt/ui/components/FormField.vue";
+import UInputTime from "@nuxt/ui/components/InputTime.vue";
+import type { Time } from "@internationalized/date";
+
+const props = withDefaults(
+    defineProps<{
+        label?: string;
+        name?: string;
+        icon?: string;
+        placeholder?: string;
+        hint?: string;
+        disabled?: boolean;
+
+        size?: "xs" | "sm" | "md" | "lg" | "xl";
+        variant?: "ghost" | "solid" | "outline" | "soft" | "subtle" | "none";
+        color?:
+            | "primary"
+            | "error"
+            | "secondary"
+            | "success"
+            | "info"
+            | "warning"
+            | "neutral";
+
+        inputClass?: string;
+        labelClass?: string;
+        required?: boolean;
+    }>(),
+    {
+        label: undefined,
+        name: undefined,
+        icon: undefined,
+        placeholder: undefined,
+        hint: undefined,
+        disabled: false,
+        size: "md",
+        variant: "solid",
+        color: "primary",
+        inputClass: undefined,
+        labelClass: undefined,
+        required: false,
+    },
+);
+
+const model = defineModel<Time | undefined>();
+
+const disabledBgClass = computed(() =>
+    props.disabled ? "bg-gray-100 dark:bg-onyx-600" : "",
+);
+
+const placeholderSizeClass = "placeholder:text-2xs";
+</script>
+
+<template>
+  <UFormField
+    v-slot="{ error }"
+    :name="props.name"
+    :label="props.label || undefined"
+    :hint="props.hint"
+   
+    :required="props.required"
+  >
+    <UInputTime
+      v-model="model"
+      :icon="props.icon"
+      :disabled="props.disabled"
+      :size="props.size"
+      :color="props.color"
+      :ui="{
+        base: [
+          'py-3 bg-transparent placeholder:text-sm text-sm',
+          !props.icon && 'pl-4',
+          props.inputClass,
+        ],
+      }"
+      :class="[
+        'w-full  border transition-colors ring-0 focus-visible:ring-0',
+        disabledBgClass,
+        error
+          ? 'border-red-500 focus-within:border-red-500'
+          : 'border-gray-300 dark:border-gray-600 focus-within:border-primary-400 dark:focus-within:border-primary-500',
+      ]"
+    />
+  </UFormField>
+</template>
