@@ -38,7 +38,10 @@ function onSubmit() {
 <template>
   <Dialog v-model:open="open" :title="title" :description="description">
     <template #body>
-      <slot />
+      <form @submit.prevent="onSubmit">
+        <slot />
+        <button type="submit" hidden />
+      </form>
     </template>
 
     <template #footer>
