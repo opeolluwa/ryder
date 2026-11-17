@@ -35,7 +35,7 @@ function handleCta() {
 <template>
   <div
     :class="[
-      'hidden items-start justify-between mb-8 lg:flex',
+      'flex items-start justify-between mb-8',
       props.ui.root,
     ]"
   >
